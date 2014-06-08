@@ -1,0 +1,1 @@
+Adds webcam capture and entering URLs as options for changing avatars.
