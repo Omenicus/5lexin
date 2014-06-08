@@ -1219,6 +1219,8 @@ function discussion_reply_menu_setup($hook, $type, $return, $params) {
 
 	/** @var $reply ElggEntity */
 	$reply = $params['entity'];
+  if( $reply->getSubtype() !='discussion_reply')
+    return $return;
 
 	$user = elgg_get_logged_in_user_entity();
 
