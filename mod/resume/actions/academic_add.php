@@ -23,22 +23,22 @@ $activities = get_input('activities');
 $description = get_input('description');
 
 // create a new object
-$rAcademic = new ElggAcademic();
-//$rAcademic->subtype = "rAcademic";
-$rAcademic->institution = $institution;
-$rAcademic->level = $level;
-$rAcademic->start_year = $start_year;
-$rAcademic->end_year = $end_year;
-$rAcademic->field = $field;
-$rAcademic->grade = $grade;
-$rAcademic->activities = $activities;
-$rAcademic->description = $description;
+$rEdu = new ElggAcademic();
+//$rEdu->subtype = "rEdu";
+$rEdu->institution = $institution;
+$rEdu->level = $level;
+$rEdu->start_year = $start_year;
+$rEdu->end_year = $end_year;
+$rEdu->field = $field;
+$rEdu->grade = $grade;
+$rEdu->activities = $activities;
+$rEdu->description = $description;
 
 // public acces for the resume
-$rAcademic->access_id = ACCESS_PUBLIC;
+$rEdu->access_id = ACCESS_PUBLIC;
 
 // owner is logged in user
-$rAcademic->owner_guid = elgg_get_logged_in_user_guid();
+$rEdu->owner_guid = elgg_get_logged_in_user_guid();
 
 $list=elgg_get_entities_from_metadata (array(
 'type' => 'object',
@@ -64,12 +64,12 @@ if( $list==0)
 }
 
 // save to database
-if( $rAcademic->save() )
+if( $rEdu->save() )
 {
   system_message(elgg_echo('resume:OK'));
 
   // add to river
-  add_to_river('river/object/resume/create', 'create', elgg_get_logged_in_user_guid(), $rAcademic->guid);
+  add_to_river('river/object/resume/create', 'create', elgg_get_logged_in_user_guid(), $rEdu->guid);
   
 } else {
 	register_error(elgg_echo('resume:addacademic:failed'));

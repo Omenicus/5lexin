@@ -28,7 +28,7 @@ $site_url = elgg_get_site_url();
 	<?php echo elgg_echo('resume:search:academic');?><br/>
 	<form id="searchform" action="<?php echo $site_url;?>search/" method="get"/>
 	<input type="text" name="q" value="<?php echo elgg_echo('resume:search:academicdetail');?>" onclick="{this.value=''}" class="search_input"/>
-	<input type="hidden" name="entity_subtype" value="rAcademic"/>
+	<input type="hidden" name="entity_subtype" value="rEdu"/>
 	<input type="hidden" name="entity_type" value="object"/>
 	<input type="hidden" name="search_type" value="entities"/>
 	<input type="submit" value="<?php echo elgg_echo('resume:search');?>" class="search_submit_button"/>

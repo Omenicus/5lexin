@@ -75,7 +75,7 @@ $spanish = array(
     'resume:profile:gotoprint' => "Versión imprimible del perfil",
 
     //FOR SEARCH
-    'item:object:rAcademic' => "Historia académica",
+    'item:object:rEdu' => "Historia académica",
     'item:object:rWork' => "Experiencia laboral",
     'resume:search:work' => "Buscar en experiencia laboral",
     'resume:search:academic' => "Buscar en historia académica",

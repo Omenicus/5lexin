@@ -164,6 +164,7 @@ return array(
 	'discussion:latest' => '最新讨论',
 	'discussion:group' => '群讨论',
 	'discussion:none' => '没有讨论',
+  'thewire:none' => '没有微博',
 	'discussion:reply:title' => '%s回复',
 
 	'discussion:topic:created' => '讨论主题已创建',

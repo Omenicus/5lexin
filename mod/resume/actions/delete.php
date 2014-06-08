@@ -22,7 +22,7 @@ if (!is_null($object_to_delete)
         && ($object_to_delete->getSubtype() == "rWork"
         || $object_to_delete->getSubtype() == "rLanguage"
         || $object_to_delete->getSubtype() == "rReference"
-        || $object_to_delete->getSubtype() == "rAcademic"
+        || $object_to_delete->getSubtype() == "rEdu"
         || $object_to_delete->getSubtype() == "rTraining")
 ) {
 

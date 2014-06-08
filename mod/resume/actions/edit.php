@@ -46,7 +46,7 @@ if (can_edit_entity($guid)) {
           //  $rComp->memebers++; 
           $rComp->save(); 
         }
-    }
+    
     if ($rObject instanceof ElggObject
         && $rObject->getSubtype() == 'rWork') {
           $endyear = get_input('endyear');
@@ -89,6 +89,7 @@ if (can_edit_entity($guid)) {
           }
           
         }
+    }
     $object_metadata_array = elgg_get_metadata( array('guid' => $guid,
 			'limit' => false));//get_metadata_for_entity($guid);
     foreach ($object_metadata_array as $meta_object) {
@@ -111,13 +112,17 @@ if (can_edit_entity($guid)) {
         $rObject->title = get_input('name');
     }
 
-    if ($rObject->getSubtype() == "rAcademic") {
+    if ($rObject->getSubtype() == "rEdu") {
         //$rObject->title = get_input('achieved_title') . " (" . get_input('level') .")";
         //$rObject->description = get_input('institution');
     }
 
     if ($rObject->getSubtype() == "rWork") {
         //$rObject->title = get_input('jobtitle') . " @ " . get_input('organisation');
+    }
+    if ($rObject->getSubtype() == "rSummary") {
+        //$rObject->title = get_input('jobtitle') . " @ " . get_input('organisation');
+        $rObject->description = get_input('description');
     }
 
 // save to database

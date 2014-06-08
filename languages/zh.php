@@ -30,7 +30,7 @@ $chinese = array(
 
 	'loggedinrequired' => "您必须登录后才能查看该页面.",
 	'adminrequired' => "您必须是管理人员才能查看该页面.",
-	'membershiprequired' => "您必须是该团队成员才能查看该页面.",
+	'membershiprequired' => "您必须是该成员才能查看该页面.",
 
 
 /**

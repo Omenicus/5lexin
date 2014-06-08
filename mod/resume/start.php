@@ -40,7 +40,7 @@ function resume_init() {
   	elgg_register_menu_item('site', array(
   		'name' => 'resume',
   		'text' => elgg_echo('resume:menu:item'),
-  		'href' => "resume/" . elgg_get_logged_in_user_entity()->username
+  		'href' => "resume/view/" . elgg_get_logged_in_user_entity()->username
   	));
     
     elgg_register_menu_item('site', array(
@@ -82,7 +82,7 @@ function resume_init() {
     elgg_extend_view('css', 'resume/css');
 
     //Extend search
-    elgg_register_entity_type('object', 'rAcademic');
+    elgg_register_entity_type('object', 'rEdu');
     elgg_register_entity_type('object', 'rWork');
     
     $js = elgg_get_simplecache_url('js', 'resume/init');
@@ -483,13 +483,13 @@ echo elgg_view("page_elements/header");
 
 
 // List Academic history objects
-        if (elgg_list_entities($page_owner->getGUID(), 'rAcademic', 0, false, false, false)) {
+        if (elgg_list_entities($page_owner->getGUID(), 'rEdu', 0, false, false, false)) {
         ?>
             <div class="print-block">
 
                 <h3> <?php echo elgg_echo('resume:academics') ?></h3>
 
-        <?php echo elgg_list_entities($page_owner->getGUID(), 'rAcademic', 0, false, false, false); ?>
+        <?php echo elgg_list_entities($page_owner->getGUID(), 'rEdu', 0, false, false, false); ?>
 
         </div>
     <?php
@@ -546,7 +546,7 @@ echo elgg_view("page_elements/header");
         if (!elgg_list_entities($page_owner->getGUID(), 'rReference', 0, true, true, true)
                 && !elgg_list_entities($page_owner->getGUID(), 'rLanguage', 0, true, true, true)
                 && !elgg_list_entities($page_owner->getGUID(), 'rWork', 0, true, true, true)
-                && !elgg_list_entities($page_owner->getGUID(), 'rAcademic', 0, true, true, true)
+                && !elgg_list_entities($page_owner->getGUID(), 'rEdu', 0, true, true, true)
                 && !elgg_list_entities($page_owner->getGUID(), 'rTraining', 0, true, true, true)
         ) {
     ?>

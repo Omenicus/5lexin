@@ -1,6 +1,6 @@
 <?php
 
-	$english = array(
+	$zh = array(
 		'thewire_tools' => "The Wire Tools",
 		'thewire_tools:no_result' => "没有微博",
 		'thewire_tools:login_required' => "你需要登录",
@@ -61,4 +61,4 @@
 			
 	);
 
-	add_translation("en", $english);
+	add_translation("zh", $zh);

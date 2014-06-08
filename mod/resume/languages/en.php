@@ -89,15 +89,18 @@ $english = array(
     'resume:menu:owner_block' => "Resume",
     'resume:full' => "more...",
     //FOR "RIVER"
-    'resume:river:created' => "%s has added '%s' information to ",
-    'resume:river:updated' => "%s has updated '%s' information on ",
+    'resume:river:created' => "%s has added  %s '%s' information to %s ",
+    'resume:river:updated' => "%s has updated %s '%s' information on %s",
+    'resume:river:updated2' => "%s has updated %s  information on %s",
+    'resume:river::nosubject' => "%s has added '%s' information to ",
+    'resume:river:nosubject' => "%s has updated '%s' information on ",
 
     //FOR PROFILE
     'resume:profile:goto' => "Go to profile page",
     'resume:profile:gotoprint' => "Printer friendly version",
     'resume:preview' => "Preview",
     //FOR SEARCH
-    'item:object:rAcademic' => "Academic history",
+    'item:object:rEdu' => "Academic history",
     'item:object:rWork' => "Work experience",
     'resume:search:button' => "Search",
     'resume:search:work' => "Search on work experience",

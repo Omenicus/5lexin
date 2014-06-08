@@ -6,8 +6,8 @@ $zh = array(
     'au_subgroups:subgroups' => "子群",
     'au_subgroups:parent' => "母群",
     'au_subgroups:add:subgroup' => '创建子群',
-    'au_subgroups:nogroups' => 'No Sub-Groups have been created',
-    'au_subgroups:error:notparentmember' => "Users cannot join a sub-group if they are not a member of the parent group",
+    'au_subgroups:nogroups' => '该群没有子群',
+    'au_subgroups:error:notparentmember' => "如果不是母群的成员，不能加入子群",
     'au_subtypes:error:create:disabled' => "Subgroup creation has been disabled for this group",
     'au_subgroups:noedit' => "Cannot edit this group",
     'au_subgroups:subgroups:delete' => "Delete Group",
@@ -21,7 +21,7 @@ $zh = array(
     'au_subgroups:setting:display_featured' => 'Show featured groups sidebar on personal group listings?',
     'au_subgroups:error:invite' => "Action has been cancelled - the following users are not members of the parent group and cannot be invited/added.",
     'au_subgroups:option:parent:members' => "Members of the parent group",
-    'au_subgroups:subgroups:more' => "View all Sub-Groups",
+    'au_subgroups:subgroups:more' => "查看所有子群",
 	
 	// group options
 	'au_subgroups:group:enable' => '允许创建子群', 

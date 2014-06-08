@@ -29,19 +29,29 @@
       $itemSubject= $object->organisation;
   }
   
-  if ($object->getSubtype() == 'rAcademic') {
+  if ($object->getSubtype() == 'rEdu') {
       $itemType = elgg_echo("resume:academics");
       $itemSubject= $object->institution;
+  }
+  
+  if ($object->getSubtype() == 'rSummary') {
+      $itemType = elgg_echo("resume:summary");
+      $itemSubject= $object->description;
   }
   
   if ($object->getSubtype() == 'rTraining') {
       $itemType = elgg_echo("resume:trainings");
   }
+  
+  
   //$site_url = elgg_get_site_url();
   //$string = sprintf(elgg_echo("resume:river:created"), $url, $itemType,$itemSubject)." ";
   //$string .= "<a href=\"{$site_url}resume/view/{$subject->username}\">".elgg_echo('resume:resume')."</a>";
-  
-  $summary = elgg_echo("resume:river:created", array($subject_link, $itemType,$itemSubject,$object_link));
+  if($object->getSubtype() == 'rSummary' )
+    $summary = elgg_echo("resume:river:created:nosubject", array($subject_link, $itemType,$object_link));
+  else
+    $summary = elgg_echo("resume:river:created", array($subject_link, $itemType,$itemSubject,$object_link));
+    
   //$summary = elgg_echo("company:river:create", array($subject_link, $object_link));
   echo elgg_view('river/elements/layout', array(
   	'item' => $vars['item'],

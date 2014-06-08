@@ -157,6 +157,7 @@ View and reply to the discussion:
 	'discussion:latest' => 'Latest discussion',
 	'discussion:group' => 'Group discussion',
 	'discussion:none' => 'No discussion',
+  'thewire:none' => 'No wire',
 	'discussion:reply:title' => 'Reply by %s',
 
 	'discussion:topic:created' => 'The discussion topic was created.',

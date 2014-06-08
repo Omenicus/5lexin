@@ -5,7 +5,7 @@ $zh = array(
     'resume:resume' => "简历",
     'resume:my' => "我的简历",
     'resume:user' => "%s的简历",
-    'resume:summary' => "简介",
+    'resume:summary' => "个人简介",
     'resume:languages' => "语言",
     'resume:languages:language' => "语言",
     'resume:languages:written' => "Written level",
@@ -34,7 +34,7 @@ $zh = array(
     'resume:edit:work' => "编辑工作经验",
     'resume:edit:reference' => "Edit reference",
 //FOR "FORM" PAGES       
-    'resume:summary:description'  => "简介",
+    'resume:summary:description'  => "个人简介",
     'resume:summary:name'  => "姓名",
     'resume:add:OK' => "添加成功",
     'resume:add:failed' => "添加失败",
@@ -91,14 +91,17 @@ $zh = array(
     'resume:full' => "更多...",
     //FOR "RIVER"
     'resume:river:created' => "%s 增加了%s '%s' 到 %s",
-    'resume:river:updated' => "%s 更新了%s '%s' 到 %s",
-
+    'resume:river:updated'  => "%s 更新了%s '%s' 到 %s",
+    'resume:river:updated2' => "%s 更新了 %s 到 %s",
+    'resume:river:created:nosubject' => "%s 增加了 %s 到 %s",
+    'resume:river:updated:nosubject' => "%s 更新了 %s 到 %s",
+    
     //FOR PROFILE
     'resume:profile:goto' => "查看个人主页",
     'resume:profile:gotoprint' => "Printer friendly version",
     'resume:preview' => "预览我的简历",
     //FOR SEARCH
-    'item:object:rAcademic' => "教育经历",
+    'item:object:rEdu' => "教育经历",
     'item:object:rWork' => "工作经历",
     'resume:search:button' => "搜索",
     'resume:search:work' => "Search on work experience",

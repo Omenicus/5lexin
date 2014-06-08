@@ -177,13 +177,13 @@ echo "</div>";
 
 
 // List Academic history objects
-                    if (elgg_list_entities($page_owner->getGUID(), 'rAcademic', 0, false, false, false)) {
+                    if (elgg_list_entities($page_owner->getGUID(), 'rEdu', 0, false, false, false)) {
 ?>
                         <div class="contentWrapper resume_contentWrapper">
                             <p><a class="collapsibleboxlink resume_collapsibleboxlink">+</a></p>
                             <h3> <?php echo elgg_echo('resume:academics') ?></h3>
                             <div class="collapsible_box resume_collapsible_box">
-<?php echo elgg_list_entities($page_owner->getGUID(), 'rAcademic', 0, false, false, false); ?>
+<?php echo elgg_list_entities($page_owner->getGUID(), 'rEdu', 0, false, false, false); ?>
                             </div>
                         </div>
 <?php
@@ -240,7 +240,7 @@ echo "</div>";
                     if (!elgg_list_entities($page_owner->getGUID(), 'rReference', 0, true, true, true)
                             && !elgg_list_entities($page_owner->getGUID(), 'rLanguage', 0, true, true, true)
                             && !elgg_list_entities($page_owner->getGUID(), 'rWork', 0, true, true, true)
-                            && !elgg_list_entities($page_owner->getGUID(), 'rAcademic', 0, true, true, true)
+                            && !elgg_list_entities($page_owner->getGUID(), 'rEdu', 0, true, true, true)
                             && !elgg_list_entities($page_owner->getGUID(), 'rTraining', 0, true, true, true)
                     ) {
 ?>

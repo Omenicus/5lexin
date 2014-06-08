@@ -13,7 +13,7 @@ require_once(dirname(dirname(dirname(__FILE__))) . "/engine/start.php");
 
 admin_gatekeeper();
 
-$academic_objects = get_entities("object", "rAcademic");
+$academic_objects = get_entities("object", "rEdu");
 $count = 0;
 foreach ($academic_objects as $object) {
     $object->title = $object->achieved_title . " (" . $object->level . ")";
