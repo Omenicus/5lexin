@@ -96,6 +96,7 @@ $zh = array(
     //FOR PROFILE
     'resume:profile:goto' => "查看个人主页",
     'resume:profile:gotoprint' => "Printer friendly version",
+    'resume:preview' => "预览我的简历",
     //FOR SEARCH
     'item:object:rAcademic' => "教育经历",
     'item:object:rWork' => "工作经历",

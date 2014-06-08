@@ -95,6 +95,7 @@ $english = array(
     //FOR PROFILE
     'resume:profile:goto' => "Go to profile page",
     'resume:profile:gotoprint' => "Printer friendly version",
+    'resume:preview' => "Preview",
     //FOR SEARCH
     'item:object:rAcademic' => "Academic history",
     'item:object:rWork' => "Work experience",

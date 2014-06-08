@@ -45,11 +45,7 @@ $content = elgg_list_entities(array(
     $area2 .= '<div class="contentWrapper resume_contentWrapper resumesep" width=716>';
     //$area2 .= "<p><a class=\"collapsibleboxlink resume_collapsibleboxlink\">" . "v" . "</a></p>";
     $area2 .= '' . elgg_echo('resume:summary') . '';
-    if( elgg_get_entities(array('type' => 'object', 'subtype' => 'rSummary', 'owner_guids'=>array($page_owner->getGUID()),count => TRUE))>0)
-      if ($page_owner == elgg_get_logged_in_user_entity() &&  elgg_in_context('resume_edit')){
-      $site_url = elgg_get_site_url();
-      $area2 .="<span class=\"right\"><a href=\"$site_url"."resume/add/summary?id=".elgg_get_entities(array('type' => 'object', 'subtype' => 'rSummary', 'owner_guids'=>array($page_owner->getGUID()),count => FALSE))[0]->getGUID()."\">". elgg_echo('resume:edit')."</a></span>";
-      } 
+    
     $area2 .= '';
     //$area2 .= "<div class=\"resume_collapsible_box collapsible_box \">";
     $area2 .= $content;

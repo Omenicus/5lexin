@@ -36,7 +36,7 @@ if ($page_owner == elgg_get_logged_in_user_entity()) {
     
 } else {
     //$area1 = elgg_view('page/elements/intro',array('page_ower' => $page_owner));//$area1 = elgg_view_title(sprintf(elgg_echo('resume:user'), $page_owner->name));
-    elgg_register_menu_item('page', array('name' => 'resume_menu_goto','href' => "resume/" . elgg_get_logged_in_user_entity()->username,'text' => elgg_echo('resume:menu:goto')));       
+    elgg_register_menu_item('page', array('name' => 'resume_menu_goto','href' => "resume/view/" . elgg_get_logged_in_user_entity()->username,'text' => elgg_echo('resume:menu:goto')));       
 }
 $area2 .=$area1; 
  
@@ -66,7 +66,7 @@ $site_url = elgg_get_site_url();
     if( $page_owner == $user  &&  elgg_in_context('resume_edit'))
     {
       $sums=elgg_get_entities(array('type' => 'object', 'subtype' => 'rSummary', 'owner_guids'=>array($page_owner->getGUID()),count => false));
-      if (count($sums)>0){
+      if ($sums&&count($sums)>0){
       
         $area2 .="<span class=\"right\"><a href=\"$site_url"."resume/add/summary?id=".$sums[0]->getGUID()."\">". elgg_echo('resume:edit')."</a></span>";
       }    
