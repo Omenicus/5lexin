@@ -46,7 +46,7 @@ if($rWork->save()&&$user->save())
 }
 
 // forward user to a main page
-forward($CONFIG->wwwroot . "resume/view/" . elgg_get_logged_in_user_entity()->username);
+forward($CONFIG->wwwroot . "resume/edit/" . elgg_get_logged_in_user_entity()->username);
 
 
 

@@ -85,8 +85,9 @@ else
   if($rWork->endyear == "now")
   {
     $rWork->organisationid=$rComp->getGUID();
-    add_entity_relationship($rComp->getGUID(), 'member', elgg_get_logged_in_user_guid());
-    $user=elgg_get_logged_in_user();
+    $user=elgg_get_logged_in_user_entity();
+    add_entity_relationship($rComp->getGUID(), 'member', $user->getGUID());
+    
     //$user->organisationid=$rComp->getGUID();
     //$user->organisation=$organisation;
     //$user->save();
