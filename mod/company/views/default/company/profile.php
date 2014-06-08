@@ -35,7 +35,7 @@ $site_url = elgg_get_site_url();
             ?>
              <?php
                   foreach ($fields as $ref => $value) {
-                      if ($ref!="name" && $company->$ref)//($company->$ref && $value['section'] == 'contacts') 
+                      if ($ref!="title" && $company->$ref)//($company->$ref && $value['section'] == 'contacts') 
                       {
                           echo '<div class="company_' . $ref . '"><b >';
                           echo $value['display_name'] . ':</b><span> ';

@@ -25,7 +25,7 @@ elgg_load_js('resumeautocomplete');
           method="post">
         <p><?php echo elgg_echo('resume:academic:institution'); ?>
 
-            <?php echo elgg_view('input/text', array('name' => 'institution','id' => 'institution',  'value' => $vars['entity']->institution,"class"=>"elgg-input elgg-input-autocomplete")); ?></p>
+            <?php echo elgg_view('input/text', array('name' => 'title','id' => 'institution',  'value' => $vars['entity']->title,"class"=>"elgg-input elgg-input-autocomplete")); ?></p>
 
         <p><?php echo elgg_echo('resume:academic:level'); ?>   </br>
             <?php echo elgg_view('input/dropdown', array('name' => 'level', 'value' => $vars['entity']->level,'options_values' => array("本科"=>"本科","硕士"=>"硕士","博士"=>"博士","高中"=>"高中","初中"=>"初中","小学"=>"小学"))); ?></p>

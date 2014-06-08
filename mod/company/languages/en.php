@@ -96,6 +96,7 @@ $english = array(
     'company:mycompanies'=>'My added companies',
     'company:workfor'=>'Work for',
     'company:tabname:groups' => 'Groups',
+    'company:exist'=>'Failed. This company exist！',
     
     // river
   	'river:create:object:company' => '%s published a company %s',

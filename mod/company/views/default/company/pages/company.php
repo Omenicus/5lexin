@@ -21,7 +21,7 @@ $company = get_entity($company_guid);
   
   //$body = elgg_view('hypeFramework/tabs', array('tabs' => $TabsArray));
   
-  $area1 = elgg_view_title($company->name);
+  $area1 = elgg_view_title($company->title);
   //$area2 = $body;
   if( $company->created )
   {
@@ -48,6 +48,6 @@ $company = get_entity($company_guid);
   	'filter' => '',
   ));
   
-  echo elgg_view_page($company->name, $body);
+  echo elgg_view_page($company->title, $body);
 
 ?>

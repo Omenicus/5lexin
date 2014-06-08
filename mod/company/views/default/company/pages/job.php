@@ -8,7 +8,7 @@ $job = get_entity($job_guid);
   
   //$body = elgg_view('hypeFramework/tabs', array('tabs' => $TabsArray));
   
-  $area1 = elgg_view_title($job->name);
+  $area1 = elgg_view_title($job->title);
   //$area2 = $body;
   if( $job )
   {
@@ -30,6 +30,6 @@ $job = get_entity($job_guid);
   	'filter' => '',
   ));
   
-  echo elgg_view_page($job->name, $body);
+  echo elgg_view_page($job->title, $body);
 
 ?>

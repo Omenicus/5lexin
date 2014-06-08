@@ -16,6 +16,28 @@ if ($object_guid == '') {
 
 $access_id = (int) get_input('access_id');
 
+$organisation = get_input('title');
+        
+$dbprefix = elgg_get_config("dbprefix");
+$query_options = array(
+  'type' => 'object',
+	'subtype' =>'company',  
+  
+  'count' => FALSE,
+	"limit" => 5,
+	"joins" => array("LEFT JOIN {$dbprefix}objects_entity oe ON oe.guid = e.guid "), //AND e.type = 'object
+	"wheres" => array("(oe.title = '".$organisation."' )"),
+	//"order_by" => "u.name asc"
+);
+
+//$entities=elgg_list_entities_from_metadata($query_options);
+$list=elgg_get_entities($query_options);
+if(count($list) >0)
+{
+  system_message(elgg_echo('company:exist'));
+  forward($_SERVER['HTTP_REFERER']);
+}
+
 $company = new ElggCompany($object_guid);
 //$company->subtype = 'company';
 $company->owner_guid = $user_guid;
@@ -31,6 +53,7 @@ foreach ($fields as $ref => $value) {
         $company->$ref = '';
     }
 }
+//elgg always use title to represent object
 if( get_input('name'))
   $company->title=get_input('name');  
 $company->created=true;

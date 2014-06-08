@@ -1,7 +1,7 @@
 <?php
 $entity = $vars['entity'];
 
-$title = $entity->name;
+$title = $entity->title;
 $description = elgg_get_excerpt($vars['entity']->description, 100);
 
 $icon = elgg_view_entity_icon($entity,'small');//elgg_view("profile/icon", array('entity' => $entity, 'size' => 'small'));

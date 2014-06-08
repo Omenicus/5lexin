@@ -48,7 +48,7 @@ function getJobFields() {
 function getCompanyFields() {
 
     $company = array(
-        'name' => array('display_name' => elgg_echo('company:companyname'), 'type' => 'text', 'section' => 'main', 'class' => 'mandatory elgg-input-autocomplete'),
+        'title' => array('display_name' => elgg_echo('company:companyname'), 'type' => 'text', 'section' => 'main', 'class' => 'mandatory elgg-input-autocomplete'),
         'description' => array('display_name' => elgg_echo('company:companydescription'), 'type' => 'longtext', 'section' => 'main'),
         'industry' => array('display_name' => elgg_echo('company:companyindustry'), 'type' => 'dropdown', 'options' => getIndustryList(), 'section' => 'extras'),
         
@@ -76,7 +76,7 @@ function getCompanyFields() {
 function getCompanyEditFields() {
 
     $company = array(
-        'name' => array('display_name' => elgg_echo('company:edit:companyname'), 'type' => 'text', 'section' => 'main', 'class' => 'mandatory elgg-input-autocomplete'),
+        'title' => array('display_name' => elgg_echo('company:edit:companyname'), 'type' => 'text', 'section' => 'main', 'class' => 'mandatory elgg-input-autocomplete'),
         'description' => array('display_name' => elgg_echo('company:edit:companydescription'), 'type' => 'longtext', 'section' => 'main'),
         'industry' => array('display_name' => elgg_echo('company:edit:companyindustry'), 'type' => 'dropdown', 'options' => getIndustryList(), 'section' => 'extras'),
         

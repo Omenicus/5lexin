@@ -8,7 +8,7 @@ return split( term ).pop();
 $(document).ready(function() {
   
 	//$("#organization").each(function(){
-  $("input[name=organization]").each(function(){
+  $("input[id=organization-no]").each(function(){
 		$(this)
     //$('#organisation')
 		// don't navigate away from the field on tab when selecting an item
@@ -19,6 +19,7 @@ $(document).ready(function() {
         $.getJSON(  elgg.get_site_url() + "resume/data", {
 					term: extractLast( request.term ),
           type: "organisation",
+          //where:" created=false ",
           
           },
           response //gets set by input/autocomplete view

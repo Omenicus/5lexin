@@ -97,6 +97,8 @@ $zh = array(
     'company:workfor'=>'当前工作于',
     'groups:organization'=>'公司',
     
+    'company:exist'=>'提交失败。该公司已存在！',
+    
     // river
   	'river:create:object:company' => '%s 创建了公司 %s',
   	'river:comment:object:company' => '%s 对公司 %s 发表了评论',

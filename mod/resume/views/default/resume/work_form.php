@@ -73,7 +73,7 @@ $site_url = elgg_get_site_url();
         </p>
 
         <p><?php echo elgg_echo('resume:work:jobtitle'); ?><br />
-            <?php echo elgg_view('input/text', array('name' => 'jobtitle', 'value' => $vars['entity']->jobtitle)); ?></p>
+            <?php echo elgg_view('input/text', array('name' => 'title', 'value' => $vars['entity']->title)); ?></p>
 
         <p><?php echo elgg_echo('resume:work:description'); ?><br />
             <?php echo elgg_view('input/longtext', array('name' => 'description', 'value' => $vars['entity']->description)); ?></p>

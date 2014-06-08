@@ -6,7 +6,7 @@
 	
   //$comps=elgg_get_entities(array('type' => 'object', 'subtype' => 'rSummary', 'owner_guids'=>array($page_owner->getGUID()),count => FALSE));
   $dbprefix = elgg_get_config("dbprefix");
-	$limit = (int) get_input("limit", 50);
+	$limit = (int) get_input("limit", 30);
   $term = sanitize_string(get_input("term"));
   $type_front= sanitize_string(get_input("type"));
   if( $type_front=="organisation" )
@@ -18,12 +18,12 @@
 	$query_options = array(
     'type' => 'object',
 		'subtype' => $type,
-    'metadata_name' => 'name',
-    'metadata_value' => $organisation,
+    'metadata_name' => 'created',//name',
+    'metadata_value' => true,
     'count' => FALSE,
-		//"limit" => $limit,
-		//"joins" => array("JOIN {$dbprefix}users_entity u ON e.guid = u.guid"),
-		//"wheres" => array("(u.name LIKE '%{$term}%' )"),
+		"limit" => $limit,
+		"joins" => array("LEFT JOIN {$dbprefix}objects_entity oe ON oe.guid = e.guid "), //AND e.type = 'object
+		"wheres" => array("(oe.title LIKE '%{$term}%' )"),
 		//"order_by" => "u.name asc"
 	);
 

@@ -22,18 +22,26 @@ if (can_edit_entity($guid)) {
 
     $rComp=NULL;
     $organisationid =NULL;
+    $test="0";
     if (get_input('organisation')) {
     
         $organisation = get_input('organisation');
         
-        $list=elgg_get_entities_from_metadata (array(
-        'type' => 'object',
-        'subtype' => 'company',  
-        'metadata_name' => 'name',
-        'metadata_value' => $organisation,
-        'count' => FALSE,
-        ));
-        
+        $dbprefix = elgg_get_config("dbprefix");
+        $query_options = array(
+          'type' => 'object',
+      		'subtype' =>'company',  
+          
+          'count' => FALSE,
+      		"limit" => 5,
+      		"joins" => array("LEFT JOIN {$dbprefix}objects_entity oe ON oe.guid = e.guid "), //AND e.type = 'object
+      		"wheres" => array("(oe.title = '".$organisation."' )"),
+      		//"order_by" => "u.name asc"
+      	);
+      
+        //$entities=elgg_list_entities_from_metadata($query_options);
+        $list=elgg_get_entities($query_options);
+        $test.=count($list);
         if( !$list||count($list)==0) 
         {
         }
@@ -45,49 +53,50 @@ if (can_edit_entity($guid)) {
           //if($rObject->endyear == "now")
           //  $rComp->memebers++; 
           $rComp->save(); 
-        }
+       
     
-    if ($rObject instanceof ElggObject
-        && $rObject->getSubtype() == 'rWork') {
-          $endyear = get_input('endyear');
-          $organisation = get_input('organisation');
-          $jobtitle = get_input('jobtitle');
-          if($rObject->endyear=="now" && $endyear!="now")
-          {
-            //remove member
-            if( $organisationid )
-              remove_entity_relationship($organisationid, 'member', elgg_get_logged_in_user_guid());
-            elgg_delete_metadata(array(
-                    'guid' => $user->getGUID(),
-                    'metadata_name' => array("organisationid","organisation","title")
-            ));
-            //system_message(elgg_echo('elgg_delete_metadata'));
+      if ($rObject instanceof ElggObject
+          && $rObject->getSubtype() == 'rWork') {
+            $endyear = get_input('endyear');
+            $organisation = get_input('organisation');
+            $jobtitle = get_input('jobtitle');
+            if($rObject->endyear=="now" && $endyear!="now")
+            {
+              //remove member
+              if( $organisationid )
+                remove_entity_relationship($organisationid, 'member', elgg_get_logged_in_user_guid());
+              elgg_delete_metadata(array(
+                      'guid' => $user->getGUID(),
+                      'metadata_name' => array("organisationid","organisation","title")
+              ));
+              //system_message(elgg_echo('elgg_delete_metadata'));
+            }
+            if( ($rObject->endyear!="now" || !($rObject->organisationid))&& $endyear=="now" )
+            {
+              if( $organisationid )
+                add_entity_relationship($organisationid, 'member', elgg_get_logged_in_user_guid());
+              create_metadata_from_array($user->getGUID(),array(
+                "organisationid"=> $organisationid,
+                "organisation"=>$organisation,
+                "title"=>$jobtitle
+              ));
+              //system_message(elgg_echo('create_metadata_from_array'));
+            }
+            if( $rObject->endyear=="now" && $endyear=="now"&&$organisation!=$rObject->organisation )
+            {
+              if($rObject->organisationid)
+                remove_entity_relationship($rObject->organisationid, 'member', elgg_get_logged_in_user_guid());
+              if( $organisationid )
+                add_entity_relationship($organisationid, 'member', elgg_get_logged_in_user_guid());
+              create_metadata_from_array($user->getGUID(),array(
+                "organisationid"=>$organisationid,
+                "organisation"=>$organisation,
+                "title"=>$jobtitle
+              ));
+              //system_message(elgg_echo('remove_entity_relationship'));
+            }
+            
           }
-          if( ($rObject->endyear!="now" || !($rObject->organisationid))&& $endyear=="now" )
-          {
-            if( $organisationid )
-              add_entity_relationship($organisationid, 'member', elgg_get_logged_in_user_guid());
-            create_metadata_from_array($user->getGUID(),array(
-              "organisationid"=> $organisationid,
-              "organisation"=>$organisation,
-              "title"=>$jobtitle
-            ));
-            //system_message(elgg_echo('create_metadata_from_array'));
-          }
-          if( $rObject->endyear=="now" && $endyear=="now"&&$organisation!=$rObject->organisation )
-          {
-            if($rObject->organisationid)
-              remove_entity_relationship($rObject->organisationid, 'member', elgg_get_logged_in_user_guid());
-            if( $organisationid )
-              add_entity_relationship($organisationid, 'member', elgg_get_logged_in_user_guid());
-            create_metadata_from_array($user->getGUID(),array(
-              "organisationid"=>$organisationid,
-              "organisation"=>$organisation,
-              "title"=>$jobtitle
-            ));
-            //system_message(elgg_echo('remove_entity_relationship'));
-          }
-          
         }
     }
     $object_metadata_array = elgg_get_metadata( array('guid' => $guid,
@@ -108,10 +117,9 @@ if (can_edit_entity($guid)) {
 // set title and description
 
 
-    if (!get_input('title')) {
-        $rObject->title = get_input('name');
-    }
 
+    $rObject->title = get_input('title');
+    $rObject->description = get_input('description');
     if ($rObject->getSubtype() == "rEdu") {
         //$rObject->title = get_input('achieved_title') . " (" . get_input('level') .")";
         //$rObject->description = get_input('institution');
@@ -119,6 +127,7 @@ if (can_edit_entity($guid)) {
 
     if ($rObject->getSubtype() == "rWork") {
         //$rObject->title = get_input('jobtitle') . " @ " . get_input('organisation');
+        $rObject->organisation=get_input('organisation');
     }
     if ($rObject->getSubtype() == "rSummary") {
         //$rObject->title = get_input('jobtitle') . " @ " . get_input('organisation');
@@ -128,7 +137,7 @@ if (can_edit_entity($guid)) {
 // save to database
     if($rObject->save())
     {
-      system_message(elgg_echo('resume:OK'));//.$rObject->description.$rObject->canComment());
+      system_message(elgg_echo('resume:OK').$test);//.$rObject->description.$rObject->canComment());
 
       // add to river
       //add_to_river('river/object/resume/update', 'update', elgg_get_logged_in_user_guid(), $rObject->guid);
@@ -150,12 +159,12 @@ if (can_edit_entity($guid)) {
     register_error(elgg_echo('resume:notOK2'));
 }
 
-$name = get_input('name');
+$user_name = get_input('user_name');
 $user=elgg_get_logged_in_user_entity();
 
-if ( $name&&  $user && $user->canEdit() ) {
-		if ($name != $user->name) {
-      $user->name=$name;
+if ( $user_name&&  $user && $user->canEdit() ) {
+		if ($user_name != $user->name) {
+      $user->name=$user_name;
       if ($user->save()) {
 				system_message(elgg_echo('user:name:success'));
 				

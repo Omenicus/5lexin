@@ -32,6 +32,7 @@ $rEdu->end_year = $end_year;
 $rEdu->field = $field;
 $rEdu->grade = $grade;
 $rEdu->activities = $activities;
+$rEdu->title  = $institution;
 $rEdu->description = $description;
 
 // public acces for the resume
@@ -43,7 +44,7 @@ $rEdu->owner_guid = elgg_get_logged_in_user_guid();
 $list=elgg_get_entities_from_metadata (array(
 'type' => 'object',
 'subtype' => 'rInstitution',  
-'metadata_name' => 'name',
+'metadata_name' => 'title',
 'metadata_value' => $institution,
 'count' => TRUE,
 ));
@@ -52,12 +53,14 @@ if( $list==0)
   $rObj = new ElggObject();
   $rObj->subtype = "rInstitution";
   $rObj->name = $institution;
+  $rObj->title = $institution;
   // public acces for the resume
   $rObj->access_id = ACCESS_PUBLIC;
   
   // owner is logged in user
-  $rObj->owner_guid = elgg_get_logged_in_user_guid();
+  $rObj->owner_guid = null;//elgg_get_logged_in_user_guid();
   $rObj->container_guid =$rObj->owner_guid;
+  $rObj->created=false;
   $rObj->save();
   $rObj->institutionid=$rObj->getGUID();
   //system_message(elgg_echo('resume:addcomp:OK'));

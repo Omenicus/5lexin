@@ -18,7 +18,7 @@ $startmonth = get_input('startmonth');
 $endyear = get_input('endyear');
 $endmonth = get_input('endmonth');
 $organisation = get_input('organisation');
-$jobtitle = get_input('jobtitle');
+$jobtitle = get_input('title');
 $description = get_input('description');
 
 
@@ -33,6 +33,7 @@ $rWork->endmonth = $endmonth;
 
 $rWork->organisation = $organisation;
 $rWork->jobtitle = $jobtitle;
+$rWork->title = $jobtitle;
 $rWork->description = $description;
 
 
@@ -45,17 +46,21 @@ $rWork->access_id = ACCESS_PUBLIC;
 $rWork->owner_guid = elgg_get_logged_in_user_guid();
 $rWork->container_guid =$rWork->owner_guid;
 
-/*$list=elgg_get_entities(array('type' => 'object', 'subtype' => 'rCompany',  
-'wheres'=>"u.name=".$organisation,
-"joins" => array("JOIN {$dbprefix}users_entity u ON e.guid = u.guid"),
-'count' => TRUE));*/
-$list=elgg_get_entities_from_metadata (array(
-'type' => 'object',
-'subtype' => 'company',  
-'metadata_name' => 'name',
-'metadata_value' => $organisation,
-'count' => FALSE,
-));
+       
+$dbprefix = elgg_get_config("dbprefix");
+$query_options = array(
+  'type' => 'object',
+	'subtype' =>'company',  
+  
+  'count' => FALSE,
+	"limit" => 5,
+	"joins" => array("LEFT JOIN {$dbprefix}objects_entity oe ON oe.guid = e.guid "), //AND e.type = 'object
+	"wheres" => array("(oe.title = '".$organisation."' )"),
+	//"order_by" => "u.name asc"
+);
+
+//$entities=elgg_list_entities_from_metadata($query_options);
+$list=elgg_get_entities($query_options);
 $rComp=NULL;
 if( !$list||count($list)==0) 
 {
@@ -82,9 +87,10 @@ else
   //  $rComp->memebers++;
   
   $rComp->save();
+  $rWork->organisationid=$rComp->getGUID();
   if($rWork->endyear == "now")
   {
-    $rWork->organisationid=$rComp->getGUID();
+    
     $user=elgg_get_logged_in_user_entity();
     add_entity_relationship($rComp->getGUID(), 'member', $user->getGUID());
     

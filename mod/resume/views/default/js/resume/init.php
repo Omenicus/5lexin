@@ -17,7 +17,7 @@ $(document).ready(function() {
           function( request, response ) {
             $.getJSON(  elgg.get_site_url() + "resume/data", {
 							term: extractLast( request.term ),
-              type: this.element[0].name,
+              type: this.element[0].id,
               
               },
               response //gets set by input/autocomplete view

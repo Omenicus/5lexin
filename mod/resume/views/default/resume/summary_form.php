@@ -23,7 +23,7 @@ $site_url = elgg_get_site_url();
     <form action="<?php echo $site_url; ?>action/<?php echo $action ?>"
           method="post">
         <p><?php echo elgg_echo('resume:summary:name'); ?><br />
-            <?php echo elgg_view('input/text', array('name' => 'name', 'value' => elgg_get_logged_in_user_entity()->name)); ?></p>
+            <?php echo elgg_view('input/text', array('name' => 'user_name', 'value' => elgg_get_logged_in_user_entity()->name)); ?></p>
 
         <p><?php echo elgg_echo('resume:summary:description'); ?><br />
             <?php echo elgg_view('input/longtext', array('name' => 'description', 'value' => $vars['entity']->description)); ?></p>

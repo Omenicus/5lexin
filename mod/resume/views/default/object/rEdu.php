@@ -21,7 +21,7 @@ if ($page_owner === false || is_null($page_owner)) {
 <div>
 
     <p><span class="strong">
-    <?php echo $vars['entity']->institution; ?> </span>
+    <?php echo $vars['entity']->title; ?> </span>
     
     <span class="leftspace">
     <?php if ($page_owner == elgg_get_logged_in_user_entity() && elgg_in_context('resume_edit')) {

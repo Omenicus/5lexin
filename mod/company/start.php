@@ -19,7 +19,8 @@ function company_init() {
     elgg_register_action('company/branchform', "$action_path/branchform.php", false);
     elgg_register_action('company/ajax', "$action_path/ajax.php", false);
 
-    //elgg_register_entity_type('object', 'company');
+    elgg_register_entity_type('object', 'company');
+    elgg_register_entity_type('object', 'job');
     //elgg_register_entity_type('object', 'branchcompany');
     
     elgg_register_page_handler('comp', 'company_page_handler');

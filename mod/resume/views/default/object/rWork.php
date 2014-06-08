@@ -22,7 +22,7 @@ if ($page_owner === false || is_null($page_owner)) {
 <div>
   <p >
     <span class="strong"> 
-    <?php echo $vars['entity']->jobtitle; ?> 
+    <?php echo $vars['entity']->title; ?> 
     <?php if ($page_owner == elgg_get_logged_in_user_entity() && elgg_in_context('resume_edit')) {
     ?>
     </span>
@@ -48,7 +48,7 @@ if ($page_owner === false || is_null($page_owner)) {
     if( $vars['entity']->organisationid )
       echo '<a href="' . $site_url . 'comp/view/' . $vars['entity']->organisationid . '">' . $vars['entity']->organisation . '</a>';
     else
-      echo $vars['entity']->organisation ;
+      echo $vars['entity']->organisation;
     
     ?>
   </p>
