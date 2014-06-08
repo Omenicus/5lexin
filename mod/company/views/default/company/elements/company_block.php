@@ -4,6 +4,8 @@ $subtype ="company";
 if (elgg_is_logged_in()) {
   $user=elgg_get_logged_in_user_entity();
   $html = "";
+  
+  //worked for
   $metadata = elgg_get_metadata(array(
   			'guid' => $user->getGUID(),
          "metadata_name" =>"organisationid",
@@ -11,12 +13,12 @@ if (elgg_is_logged_in()) {
   		));
   if( $metadata )
   {  
-    $company_current=get_entity($metadata[0]->value);
+    $company_current=get_entity($metadata[0]->value);//count($metadata)>1?$metadata[0]->value:$metadata->value);
     $body=  '<a href="'.$company_current->getURL().'">'.$company_current->name.'</a>';
     echo elgg_view_module('aside', elgg_echo("company:workfor"), $body);
   }
 
-//worked for
+
 $options = array(
 	'type' => 'object',
 	'subtype' => "rWork",
