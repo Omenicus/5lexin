@@ -5,7 +5,7 @@
  * @package ElggFile
  */
 
-$english = array(
+$zh = array(
 
 	/**
 	 * Menu items and titles
@@ -115,4 +115,4 @@ View and comment on the new file:
 		'file:nofile' => "You must select a file",
 );
 
-add_translation("en", $english);
+add_translation("zh", $zh);
