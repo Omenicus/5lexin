@@ -20,8 +20,8 @@ function messageboard_init() {
 	elgg_register_page_handler('messageboard', 'messageboard_page_handler');
 
 	// messageboard widget - only for profile for now
-	elgg_register_widget_type('messageboard', elgg_echo("messageboard:board"), elgg_echo("messageboard:desc"), array("profile"));
-
+	elgg_register_widget_type('messageboard', elgg_echo("messageboard:board"), elgg_echo("messageboard:desc"));//, array("profile"));
+  
 	// actions
 	$action_path = dirname(__FILE__) . '/actions';
 	elgg_register_action("messageboard/add", "$action_path/add.php");

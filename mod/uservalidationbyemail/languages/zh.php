@@ -16,12 +16,12 @@ If you can't click on the link, copy and paste it to your browser manually.
 %s
 %s
 ",
-	'email:confirm:success' => "You have confirmed your email address!",
-	'email:confirm:fail' => "Your email address could not be verified...",
+	'email:confirm:success' => "你已经验证邮箱并激活账号!",
+	'email:confirm:fail' => "你的邮箱未被验证...",
 
-	'uservalidationbyemail:emailsent' => "Email sent to <em>%s</em>",
-	'uservalidationbyemail:registerok' => "To active your account, please confirm your email address by clicking on the link we just sent you.",
-	'uservalidationbyemail:login:fail' => "Your account is not validated so the log in attempt failed. Another validation email has been sent.",
+	'uservalidationbyemail:emailsent' => "激活邮件已发送到 <em>%s</em>",
+	'uservalidationbyemail:registerok' => "激活账号, 请点击邮件中的激活链接。",
+	'uservalidationbyemail:login:fail' => "你的账号未被激活，不能登录. 新的激活邮件已经发送到你的邮箱.",
 
 	'uservalidationbyemail:admin:no_unvalidated_users' => 'No unvalidated users.',
 

@@ -51,12 +51,18 @@ if (!$owner) {
 				echo elgg_echo('groups:members') . ": " . $num_members;
 			?>
 			</p>
+      <?php
+  			echo elgg_view('groups/profile/fields', $vars);
+  		?>
 		</div>
 	</div>
 
 	<div class="groups-profile-fields elgg-body">
-		<?php
-			echo elgg_view('groups/profile/fields', $vars);
-		?>
+    <?php
+      if( elgg_view_exists('thewire_tools/group_module_thewire'))
+      {
+        echo elgg_view('thewire_tools/group_module_thewire');
+      }
+		 ?> 
 	</div>
 </div>

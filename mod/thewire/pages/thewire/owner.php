@@ -6,9 +6,17 @@
 
 $owner = elgg_get_page_owner_entity();
 if (!$owner) {
-	forward('', '404');
+  $name=get_input('name');
+  $user=get_user_by_name($name);
+  elgg_set_page_owner_guid($user->guid);
+  $owner = elgg_get_page_owner_entity();
+  if( !$owner )
+  {
+   //echo  $name;
+   //exit;
+   forward('', '404');
+ }
 }
-
 $title = elgg_echo('thewire:user', array($owner->name));
 
 elgg_push_breadcrumb(elgg_echo('thewire'), "thewire/all");

@@ -100,6 +100,9 @@ function thewire_page_handler($page) {
 			break;
 
 		case "owner":
+      if (isset($page[1])) {
+				set_input('name', $page[1]);
+			}
 			include "$base_dir/owner.php";
 			break;
 
@@ -461,7 +464,7 @@ function thewire_setup_entity_menu_items($hook, $type, $value, $params) {
  */
 function thewire_owner_block_menu($hook, $type, $return, $params) {
 	if (elgg_instanceof($params['entity'], 'user')) {
-		$url = "thewire/owner/{$params['entity']->username}";
+		$url = "thewire/owner/{$params['entity']->name}"; //thewire_tools_owner_block_menu
 		$item = new ElggMenuItem('thewire', elgg_echo('item:object:thewire'), $url);
 		$return[] = $item;
 	}
