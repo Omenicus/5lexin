@@ -3,7 +3,7 @@
  * Custom Index English language file
  */
 
-$english = array(
+$zh = array(
 	'live_notifications' => '实时通知',	
 	'live_notifications:group:create:blog' => '%s 在群 %s 中发表了新博客 ',
 	'live_notifications:group:create:file' => '%s 在群 %s 中上传了新文件 ',
@@ -31,4 +31,4 @@ $english = array(
 	'live_notifications:tag:post' => '%s 在 <a href="%s" title="">帖子</a>中提到你 ',
 );
 					
-add_translation("en", $english);
+add_translation("zh", $zh);

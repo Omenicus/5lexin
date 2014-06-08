@@ -11,6 +11,7 @@ elgg_register_event_handler('init', 'system', 'better_avatars_init');
 function better_avatars_init() {
 	//register actions
 	$action_path = dirname(__FILE__)  . '/actions';
+  elgg_unregister_action('avatar/upload');
 	elgg_register_action('avatar/upload', "$action_path/avatar/upload.php");
 
 	$url = elgg_get_simplecache_url('js', 'better_avatars');

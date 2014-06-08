@@ -123,7 +123,7 @@ if (can_edit_entity($guid)) {
 // save to database
     if($rObject->save())
     {
-      system_message(elgg_echo('resume:OK');//.$rObject->description.$rObject->canComment());
+      system_message(elgg_echo('resume:OK'));//.$rObject->description.$rObject->canComment());
 
       // add to river
       //add_to_river('river/object/resume/update', 'update', elgg_get_logged_in_user_guid(), $rObject->guid);

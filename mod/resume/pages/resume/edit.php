@@ -65,9 +65,10 @@ $site_url = elgg_get_site_url();
     $area2 .= '' . elgg_echo('resume:summary') . '';
     if( $page_owner == $user  &&  elgg_in_context('resume_edit'))
     {
-      if (elgg_get_entities(array('type' => 'object', 'subtype' => 'rSummary', 'owner_guids'=>array($page_owner->getGUID()),count => TRUE))>0){
+      $sums=elgg_get_entities(array('type' => 'object', 'subtype' => 'rSummary', 'owner_guids'=>array($page_owner->getGUID()),count => false));
+      if (count($sums)>0){
       
-      $area2 .="<span class=\"right\"><a href=\"$site_url"."resume/add/summary?id=".elgg_get_entities(array('type' => 'object', 'subtype' => 'rSummary', 'owner_guids'=>array($page_owner->getGUID()),count => FALSE))[0]->getGUID()."\">". elgg_echo('resume:edit')."</a></span>";
+        $area2 .="<span class=\"right\"><a href=\"$site_url"."resume/add/summary?id=".$sums[0]->getGUID()."\">". elgg_echo('resume:edit')."</a></span>";
       }    
       else
       {

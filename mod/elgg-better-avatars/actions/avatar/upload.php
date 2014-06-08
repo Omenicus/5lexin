@@ -26,7 +26,7 @@ if ($html5) {
 	$img_data = base64_decode($base64);
 	
 	if (!$img_data){
-		register_error(elgg_echo("avatar:upload:fail"));
+		register_error(elgg_echo("avatar:upload:fail").$html5);
 		forward(REFERRER);
 	}
 } elseif ($url) {
