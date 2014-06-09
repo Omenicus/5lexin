@@ -1,7 +1,7 @@
 <?php
 $zh = array(
              
-  'image:agree' => "请输入左边图片中的字母? *: (如果难以辨认, 点击发音或获取新图片)",
+  'image:agree' => "请输入左边图片中的字母 (如果难以辨认, 点击发音或获取新图片)",
 	'sirikinasa:isblank' => "请输入图片中的字母.",
 
 	'gutwacaptcha:required' => "输入不正确.",
