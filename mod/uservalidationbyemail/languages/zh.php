@@ -1,6 +1,6 @@
 <?php
 return array(
-	'admin:users:unvalidated' => 'Unvalidated',
+	'admin:users:unvalidated' => '未验证激活',
 	
 	'email:validate:subject' => "%s please confirm your email address for %s!",
 	'email:validate:body' => "%s,

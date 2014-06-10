@@ -155,3 +155,7 @@ color:#FFFFFF;
 .elgg-page-footer a:hover {
 	color: #666;
 }
+html, body {
+	height: 100%;
+	margin-bottom: 0px;
+}
