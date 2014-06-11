@@ -2,16 +2,16 @@
 return array(
 	'admin:users:unvalidated' => '未验证激活',
 	
-	'email:validate:subject' => "%s please confirm your email address for %s!",
+	'email:validate:subject' => "%s 请验证你在 %s 的邮箱!",
 	'email:validate:body' => "%s,
 
-Before you can start you using %s, you must confirm your email address.
+在使用 %s 前,  需要验证你的邮箱地址.
 
-Please confirm your email address by clicking on the link below:
+请点击以下链接验证:
 
 %s
 
-If you can't click on the link, copy and paste it to your browser manually.
+如果你不能点击上述链接, 手工复制链接到浏览器中访问.
 
 %s
 %s

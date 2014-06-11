@@ -318,7 +318,7 @@ $chinese = array(
 	'friends'  =>  "好友" , 
 	'friends:yours'  =>  "您的好友" , 
 	'friends:owned'  =>  "%s的好友" , 
-	'friend:add'  =>  "添加好友" , 
+	'friend:add'  =>  "加好友" , 
 	'friend:remove'  =>  "删除好友" , 
 
 	'friends:add:successful'  =>  "您已经成功的添加%s为好友." , 
@@ -441,6 +441,9 @@ $chinese = array(
 	'river:update' => '%s更新',
 	'river:delete:success' => '项目已被删除.',
 	'river:delete:fail' => '项目不能被删除.',
+  'river:delete' => '删除该动态',
+  'river:subject:invalid_subject' => '无效用户',
+	'activity:owner' => '动态',
 
 	'river:widget:title' => "动态",
 	'river:widget:description' => "显示最新动态",

@@ -2,7 +2,7 @@
 	$title = $vars["title"];
 	$message = nl2br($vars["message"]);
 	$language = get_current_language();
-	$site_url = elgg_get_site_url();
+	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $language; ?>" lang="<?php echo $language; ?>">
@@ -62,6 +62,10 @@
 				padding: 10px;
 			}
 			
+			#notification_content p {
+				margin: 0px;
+			}
+			
 			#notification_footer {
 				
 				margin: 10px 0 0;
@@ -90,8 +94,8 @@
 		<div id="notification_container">
 			<div id="notification_header">
 				<?php
-					$site_url_view = elgg_view("output/url", array("href" => $vars["config"]->site->url, "text" => $vars["config"]->site->name));
-					echo $site_url_view;
+					$site_url = elgg_view("output/url", array("href" => $vars["config"]->site->url, "text" => $vars["config"]->site->name));
+					echo $site_url;
 				?>
 			</div>
 			<div id="notification_wrapper">
@@ -104,14 +108,14 @@
 			
 			<div id="notification_footer">
 				<a href="http://www.elgg.org/" id="notification_footer_logo">
-					<img src="<?php echo $site_url; ?>_graphics/powered_by_elgg_badge_drk_bckgnd.gif" />
+					<img src="<?php echo $vars["url"]; ?>_graphics/powered_by_elgg_badge_drk_bckgnd.gif" />
 				</a>
 				
 				<?php
 					if(elgg_is_logged_in()){
-						$settings_url = $site_url . "settings";
+						$settings_url = $vars["url"] . "settings";
 						if(elgg_is_active_plugin("notifications")){
-							$settings_url = $site_url . "notifications/personal";
+							$settings_url = $vars["url"] . "notifications/personal";
 						}
 						echo elgg_echo("html_email_handler:notification:footer:settings", array("<a href='" . $settings_url . "'>", "</a>"));
 					}

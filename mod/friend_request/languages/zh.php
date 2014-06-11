@@ -1,5 +1,5 @@
 <?php
-	$english = array(
+	$zh = array(
 		'friend_request' => "好友请求",
 		'friend_request:menu' => "好友请求",
 		'friend_request:title' => "加 %s 的好友请求",
@@ -20,32 +20,32 @@
 		
 		// Actions
 		// Add request
-		'friend_request:add:failure' => "Sorry, because of a system error we were unable to complete your request. Please try again.",
-		'friend_request:add:successful' => "You have requested to be friends with %s. They must approve your request before they will show on your friends list.",
-		'friend_request:add:exists' => "You've already requested to be friends with %s.",
+		'friend_request:add:failure' => "对不起，因为系统原因你不能完成请求。请重试。",
+		'friend_request:add:successful' => "你已经申请加 %s 为好友，请等待对方的同意",
+		'friend_request:add:exists' => "你已经申请过加 %s 为好友。",
 		
 		// Approve request
 		'friend_request:approve' => "同意",
-		'friend_request:approve:subject' => "%s has accepted your friend request",
-		'friend_request:approve:message' => "Dear %s,
+		'friend_request:approve:subject' => "%s 同意加你为好友",
+		'friend_request:approve:message' => "亲爱的 %s,
 	
-	%s has accepted your request to become a friend.",
-		'friend_request:approve:successful' => "%s is now a friend",
-		'friend_request:approve:fail' => "Error while creating friend relation with %s",
+	%s 已经同意了你的好友请求.",
+		'friend_request:approve:successful' => "%s 成为好友",
+		'friend_request:approve:fail' => "同意加 %s 为好友失败",
 	
 		// Decline request
 		'friend_request:decline' => "拒绝",
-		'friend_request:decline:subject' => "%s has declined your friend request",
-		'friend_request:decline:message' => "Dear %s,
+		'friend_request:decline:subject' => "%s 拒绝了你的好友请求",
+		'friend_request:decline:message' => "亲爱的 %s,
 
-%s has declined your request to become a friend.",
-		'friend_request:decline:success' => "Friend request successfully declined",
-		'friend_request:decline:fail' => "Error while declining Friend request, please try again",
+%s 拒绝了你的好友请求。",
+		'friend_request:decline:success' => "拒绝了好友请求",
+		'friend_request:decline:fail' => "拒绝好友请求失败, 请重试",
 		
 		// Revoke request
 		'friend_request:revoke' => "撤回",
-		'friend_request:revoke:success' => "Friend request successfully revoked",
-		'friend_request:revoke:fail' => "Error while revoking Friend request, please try again",
+		'friend_request:revoke:success' => "好友请求已撤回",
+		'friend_request:revoke:fail' => "撤回好友请求失败, 请重试",
 	
 		// Views
 		// Received
@@ -57,4 +57,4 @@
 		'friend_request:sent:none' => "没有为批准的好友请求",
 	);
 					
-	add_translation("en", $english);
+	add_translation("zh", $zh);                                  
