@@ -6,7 +6,7 @@
 	
 		'friend_request:new' => "新好友请求",
 		
-		'friend_request:friend:add:pending' => "未被接受的好友请求",
+		'friend_request:friend:add:pending' => "好友请求待同意 ",
 		
 		'friend_request:newfriend:subject' => "%s 想加你为好友!",
 		'friend_request:newfriend:body' => "%s 想加你为好友! 他们等待你的批准...你可以登录并审批!
