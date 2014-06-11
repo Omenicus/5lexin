@@ -197,6 +197,7 @@
 			$to = implode(", ", $options["to"]);
 			
 			// encode subject to handle special chars
+      system_message("head:".$headers);
 			$subject = "=?UTF-8?B?" . base64_encode($options["subject"]) . "?=";
 			$result = mail($to, $subject, $message, $headers, $sendmail_options);
 		}
