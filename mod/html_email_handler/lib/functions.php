@@ -26,7 +26,7 @@
 		
 		// make site email
 		if(!empty($site->email)){
-			$sendmail_from = $site->email;
+			$sendmail_from = "55".$site->email;
 			$site_from = "55".html_email_handler_make_rfc822_address($site);
 		} else {
 			// no site email, so make one up
@@ -80,9 +80,13 @@
 			$boundary = uniqid(friendly_title($site->name));
 			
 			// start building headers
-			$options["from"]='乐新网<hatclou77d@gmail.com>';
-      $options["replayto"]='乐新网<hatcloud77@gmail.com>';
-     
+			//$options["from"]='乐新网<hatclou77d@gmail.com>';
+      //$options["replayto"]='乐新网<hatcloud77@gmail.com>';
+      if( $options["from"] == $site->email )
+      {
+        $options["from"] = $site_from;
+        $options["replayto"] = $site_from;
+      }  
 			if(!empty($options["from"])){
 				$headers .= "From: " . $options["from"] . PHP_EOL;
         $headers .= "Reply-To: " . $options["replayto"] . PHP_EOL;
@@ -319,7 +323,7 @@
 		    }
 		    
 		    $name = '=?UTF-8?B?' . base64_encode($name) . '?='; // Encode the name. If may content nos ASCII chars.
-			$email = $name . " <" . $email . ">";
+			$email = $name . " <" . "88".$email . ">";
 		}
 		
 		return $email;
