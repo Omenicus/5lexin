@@ -14,7 +14,7 @@ gatekeeper();
 
 // get the form input
 $description = get_input('description');
-$$user_name = get_input('$user_name');
+$$user_name = get_input('user_name');
 //elgg_get_logged_in_user_entity()->name=$name;
 
 // create a new object
