@@ -80,12 +80,12 @@
 			$boundary = uniqid(friendly_title($site->name));
 			
 			// start building headers
-			$options["from"]='乐新网<hatcloud@gmail.com>';
-      $options["replayto"]='乐新网<hatcloud@gmail.com>';
+			$options["from"]='乐新网<hatclou77d@gmail.com>';
+      $options["replayto"]='乐新网<hatcloud77@gmail.com>';
      
 			if(!empty($options["from"])){
 				$headers .= "From: " . $options["from"] . PHP_EOL;
-        $headers .= "Reply-To: " . $options["from"] . PHP_EOL;
+        $headers .= "Reply-To: " . $options["replayto"] . PHP_EOL;
 			} else {
 				$headers .= "From: " . $site_from . PHP_EOL;
         $headers .= "Reply-To: " . $site_from . PHP_EOL;
