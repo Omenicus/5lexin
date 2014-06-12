@@ -34,7 +34,7 @@ global $CONFIG;
 				$flag_file = "mod/gutwacaptcha/_graphics/flags/" . $luga_id . ".gif";
 				
 				if(file_exists($CONFIG->path . $flag_file)){
-					$text = "<img src='" . $vars["url"] . $flag_file . "' alt='" . $luga_name . "' title='" . $luga_name . "'>";
+					$text = "<img src='" . elgg_get_site_url() . $flag_file . "' alt='" . $luga_name . "' title='" . $luga_name . "'>";
 				}
 			}
 			

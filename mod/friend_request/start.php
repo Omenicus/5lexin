@@ -25,8 +25,10 @@
 		// Handle our add action event
 		elgg_register_event_handler("create", "friendrequest", "friend_request_event_create_friendrequest");
 		
+    elgg_unregister_plugin_hook_handler('register', 'menu:user_hover');
 		// Plugin hooks
 		elgg_register_plugin_hook_handler("register", "menu:user_hover", "friend_request_user_menu_handler");
+    elgg_unregister_plugin_hook_handler('register', 'menu:entity');
 		elgg_register_plugin_hook_handler("register", "menu:entity", "friend_request_entity_menu_handler");
 		
 		// Actions

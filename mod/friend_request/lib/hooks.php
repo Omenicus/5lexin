@@ -13,11 +13,23 @@
 						if($item->getName() == "add_friend"){
 							$item->setText(elgg_echo("friend_request:friend:add:pending"));
 							$item->setHref("friend_request/" . $user->username . "#friend_request_sent_listing");
-							
+							$item->setPriority(900);
 							break;
 						}
 					}
-				}
+				}else
+        {
+          	foreach($result as &$item){
+						// change the text of the button to tell you already requested a friendship
+						if($item->getName() == "remove_friend"){
+							$item->setText(elgg_echo("friend_request:friend:add:pending"));
+							$item->setHref("friend_request/" . $user->username . "#friend_request_sent_listing");
+						  $item->setPriority(900);
+							break;
+						}
+          }
+        }
+        
 			}
 		}
 		
@@ -25,6 +37,7 @@
 	}
 	
 	function friend_request_entity_menu_handler($hook, $type, $returnvalue, $params){
+  
 		$result = $returnvalue;
 		
 		if(!empty($params) && is_array($params) && ($user = elgg_get_logged_in_user_entity())){
@@ -53,7 +66,7 @@
 						$result[] = ElggMenuItem::factory(array(
 							 "name" => "add_friend",
 							 "text" => elgg_echo("friend:add"),
-							 "href" => "action/friends/add?friend=" . $entity->getGUID(),
+							 "href" => "action/friends/33add?friend=" . $entity->getGUID(),
 							 "is_action" => true,
 							 "priority" => 500
 						));

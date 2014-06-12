@@ -108,14 +108,14 @@
 			
 			<div id="notification_footer">
 				<a href="http://www.elgg.org/" id="notification_footer_logo">
-					<img src="<?php echo $vars["url"]; ?>_graphics/powered_by_lexin_badge_drk_bckgnd.png" />
+					<img src="<?php echo elgg_get_site_url(); ?>_graphics/powered_by_lexin_badge_drk_bckgnd.png" />
 				</a>
 				
 				<?php
 					if(elgg_is_logged_in()){
-						$settings_url = $vars["url"] . "settings";
+						$settings_url = elgg_get_site_url() . "settings";
 						if(elgg_is_active_plugin("notifications")){
-							$settings_url = $vars["url"] . "notifications/personal";
+							$settings_url = elgg_get_site_url() . "notifications/personal";
 						}
 						echo elgg_echo("html_email_handler:notification:footer:settings", array("<a href='" . $settings_url . "'>", "</a>"));
 					}
