@@ -104,7 +104,7 @@ else
     create_metadata_from_array($user->getGUID(),array(
       "organisationid"=> $rComp->getGUID(),
       "organisation"=>$organisation,
-      "title"=>$jobtitle
+      "jobtitle"=>$jobtitle
     ));
    
   }

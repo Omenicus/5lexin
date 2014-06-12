@@ -54,9 +54,9 @@ echo "<span class=\"elgg-subtext\">$subtitle</span>";
 $jobtitle='';
 
 
-$title=elgg_get_metadata(array( 'metadata_name' => 'title', 'metadata_owner_guid' => $entity->getGUID() ));
+$title=elgg_get_metadata(array( 'metadata_name' => 'jobtitle', 'metadata_owner_guid' => $entity->getGUID() ));
 if( $title )
-  $jobtitle.=$title[0]->value;
+  $jobtitle.=$title[count($title)-1]->value;
 //$jobtitle.=count($title);   
 $org=elgg_get_metadata(array( 'metadata_name' => 'organisation', 'metadata_owner_guid' => $entity->getGUID() ));
 $orgid=elgg_get_metadata(array( 'metadata_name' => 'organisationid', 'metadata_owner_guid' => $entity->getGUID() ));

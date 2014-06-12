@@ -23,6 +23,10 @@ if (can_edit_entity($guid)) {
     $rComp=NULL;
     $organisationid =NULL;
     $test="0";
+    elgg_delete_metadata(array(
+                      'guid' => $user->getGUID(),
+                      'metadata_name' => array("title")
+              ));
     if (get_input('organisation')) {
     
         $organisation = get_input('organisation');
@@ -59,7 +63,7 @@ if (can_edit_entity($guid)) {
           && $rObject->getSubtype() == 'rWork') {
             $endyear = get_input('endyear');
             $organisation = get_input('organisation');
-            $jobtitle = get_input('jobtitle');
+            $jobtitle = get_input('title');
             if($rObject->endyear=="now" && $endyear!="now")
             {
               //remove member
@@ -78,20 +82,26 @@ if (can_edit_entity($guid)) {
               create_metadata_from_array($user->getGUID(),array(
                 "organisationid"=> $organisationid,
                 "organisation"=>$organisation,
-                "title"=>$jobtitle
+                "jobtitle"=>$jobtitle
               ));
               //system_message(elgg_echo('create_metadata_from_array'));
             }
-            if( $rObject->endyear=="now" && $endyear=="now"&&$organisation!=$rObject->organisation )
+            if( $rObject->endyear=="now" && $endyear=="now" )
             {
-              if($rObject->organisationid)
+              if($organisation!=$rObject->organisation)
+              {
                 remove_entity_relationship($rObject->organisationid, 'member', elgg_get_logged_in_user_guid());
-              if( $organisationid )
-                add_entity_relationship($organisationid, 'member', elgg_get_logged_in_user_guid());
+                if( $organisationid )
+                  add_entity_relationship($organisationid, 'member', elgg_get_logged_in_user_guid());              
+              }
+              elgg_delete_metadata(array(
+                      'guid' => $user->getGUID(),
+                      'metadata_name' => array("organisationid","organisation","title")
+              ));
               create_metadata_from_array($user->getGUID(),array(
                 "organisationid"=>$organisationid,
                 "organisation"=>$organisation,
-                "title"=>$jobtitle
+                "jobtitle"=>$jobtitle
               ));
               //system_message(elgg_echo('remove_entity_relationship'));
             }

@@ -70,6 +70,8 @@ $zh = array(
     'resume:training:enddate' => "End date",
     'resume:training:type_select' => "Type of trainig (i.e. course, seminar, webinar...)",
     'resume:training:type' => "Type of trainig",
+    
+    'resume:addwork:OK' => '成功增加工作经历',
 
 
 //FOR "ACTION" PAGES
