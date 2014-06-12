@@ -13,7 +13,7 @@
 gatekeeper();
 
 // get the form input
-$institution = get_input('institution');
+$institution = get_input('title');
 $level = get_input('level');
 $start_year = get_input('start_year');
 $end_year = get_input('end_year');
@@ -25,7 +25,7 @@ $description = get_input('description');
 // create a new object
 $rEdu = new ElggAcademic();
 //$rEdu->subtype = "rEdu";
-$rEdu->institution = $institution;
+$rEdu->title = $institution;
 $rEdu->level = $level;
 $rEdu->start_year = $start_year;
 $rEdu->end_year = $end_year;
