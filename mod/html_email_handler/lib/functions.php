@@ -71,7 +71,7 @@
 		if(!empty($options["bcc"]) && !is_array($options["bcc"])){
 			$options["bcc"] = array($options["bcc"]);
 		}
-		 diefine("NEW_PHP_EOL","\r\n" );
+		//diefine("PHP_EOL","\r\n" );
 		// can we send a message
 		if(!empty($options["to"]) && (!empty($options["html_message"]) || !empty($options["plaintext_message"]))){
 			// start preparing
@@ -84,30 +84,30 @@
       //$options["replayto"]='乐新网<hatcloud@gmail.com>';
      
 			if(!empty($options["from"])){
-				$headers .= "From: " . $options["from"] . NEW_PHP_EOL;
-        $headers .= "Reply-To: " . $options["from"] . NEW_PHP_EOL;
+				$headers .= "From: " . $options["from"] . PHP_EOL;
+        $headers .= "Reply-To: " . $options["from"] . PHP_EOL;
 			} else {
-				$headers .= "From: " . $site_from . NEW_PHP_EOL;
-        $headers .= "Reply-To: " . $options["from"] . NEW_PHP_EOL;
+				$headers .= "From: " . $site_from . PHP_EOL;
+        $headers .= "Reply-To: " . $options["from"] . PHP_EOL;
 			}
 
 			// check CC mail
 			if(!empty($options["cc"])){
-				$headers .= "Cc: " . implode(", ", $options["cc"]) . NEW_PHP_EOL;
+				$headers .= "Cc: " . implode(", ", $options["cc"]) . PHP_EOL;
 			}
 
 			// check BCC mail
 			if(!empty($options["bcc"])){
-				$headers .= "Bcc: " . implode(", ", $options["bcc"]) . NEW_PHP_EOL;
+				$headers .= "Bcc: " . implode(", ", $options["bcc"]) . PHP_EOL;
 			}
 
 			// add a date header
 			if(!empty($options["date"])) {
-				$headers .= "Date: " . date("r", $options["date"]) . NEW_PHP_EOL;
+				$headers .= "Date: " . date("r", $options["date"]) . PHP_EOL;
 			}
 
-			$headers .= "X-Mailer: PHP/" . phpversion() . NEW_PHP_EOL;
-			$headers .= "MIME-Version: 1.0" . NEW_PHP_EOL;
+			$headers .= "X-Mailer: PHP/" . phpversion() . PHP_EOL;
+			$headers .= "MIME-Version: 1.0" . PHP_EOL;
 
 			// Facyla : try to add attchments if set
 			// Allow to add single or multiple attachments
@@ -141,19 +141,19 @@
 						$attachment['filename'] = 'file_' . $attachment_counter;
 					}
 				
-					$attachments .= "Content-Type: {" . $attachment['mimetype'] . "};" . NEW_PHP_EOL . " name=\"" . $attachment['filename'] . "\"" . NEW_PHP_EOL;
-					$attachments .= "Content-Disposition: attachment;" . NEW_PHP_EOL . " filename=\"" . $attachment['filename'] . "\"" . NEW_PHP_EOL;
-					$attachments .= "Content-Transfer-Encoding: base64" . NEW_PHP_EOL . NEW_PHP_EOL;
-					$attachments .= $attachment['content'] . NEW_PHP_EOL . NEW_PHP_EOL;
-					$attachments .= "--mixed--" . $boundary . NEW_PHP_EOL;
+					$attachments .= "Content-Type: {" . $attachment['mimetype'] . "};" . PHP_EOL . " name=\"" . $attachment['filename'] . "\"" . PHP_EOL;
+					$attachments .= "Content-Disposition: attachment;" . PHP_EOL . " filename=\"" . $attachment['filename'] . "\"" . PHP_EOL;
+					$attachments .= "Content-Transfer-Encoding: base64" . PHP_EOL . PHP_EOL;
+					$attachments .= $attachment['content'] . PHP_EOL . PHP_EOL;
+					$attachments .= "--mixed--" . $boundary . PHP_EOL;
 				}
 			}
 			
 			// Use attachments headers for real only if they are valid
 			if(!empty($attachments)) {
-				$headers .= "Content-Type: multipart/mixed; boundary=\"mixed--" . $boundary . "\"" . NEW_PHP_EOL . NEW_PHP_EOL;
+				$headers .= "Content-Type: multipart/mixed; boundary=\"mixed--" . $boundary . "\"" . PHP_EOL . PHP_EOL;
 			} else {
-				$headers .= "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\"" . NEW_PHP_EOL . NEW_PHP_EOL;
+				$headers .= "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\"" . PHP_EOL . PHP_EOL;
 			}
 
 			// start building the message
@@ -161,36 +161,36 @@
 
 			// TEXT part of message
 			if(!empty($options["plaintext_message"])){
-				$message .= "--" . $boundary . NEW_PHP_EOL;
-				$message .= "Content-Type: text/plain; charset=\"utf-8\"" . NEW_PHP_EOL;
-				$message .= "Content-Transfer-Encoding: base64" . NEW_PHP_EOL . NEW_PHP_EOL;
+				$message .= "--" . $boundary . PHP_EOL;
+				$message .= "Content-Type: text/plain; charset=\"utf-8\"" . PHP_EOL;
+				$message .= "Content-Transfer-Encoding: base64" . PHP_EOL . PHP_EOL;
 
-				$message .= chunk_split(base64_encode($options["plaintext_message"])) . NEW_PHP_EOL . NEW_PHP_EOL;
+				$message .= chunk_split(base64_encode($options["plaintext_message"])) . PHP_EOL . PHP_EOL;
 			}
 
 			// HTML part of message
 			if(!empty($options["html_message"])){
-				$message .= "--" . $boundary . NEW_PHP_EOL;
-				$message .= "Content-Type: text/html; charset=\"utf-8\"" . NEW_PHP_EOL;
-				$message .= "Content-Transfer-Encoding: base64" . NEW_PHP_EOL . NEW_PHP_EOL;
+				$message .= "--" . $boundary . PHP_EOL;
+				$message .= "Content-Type: text/html; charset=\"utf-8\"" . PHP_EOL;
+				$message .= "Content-Transfer-Encoding: base64" . PHP_EOL . PHP_EOL;
 
-				$message .= chunk_split(base64_encode($options["html_message"])) . NEW_PHP_EOL;
+				$message .= chunk_split(base64_encode($options["html_message"])) . PHP_EOL;
 			}
 
 			// Final boundry
-			$message .= "--" . $boundary . "--" . NEW_PHP_EOL;
+			$message .= "--" . $boundary . "--" . PHP_EOL;
 
 			// Facyla : FILE part of message
 			if(!empty($attachments)) {
 				// Build strings that will be added before TEXT/HTML message
-				$before_message = "--mixed--" . $boundary . NEW_PHP_EOL;
-				$before_message .= "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\"" . NEW_PHP_EOL . NEW_PHP_EOL;
+				$before_message = "--mixed--" . $boundary . PHP_EOL;
+				$before_message .= "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\"" . PHP_EOL . PHP_EOL;
 				// Build strings that will be added after TEXT/HTML message
-				$after_message = NEW_PHP_EOL;
-				$after_message .= "--mixed--" . $boundary . NEW_PHP_EOL;
+				$after_message = PHP_EOL;
+				$after_message .= "--mixed--" . $boundary . PHP_EOL;
 				$after_message .= $attachments;
 				// Wrap TEXT/HTML message into mixed message content
-				$message = $before_message . NEW_PHP_EOL . $message . NEW_PHP_EOL . $after_message;
+				$message = $before_message . PHP_EOL . $message . PHP_EOL . $after_message;
 			}
 
 			// convert to to correct format
