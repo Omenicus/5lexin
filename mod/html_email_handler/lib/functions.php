@@ -77,7 +77,7 @@
 			// start preparing
 			// Facyla : better without spaces and special chars
 			//$boundary = uniqid($site->name);
-			$boundary = uniqid(friendly_title($site->name));
+			$boundary = uniqid(elgg_get_friendly_title($site->name));
 			
 			// start building headers
 			//$options["from"]='乐新网<hatclou77d@gmail.com>';
@@ -201,7 +201,6 @@
 			$to = implode(", ", $options["to"]);
 			
 			// encode subject to handle special chars
-      system_message("head:".$headers);       
 			$subject = "=?UTF-8?B?" . base64_encode($options["subject"]) . "?=";
 			$result = mail($to, $subject, $message, $headers, $sendmail_options);
 		}

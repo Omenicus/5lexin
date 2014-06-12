@@ -94,7 +94,7 @@
 		<div id="notification_container">
 			<div id="notification_header">
 				<?php
-					$site_url = elgg_view("output/url", array("href" => $vars["config"]->site->url, "text" => $vars["config"]->site->name));
+					$site_url = elgg_view("output/url", array("href" => elgg_get_site_url(), "text" =>elgg_get_site_entity()->name));
 					echo $site_url;
 				?>
 			</div>
