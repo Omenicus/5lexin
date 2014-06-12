@@ -26,11 +26,11 @@
 		
 		// make site email
 		if(!empty($site->email)){
-			$sendmail_from = "55".$site->email;
-			$site_from = "55".html_email_handler_make_rfc822_address($site);
+			$sendmail_from = $site->email;
+			$site_from = html_email_handler_make_rfc822_address($site);
 		} else {
 			// no site email, so make one up
-			$sendmail_from = "66noreply@" . get_site_domain($site->getGUID());
+			$sendmail_from = "noreply@" . get_site_domain($site->getGUID());
 			$site_from = $sendmail_from;
 			
 			if(!empty($site->name)){
@@ -323,7 +323,7 @@
 		    }
 		    
 		    $name = '=?UTF-8?B?' . base64_encode($name) . '?='; // Encode the name. If may content nos ASCII chars.
-			$email = $name . " <" . "88".$email . ">";
+			$email = $name . " <" . $email . ">";
 		}
 		
 		return $email;

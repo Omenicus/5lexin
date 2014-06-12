@@ -2,7 +2,7 @@
 	$zh = array(
 		'friend_request' => "好友请求",
 		'friend_request:menu' => "好友请求",
-		'friend_request:title' => "加 %s 的好友请求",
+		'friend_request:title' => "%s的好友请求",
 	
 		'friend_request:new' => "新好友请求",
 		

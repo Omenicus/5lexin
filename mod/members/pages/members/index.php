@@ -22,7 +22,7 @@ if (elgg_view_exists('members/nav')) {
 }
 
 $params = array(
-	'options' => array('type' => 'user', 'full_view' => false),
+	'options' => array('type' => 'user', 'full_view' => false, 'size' => 'small'),
 );
 
 $content = elgg_trigger_plugin_hook('members:list', $vars['page'], $params, null);
