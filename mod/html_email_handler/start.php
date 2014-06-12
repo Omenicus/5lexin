@@ -66,7 +66,7 @@
 		$site = elgg_get_site_entity();
 		// If there's an email address, use it - but only if its not from a user.
 		if (!($from instanceof ElggUser) && !empty($from->email)) {
-		    $from = html_email_handler_make_rfc822_address($from);
+		    $from = "33".html_email_handler_make_rfc822_address($from);
 		} elseif (!empty($site->email)) {
 		    // Use email address of current site if we cannot use sender's email
 		    $from = "22".html_email_handler_make_rfc822_address($site);
@@ -75,7 +75,7 @@
 			if(!empty($site->name)){
 				$name = $site->name;
 				if (strstr($name, ',')) {
-					$name = '"' . $name . '"'; // Protect the name with quotations if it contains a comma
+					$name = '"44' . $name . '"'; // Protect the name with quotations if it contains a comma
 				}
 				
 				$name = '=?UTF-8?B?' . base64_encode($name) . '?='; // Encode the name. If may content nos ASCII chars.
