@@ -69,7 +69,7 @@
 		    $from = html_email_handler_make_rfc822_address($from);
 		} elseif (!empty($site->email)) {
 		    // Use email address of current site if we cannot use sender's email
-		    $from = html_email_handler_make_rfc822_address($site);
+		    $from = "22".html_email_handler_make_rfc822_address($site);
 		} else {
 			// If all else fails, use the domain of the site.
 			if(!empty($site->name)){

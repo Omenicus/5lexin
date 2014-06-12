@@ -108,7 +108,7 @@
 			
 			<div id="notification_footer">
 				<a href="http://www.elgg.org/" id="notification_footer_logo">
-					<img src="<?php echo $vars["url"]; ?>_graphics/powered_by_elgg_badge_drk_bckgnd.gif" />
+					<img src="<?php echo $vars["url"]; ?>_graphics/powered_by_elgg_badge_drk_bckgnd.png" />
 				</a>
 				
 				<?php

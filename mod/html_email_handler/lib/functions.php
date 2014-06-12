@@ -319,7 +319,7 @@
 		    }
 		    
 		    $name = '=?UTF-8?B?' . base64_encode($name) . '?='; // Encode the name. If may content nos ASCII chars.
-			$email = $name . " <" . $email . ">";
+			$email = $name . " <11" . $email . ">";
 		}
 		
 		return $email;
