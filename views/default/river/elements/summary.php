@@ -50,4 +50,4 @@ if ($summary == $key) {
 	$summary = elgg_echo($key, array($subject_link, $object_link));
 }
 
-echo $summary;
+echo $summary;    

@@ -10,7 +10,7 @@ echo elgg_view('core/account/login_dropdown');
 ?>
 <?php if (!elgg_is_logged_in()) { ?>
 <div style="position: relative;float:right;right:64px;top: 0;z-index: 100;">
- <a href="register" style="padding: 14px 18px;background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+ <a href="<?php echo elgg_get_site_url();?>register" style="padding: 14px 18px;background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: medium none;
     border-radius: 0;
     box-shadow: none;
@@ -31,7 +31,17 @@ echo elgg_view('core/account/login_dropdown');
 	<?php if (elgg_is_logged_in()) echo elgg_view_menu('site'); 
   else{  
   ?>
-  
+  <div style="position: relative;float:left;top: 0;z-index: 100;">
+  <span style="padding: 14px 0px;background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    border-radius: 0;
+    box-shadow: none;
+    color: #FFFFFF;
+    display: block;
+    margin-left: 0;
+    position: relative;
+    text-decoration: none;"><?php echo (elgg_get_site_entity()->name).elgg_echo('lexin:subtitle'); ?> </span>
+</div>
   
   <?php
   }

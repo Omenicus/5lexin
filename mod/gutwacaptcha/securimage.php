@@ -416,7 +416,7 @@ class Securimage
      * The signature text to draw on the bottom corner of the image
      * @var string
      */
-    public $image_signature = 'Twizanex Mod';
+    public $image_signature = '5lexin.com';
 
     /**
      * The color of the signature text

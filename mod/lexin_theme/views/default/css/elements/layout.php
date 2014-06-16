@@ -49,7 +49,7 @@ color:#FFFFFF;
 .elgg-page-default .elgg-page-footer > .elgg-inner {
 	max-width: 990px;
 	margin: 0 auto;
-	padding: 5px 0;
+	padding: 18px 0;
 	border-top: 1px solid #DEDEDE;
 }
 

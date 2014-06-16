@@ -109,6 +109,7 @@ $english = array(
     'resume:search:workdetail' => "jobtitle, organization or description",
     'resume:menu:index'=>'Home',
     'lexin:powered'=>'Lexin',
+    'lexin:subtitle'=>'  --  Study Think Share is my real resume',
     'lexin:powered:desc'=>' - Find companies and engineers at the creative raod',            
     'lexin:powered:desc2'=>'800 Companies, 30000 top engineers',
  

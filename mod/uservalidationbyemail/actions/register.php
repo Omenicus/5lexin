@@ -69,9 +69,10 @@ if (elgg_get_config('allow_registration')) {
 			}
 
 			// Forward on success, assume everything else is an error...
-			forward();
+			forward(elgg_get_site_url() . 'uservalidationbyemail/emailsent');
 		} else {
-			register_error(elgg_echo("registerbad")); 
+			register_error(elgg_echo("registerbad"));
+      forward(elgg_get_site_url() . 'register'); 
 		}
 	} catch (RegistrationException $r) {
 		register_error($r->getMessage());   

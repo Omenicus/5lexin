@@ -14,7 +14,7 @@ gatekeeper();
 
 // get the form input
 $description = get_input('description');
-$$user_name = get_input('user_name');
+$user_name = get_input('user_name');
 //elgg_get_logged_in_user_entity()->name=$name;
 
 // create a new object
@@ -32,7 +32,8 @@ $rWork->owner_guid = elgg_get_logged_in_user_guid();
 $rWork->container_guid =$rWork->owner_guid;
 
 $user=elgg_get_logged_in_user_entity();
-$user->name=$$user_name;
+if( $user_name )
+  $user->name=$$user_name;
 
 // save to database
 if($rWork->save()&&$user->save())

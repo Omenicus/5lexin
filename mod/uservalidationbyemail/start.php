@@ -21,7 +21,7 @@ function uservalidationbyemail_init() {
 	elgg_register_plugin_hook_handler('register', 'user', 'uservalidationbyemail_disable_new_user');
 
 	// forward to uservalidationbyemail/emailsent page after register
-	elgg_register_plugin_hook_handler('forward', 'system', 'uservalidationbyemail_after_registration_url');
+	//elgg_register_plugin_hook_handler('forward', 'system', 'uservalidationbyemail_after_registration_url');
 
 	// canEdit override to allow not logged in code to disable a user
 	elgg_register_plugin_hook_handler('permissions_check', 'user', 'uservalidationbyemail_allow_new_user_can_edit');
@@ -49,6 +49,7 @@ function uservalidationbyemail_init() {
 
 	$action_path = dirname(__FILE__) . '/actions';
 
+  elgg_register_action('register', "$action_path/register.php", 'public');
 	elgg_register_action('uservalidationbyemail/validate', "$action_path/validate.php", 'admin');
 	elgg_register_action('uservalidationbyemail/resend_validation', "$action_path/resend_validation.php", 'admin');
 	elgg_register_action('uservalidationbyemail/delete', "$action_path/delete.php", 'admin');
