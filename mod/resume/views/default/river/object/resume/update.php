@@ -6,16 +6,16 @@
   $excerpt = thewire_filter($excerpt);
   
   $subject = $vars['item']->getSubjectEntity();
-  //if ($subject instanceof ElggUser) {
+  if ($subject instanceof ElggUser) {
     $subject_text="";
     if( $subject->organisation )
       $subject_text.= $subject->organisation;
     if( $subject->jobtitle )
       $subject_text.= $subject->jobtitle;  
     $subject_text.= $subject->name;  
-  //}
-  //else
-  //  $subjectt_text = $subject->title ? $subject->title : $subject->name;
+  }
+  else
+    $subject_text = $subject->title ? $subject->title : $subject->name;
   $subject_link = elgg_view('output/url', array(
   	'href' => $subject->getURL(),
   	'text' => $subject_text,//$subject->name,
