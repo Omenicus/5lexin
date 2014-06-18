@@ -31,7 +31,8 @@
   $entities=elgg_get_entities_from_metadata($query_options);
   $result = array();
   foreach($entities as $entity){	
-		$result[] = array("type" => $type, "value" => $entity->name,"content" =>  $entity->id, "name" => $entity->id);
+    if( $entity==null || $entity->name==null || $entity->id==null )    continue;
+		$result[] = array("type" => $type, "value" => $entity->title,"content" =>  $entity->guid, "name" => $entity->guid);
 	}	
   
 	header("Content-Type: application/json");
