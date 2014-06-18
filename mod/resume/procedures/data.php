@@ -31,7 +31,7 @@
   $entities=elgg_get_entities_from_metadata($query_options);
   $result = array();
   foreach($entities as $entity){	
-    if( $entity==null || $entity->name==null || $entity->id==null )    continue;
+    if( $entity==null || $entity->title==null || $entity->guid==null )    continue;
 		$result[] = array("type" => $type, "value" => $entity->title,"content" =>  $entity->guid, "name" => $entity->guid);
 	}	
   
