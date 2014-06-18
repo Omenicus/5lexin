@@ -97,19 +97,20 @@ else
     //$user->organisationid=$rComp->getGUID();
     //$user->organisation=$organisation;
     //$user->save();
-    elgg_delete_metadata(array(
-            'guid' => $user->getGUID(),
-            'metadata_name' => array("organisationid","organisation","title")
-    ));
     create_metadata_from_array($user->getGUID(),array(
-      "organisationid"=> $rComp->getGUID(),
-      "organisation"=>$organisation,
-      "jobtitle"=>$jobtitle
+      "organisationid"=> $rComp->getGUID()
     ));
    
   }
 }
-
+elgg_delete_metadata(array(
+        'guid' => $user->getGUID(),
+        'metadata_name' => array("organisationid","organisation","title")
+));
+create_metadata_from_array($user->getGUID(),array(
+  "organisation"=>$organisation,
+  "jobtitle"=>$jobtitle
+));
 
 // save to database
 if($rWork->save())

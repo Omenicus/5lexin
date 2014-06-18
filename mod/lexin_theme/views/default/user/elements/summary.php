@@ -64,13 +64,13 @@ $orgid=elgg_get_metadata(array( 'metadata_name' => 'organisationid', 'metadata_o
 if( $org && $orgid)
 {
   //$jobtitle.=  "-1-";
-  $company=get_entity($orgid[0]->value);
+  $company=get_entity($orgid[count($orgid)-1]->value);
   $jobtitle.=  ' - <a href="'.$company->getURL().'">'.$company->title.'</a>';
 }
 elseif( $org )
 {
   //$jobtitle.=  "-2-".count($org);
-  $jobtitle.= ' - '.$org[0]->value;
+  $jobtitle.= ' - '.$org[count($orgid)-1]->value;
 }
 
 echo "<div class=\"elgg-subtext\">$jobtitle</div>";
