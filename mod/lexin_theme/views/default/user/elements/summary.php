@@ -65,7 +65,7 @@ if( $org && $orgid)
 {
   //$jobtitle.=  "-1-";
   $company=get_entity($orgid[0]->value);
-  $jobtitle.=  ' - <a href="'.$company->getURL().'">'.$company->name.'</a>';
+  $jobtitle.=  ' - <a href="'.$company->getURL().'">'.$company->title.'</a>';
 }
 elseif( $org )
 {
