@@ -112,7 +112,7 @@ $zh = array(
     'resume:search:workdetail' => "岗位, 公司，描述",
     'resume:menu:index'=>'首页',
     'lexin:powered'=>'乐新',
-    'lexin:subtitle'=>'  --  每天的学习思考分享就是我最真实的简历',
+    'lexin:subtitle'=>'  -  每天的分享就是我最真实的简历',
     'lexin:powered:desc'=>' - 发现创新路上的企业和工程师',            
     'lexin:powered:desc2'=>'八百家成长性企业, 三万顶尖工程师, 展示知识和思想的变迁, 碰撞技术和灵感的火花',
     
