@@ -32,7 +32,7 @@ $query_options = array(
 
 //$entities=elgg_list_entities_from_metadata($query_options);
 $list=elgg_get_entities($query_options);
-if(count($list) >0)
+if($object_guid == NULL&&count($list) >0)
 {
   system_message(elgg_echo('company:exist'));
   forward($_SERVER['HTTP_REFERER']);
