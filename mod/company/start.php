@@ -107,6 +107,18 @@ function company_page_menu($hook, $type, $return, $params) {
     
       }
        
+    }else
+    if (elgg_in_context( "jobinfo")) 
+    {
+      elgg_register_menu_item('page', array('name' => '132_company_add','href' => "comp/new",'text' => elgg_echo('company:addcompany')));    	  
+      $entity=$params['entity'];
+      $comp=get_entity($entity->company_guid);
+      if(elgg_instanceof($comp, 'object', 'company')&&$comp->canEdit())//elgg_get_logged_in_user_entity()->getGUID()))
+      {
+         elgg_register_menu_item('page', array('name' => '133_company_addjob','href' => "comp/newjob/".$comp->getGUID(),'text' => elgg_echo('company:addjob')));
+    
+      }
+       
     }
     	
 	}
@@ -188,7 +200,7 @@ function company_page_handler($page) {
                 include($CONFIG->pluginspath . 'company/views/default/company/pages/edit.php');
                 break;
             case 'editjob' :
-                elgg_set_context('companyinfo');
+                elgg_set_context('jobinfo');
                 set_input('job_guid', $page[1]);
                 include($CONFIG->pluginspath . 'company/views/default/company/pages/editjob.php');
                 break;
@@ -208,7 +220,7 @@ function company_page_handler($page) {
                 include($CONFIG->pluginspath . 'company/views/default/company/pages/company.php');
                 break;
             case 'viewjob' :
-                elgg_set_context('companyinfo');
+                elgg_set_context('jobinfo');
                 set_input('job_guid', $page[1]);
                 include($CONFIG->pluginspath . 'company/views/default/company/pages/job.php');
                 break;
