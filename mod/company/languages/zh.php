@@ -18,6 +18,7 @@ $zh = array(
     'company:addcompany' => '录入公司',
     'company:newlisting' => '录入新公司',
     'company:editlisting' => '编辑公司详情',
+    'company:editlistingjob' => '编辑岗位',
     'company:editbutton' => '编辑',
     'company:tabname:detail' => '公司详情',
     'company:tabname:jobs' => '招聘职位',

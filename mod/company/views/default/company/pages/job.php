@@ -29,7 +29,7 @@ $job = get_entity($job_guid);
   	'title' => $area1,
   	'filter' => '',
   ));
-  
-  echo elgg_view_page($job->title, $body);
+  $title=($job->title).'-'.$job->comp_name;
+  echo elgg_view_page($title, $body);
 
 ?>

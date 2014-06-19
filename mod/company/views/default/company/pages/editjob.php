@@ -7,7 +7,7 @@ $job = get_entity($job_guid);
 $company_guid = $job->company_guid;
 $company = get_entity($company_guid);
 
-$title = elgg_echo('company:editlisting');
+
 $header = elgg_view('page_elements/title', array('title' => $title));
 if ($job && $job->canEdit()) {
     $body = elgg_view('company/forms/editjob', array('entity' => $job, 'user' => elgg_get_logged_in_user_entity(),'company'=>$company));
@@ -25,7 +25,7 @@ $body = elgg_view_layout('two_column_left_sidebar', array(
 	'title' => $title,
 	'filter' => '',
 ));
-
+$title=elgg_echo('company:editlistingjob').':'.($job->title).'-'.$job->comp_name;
 echo elgg_view_page($title, $body);
 ?>
 
