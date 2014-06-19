@@ -38,4 +38,5 @@
 	header("Cache-Control: public");
 	header("Content-Length: " . strlen($contents));
 	echo $contents;
+  exit;
 ?>
