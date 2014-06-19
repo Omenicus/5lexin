@@ -41,7 +41,7 @@ if($object_guid == NULL&&count($list) >0)
 $company = new ElggCompany($object_guid);
 //$company->subtype = 'company';
 //$company->owner_guid = $user_guid;
-if( $object_guid && $user_guid != $company->getGUID())
+if( $object_guid && !($company->canEdit()))//$user_guid != $company->getGUID())
 {
   system_message(elgg_echo('company:cannotedit'));
   forward($_SERVER['HTTP_REFERER']);

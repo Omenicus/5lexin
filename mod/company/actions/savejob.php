@@ -17,7 +17,7 @@ if ($object_guid == '') {
 $access_id = (int) get_input('access_id');
 
 $job = new ElggJob($object_guid);
-if( $object_guid && $user_guid != $company->getGUID())
+if( $object_guid && !($job->canEdit()))//$user_guid != $company->getGUID())
 {
   system_message(elgg_echo('company:cannotedit'));
   forward($_SERVER['HTTP_REFERER']);
@@ -55,7 +55,7 @@ if ($object_guid == NULL or $job->canEdit()) {
 
 
 if ($result) {
-    system_message(elgg_echo('company:savesuccess').$job->guid);
+    system_message(elgg_echo('company:savejobsuccess'));
     //add_to_river('river/object/company/' . $action, 'update', $user->guid, $job->guid);
     
     elgg_create_river_item(array(

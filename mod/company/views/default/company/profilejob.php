@@ -25,6 +25,8 @@ $site_url = elgg_get_site_url();
       ?>
        <?php
             foreach ($fields as $ref => $value) {
+              if( $value['section']!="comp")
+              {
                 if ($ref=="title")//($company->$ref && $value['section'] == 'contacts') 
                 {   
                     echo '<div class="company_' . $ref . '"><b >';
@@ -40,6 +42,20 @@ $site_url = elgg_get_site_url();
                     echo elgg_view('output/' . $value['type'], array('value' => $job->$ref));
                     echo '</span></div>';
                 }
+              }
+                
+            }
+            foreach ($fields as $ref => $value) {
+              if( $value['section']=="comp")
+              {
+                if( $job->$ref )
+                {
+                    echo '<div class="company_' . $ref . '"><b >';
+                    echo $value['display_name'] . ':</b><span> ';
+                    echo elgg_view('output/' . $value['type'], array('value' => $job->$ref));
+                    echo '</span></div>';
+                }
+              }
             }
     ?>
             <div class="search_listing_extras">
