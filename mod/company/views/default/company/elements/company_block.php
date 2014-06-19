@@ -15,7 +15,7 @@ if (elgg_is_logged_in()) {
   if( $metadata )
   {  
     $company_current=get_entity($metadata[count($metadata)-1]->value);//count($metadata)>1?$metadata[0]->value:$metadata->value);
-    $body=  '<a href="'.$company_current->getURL().'">'.$company_current->name.'</a>';
+    $body=  '<a href="'.$company_current->getURL().'">'.$company_current->title.'</a>';
     
   }
   else
@@ -48,7 +48,7 @@ $options = array(
   'owner_guids'=>array($user->getGUID()),
 	//'wheres' => array()
 );
-
+$html='';
 $entities=elgg_get_entities($options);
 if( $entities )
 {
@@ -65,13 +65,13 @@ if( $entities )
   $html .= "<ul class=\"$list_class\">";
   foreach( $entities as $entity)
   {
-    $li = '<a href="'.$entity->getURL().'">'.$entity->name.'</a>';
+    $li = '<a href="'.$entity->getURL().'">'.$entity->title.'</a>';
     $id = "item-{$entity->getType()}-{$entity->id}";
     $html .= "<li id=\"$id\" class=\"$item_classes\">$li</li>";
   }
   $html .= '</ul>';
-  echo elgg_view_module('aside', elgg_echo("company:mycompanies"), $html);
+  
 }
-
+echo elgg_view_module('aside', elgg_echo("company:mycompanies"), $html);
 }
 

@@ -1,6 +1,7 @@
 <?php
   $object = $vars['item']->getObjectEntity();
-  $excerpt = strip_tags(elgg_get_excerpt($object->description));
+  $excerpt = strip_tags($object->description);
+  $excerpt = elgg_get_excerpt($excerpt);
   //$excerpt = thewire_filter($excerpt);
   
   $subject = $vars['item']->getSubjectEntity();

@@ -42,7 +42,13 @@ $company = new ElggCompany($object_guid);
 //$company->subtype = 'company';
 //$company->owner_guid = $user_guid;
 $company->access_id = ACCESS_PUBLIC;//get_input('access_id');
-$company->owner_guid = $user_guid;//elgg_get_logged_in_user_guid();
+if( $object_guid && $user_guid != $company->getGUID())
+{
+  system_message(elgg_echo('company:cannotedit'));
+  forward($_SERVER['HTTP_REFERER']);
+}
+if( $object_guid == NULL )
+  $company->owner_guid = $user_guid;//elgg_get_logged_in_user_guid();
 
 $fields = getCompanyFields();
 
