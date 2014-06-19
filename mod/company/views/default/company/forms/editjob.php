@@ -33,7 +33,7 @@ $site_url = elgg_get_site_url();
     <?php
     echo elgg_view('input/securitytoken');
     
-    $vars['entity']->comp_name= $vars['company']->name;
+    $vars['entity']->comp_name= $vars['company']->title;
     $vars['entity']->comp_description= $vars['company']->description;
     $vars['entity']->comp_industry= $vars['company']->industry;
     foreach ($fields as $ref => $value) {

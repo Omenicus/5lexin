@@ -17,8 +17,14 @@ if ($object_guid == '') {
 $access_id = (int) get_input('access_id');
 
 $job = new ElggJob($object_guid);
+if( $object_guid && $user_guid != $company->getGUID())
+{
+  system_message(elgg_echo('company:cannotedit'));
+  forward($_SERVER['HTTP_REFERER']);
+}
 //$job->subtype = 'company';
-$job->owner_guid = $user_guid;
+if( $object_guid == NULL )
+  $job->owner_guid = $user_guid;
 $job->access_id = ACCESS_PUBLIC;//get_input('access_id');
 
 $fields = getJobFields();
