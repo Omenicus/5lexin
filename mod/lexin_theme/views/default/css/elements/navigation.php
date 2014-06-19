@@ -508,3 +508,12 @@
 .elgg-menu-widget > .elgg-menu-item-settings {
 	right: 32px;
 }
+.hide {
+display:none;
+}
+.show {
+display:block;
+}
+.elgg-more {
+    width: 85px;
+}

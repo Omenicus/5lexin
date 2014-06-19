@@ -3,7 +3,7 @@
 global $CONFIG;
 gatekeeper();
 
-$user_guid = get_input('user_guid');
+$user_guid = elgg_get_logged_in_user_guid();//get_input('user_guid');
 $user = get_entity($user_guid);
 
 $object_guid = (int) get_input('object_guid');
@@ -40,9 +40,9 @@ if(count($list) >0)
 
 $company = new ElggCompany($object_guid);
 //$company->subtype = 'company';
-$company->owner_guid = $user_guid;
+//$company->owner_guid = $user_guid;
 $company->access_id = ACCESS_PUBLIC;//get_input('access_id');
-$company->owner_guid = elgg_get_logged_in_user_guid();
+$company->owner_guid = $user_guid;//elgg_get_logged_in_user_guid();
 
 $fields = getCompanyFields();
 

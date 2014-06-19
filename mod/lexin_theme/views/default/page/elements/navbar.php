@@ -28,10 +28,15 @@ echo elgg_view('core/account/login_dropdown');
 </a>
 
 <div class="elgg-nav-collapse">
-	<?php if (elgg_is_logged_in()) echo elgg_view_menu('site'); 
-  else{  
+	<?php if (elgg_is_logged_in()) echo elgg_view_menu('site',array('class'=>'hide')); 
+  else{
+      
   ?>
+  <div class="hide" style="float:left;">
+  <?php  echo elgg_view_menu('site');  ?>
+  </div>
   <div style="position: relative;float:left;top: 0;z-index: 100;">
+  
   <span style="padding: 14px 0px;background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: medium none;
     border-radius: 0;
@@ -41,8 +46,8 @@ echo elgg_view('core/account/login_dropdown');
     margin-left: 0;
     position: relative;
     text-decoration: none;"><?php echo (elgg_get_site_entity()->name).elgg_echo('lexin:subtitle'); ?> </span>
-</div>
-  
+  </div>
+
   <?php
   }
   ?>

@@ -11,13 +11,26 @@ if (elgg_is_logged_in()) {
          "metadata_name" =>"organisationid",
   			//'limit' => 1,
   		));
+  $body='';
   if( $metadata )
   {  
-    $company_current=get_entity($metadata[0]->value);//count($metadata)>1?$metadata[0]->value:$metadata->value);
+    $company_current=get_entity($metadata[count($metadata)-1]->value);//count($metadata)>1?$metadata[0]->value:$metadata->value);
     $body=  '<a href="'.$company_current->getURL().'">'.$company_current->name.'</a>';
-    echo elgg_view_module('aside', elgg_echo("company:workfor"), $body);
+    
   }
-
+  else
+  {
+    $metadata = elgg_get_metadata(array(
+  			'guid' => $user->getGUID(),
+         "metadata_name" =>"organisation",
+  			//'limit' => 1,
+  		));
+    if( $metadata )
+    {
+      $body= $metadata[count($metadata)-1]->value;
+    }  
+  }
+  echo elgg_view_module('aside', elgg_echo("company:workfor"), $body);
 
 $options = array(
 	'type' => 'object',

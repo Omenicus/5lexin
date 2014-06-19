@@ -62,6 +62,7 @@ $query_options = array(
 //$entities=elgg_list_entities_from_metadata($query_options);
 $list=elgg_get_entities($query_options);
 $rComp=NULL;
+$user=elgg_get_logged_in_user_entity();
 if( !$list||count($list)==0) 
 {
   /*$rComp = new ElggObject();
@@ -91,26 +92,32 @@ else
   if($rWork->endyear == "now")
   {
     
-    $user=elgg_get_logged_in_user_entity();
+    
     add_entity_relationship($rComp->getGUID(), 'member', $user->getGUID());
     
     //$user->organisationid=$rComp->getGUID();
     //$user->organisation=$organisation;
     //$user->save();
-    create_metadata_from_array($user->getGUID(),array(
-      "organisationid"=> $rComp->getGUID()
-    ));
+    
    
   }
 }
-elgg_delete_metadata(array(
+if( $endyear=="now")
+{
+  elgg_delete_metadata(array(
         'guid' => $user->getGUID(),
         'metadata_name' => array("organisationid","organisation","title")
-));
-create_metadata_from_array($user->getGUID(),array(
-  "organisation"=>$organisation,
-  "jobtitle"=>$jobtitle
-));
+  ));
+  if( $rComp )
+    create_metadata_from_array($user->getGUID(),array(
+          "organisationid"=> $rComp->getGUID()
+        ));
+  create_metadata_from_array($user->getGUID(),array(
+    "organisation"=>$organisation,
+    "jobtitle"=>$jobtitle
+  ));
+}
+
 
 // save to database
 if($rWork->save())
