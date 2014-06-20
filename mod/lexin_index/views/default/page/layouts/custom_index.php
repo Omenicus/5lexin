@@ -12,7 +12,7 @@ elgg_load_css('custom_css');
 ?>
 
 <div class="custom-index elgg-main elgg-grid clearfix">
-	<div class="elgg-col elgg-col-1of2 custom-index-col1">
+	<div class="elgg-col elgg-col-60of100 custom-index-col1">
 		<div class="elgg-inner pvm">
 <?php
 // left column
@@ -33,7 +33,7 @@ if (elgg_is_active_plugin('blog')) {
 ?>
 		</div>
 	</div>
-	<div class="elgg-col elgg-col-2of2 custom-index-col2">
+	<div class="elgg-col elgg-col-35of100 custom-index-col2">
 		<div class="elgg-inner pvm">
 <?php
 // right column

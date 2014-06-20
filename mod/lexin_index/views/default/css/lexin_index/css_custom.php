@@ -47,3 +47,9 @@
 .elgg-image-block {
     padding: 0 0;
 }
+.elgg-col-60of100 {
+  width:60%; 
+}
+.elgg-col-35of100 {
+  width:35%;  
+}
