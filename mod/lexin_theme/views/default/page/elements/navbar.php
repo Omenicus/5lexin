@@ -28,7 +28,8 @@ echo elgg_view('core/account/login_dropdown');
 </a>
 
 <div class="elgg-nav-collapse">
-	<?php if (elgg_is_logged_in()) echo elgg_view_menu('site',array('class'=>'hide')); 
+	<?php if (true)//elgg_is_logged_in()) 
+  echo elgg_view_menu('site',array('class'=>'hide')); 
   else{
       
   ?>

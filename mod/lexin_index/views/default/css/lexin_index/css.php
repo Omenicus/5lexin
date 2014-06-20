@@ -28,7 +28,7 @@
   min-height:632px;
 }
 .elgg-col-1of2 {
-    width: 30%;
+   
 }
 
 .custom-index > .elgg-col {

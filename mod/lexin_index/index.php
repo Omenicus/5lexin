@@ -59,7 +59,7 @@ $params = array(
 	'login' => $login,
 	'members' => $newest_members,
 ); 
-$body = elgg_view_layout('lexin_index', $params);
+$body = elgg_view_layout('custom_index', $params);
 
 // no RSS feed with a "widget" front page
 global $autofeed;
