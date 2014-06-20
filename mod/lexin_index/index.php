@@ -29,7 +29,18 @@ $list_params['subtype'] = 'file';
 $files = elgg_list_entities($list_params);
 
 //get the newest members who have an avatar
-$newest_members = elgg_get_entities_from_metadata(array(
+$params=array(
+	'metadata_names' => 'icontime',
+	'type' => 'user',
+	'limit' => 10,
+	'full_view' => false,
+	'pagination' => false,
+	//'list_type' => 'gallery',
+	//'gallery_class' => 'elgg-gallery-users',
+	'size' => 'small',
+);
+$newest_members = elgg_list_entities_from_metadata($params);
+$params=array(
 	'metadata_names' => 'icontime',
 	'type' => 'user',
 	'limit' => 10,
@@ -38,8 +49,9 @@ $newest_members = elgg_get_entities_from_metadata(array(
 	'list_type' => 'gallery',
 	'gallery_class' => 'elgg-gallery-users',
 	'size' => 'small',
-));
-
+);
+//$vars['page'] = 'newest';
+//$newest_members=elgg_trigger_plugin_hook('members:list', 'newest', $params, null);
 //newest groups
 $list_params['type'] = 'group';
 unset($list_params['subtype']);
