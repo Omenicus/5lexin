@@ -14,7 +14,7 @@
   
   $object_link = elgg_view('output/url', array(
   	'href' => "comp/view/$object->guid",// owner/$subject->username,
-  	'text' => $object->name,
+  	'text' => $object->title,
   	'class' => 'elgg-river-object',
   	'is_trusted' => true,
   ));

@@ -18,6 +18,7 @@ if ($site = elgg_get_site_entity()) {
 	$site->description = get_input('sitedescription');
 	$site->name = strip_tags(get_input('sitename'));
 	$site->email = get_input('siteemail');
+  $site->keywords = get_input('keywords');
 	$site->save();
 
 	set_config('language', get_input('language'), $site->getGUID());

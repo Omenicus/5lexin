@@ -40,9 +40,10 @@ $site_url = elgg_get_site_url();
                           echo '<div class="company_' . $ref . '"><b >';
                           echo $value['display_name'] . ':</b><span> ';
                           echo elgg_view('output/' . $value['type'], array('value' => $company->$ref));
-                          echo '</span></div>';
+                          echo '</span></div>';  
                       }
                   }
+                  echo elgg_get_config('sitedescription');              
           ?>
                   <div class="search_listing_extras">
               <?php echo elgg_view("elggx_fivestar/elggx_fivestar", array('entity' => $vars['entity'])); ?>
