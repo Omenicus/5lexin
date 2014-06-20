@@ -53,7 +53,7 @@ margin:10px 0;
 }
 
 #company_profile div {
-margin:5px 0;
+margin:5px;
 }
 
 #company_map {

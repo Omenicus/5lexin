@@ -61,20 +61,17 @@ $site_url = elgg_get_site_url();
             <div class="search_listing_extras">
         <?php echo elgg_view("elggx_fivestar/elggx_fivestar", array('entity' => $vars['entity'])); ?>
         </div>
-
+        <div>
         <p class="owner_timestamp">
         <?php
             $owner = get_entity($job->owner_guid);
             $imprint = elgg_echo('company:addedby') . ' ';
-            $imprint .= '<a href="' . $owner->getURL() . '">' . $owner->name . '</a> ';
-            if (elgg_is_active_plugin('hypeCategories')) {
-                $imprint .= elgg_echo('company:incategory') . ' ';
-                $imprint .= elgg_view('output/category', array('entity' => $company));
-            }
+            //$imprint .= '<a href="' . $owner->getURL() . '">' . $owner->name . '</a> ';
+            $imprint .=elgg_view_entity($owner, array('full_view' => false,size=>'small'));
             echo $imprint;
         ?>
         </p>
-    
+        </div>
   </div>
 </div>
 <?php
