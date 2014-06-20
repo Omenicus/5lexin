@@ -40,6 +40,7 @@ $zh = array(
     'company:addedby' => '创建者',
     'company:incategory' => '类别',
     'company:latest' => '最近加入的企业',
+    'company:latestjob' => '最近发布的职位',
     'company:filtertext' => '过滤: 请输入关键词',
     'company:jobscount' => '%s 发布的职位',
     'company:nolocationidentified' => 'We could not identify your current location. Where are you now?',

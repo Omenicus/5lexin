@@ -40,3 +40,10 @@
 .custom-index .elgg-module {
    background: none repeat scroll 0 0 #FFFFFF;
 }
+
+.filter_area{
+
+}
+.elgg-image-block {
+    padding: 0 0;
+}

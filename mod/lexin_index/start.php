@@ -16,6 +16,7 @@ function lexin_index_init() {
 	elgg_register_css('custom_css', elgg_get_simplecache_url('css', 'lexin_index/css_custom'));
 	// Replace the default index page
 	elgg_register_page_handler('', 'lexin_index');
+  elgg_register_page_handler('index', 'index');
 }
 
 /**
@@ -24,9 +25,17 @@ function lexin_index_init() {
  * @return bool Whether the page was sent.
  */
 function lexin_index() {
+	if (!include_once(dirname(__FILE__) . "/lexin_index.php")) {
+		return false;
+	}
+
+	return true;
+}
+function index() {
 	if (!include_once(dirname(__FILE__) . "/index.php")) {
 		return false;
 	}
 
 	return true;
 }
+

@@ -35,6 +35,7 @@ function company_init() {
 
     elgg_extend_view('page_elements/header', 'company/maps/metatags');
     elgg_extend_view('index/righthandside', 'company/latest');
+    elgg_extend_view('index/lefthandside', 'company/latestjob');
 
     //elgg_register_menu_item(elgg_echo('company:menu'), $CONFIG->wwwroot . 'comp/all');
     elgg_register_menu_item('site', array(

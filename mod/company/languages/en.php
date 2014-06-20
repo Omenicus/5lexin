@@ -34,6 +34,7 @@ $english = array(
     'company:addedby' => 'Added by',
     'company:incategory' => 'in category',
     'company:latest' => 'Latest companies',
+    'company:latestjob' => 'Latest jobs',
     'company:filtertext' => 'Filter: type in your keyword',
     'company:jobscount' => '%s job listings',
     'company:nolocationidentified' => 'We could not identify your current location. Where are you now?',

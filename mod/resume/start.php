@@ -46,7 +46,7 @@ function resume_init() {
     elgg_register_menu_item('site', array(
   		'name' => 'index',
   		'text' => elgg_echo('resume:menu:index'),
-  		'href' => elgg_get_site_url()
+  		'href' => elgg_get_site_url().'index',
   	));    
 
      
@@ -55,7 +55,7 @@ function resume_init() {
     elgg_register_menu_item('footer', ElggMenuItem::factory(array(
   		'name' => 'powered',
   		'text' => elgg_echo("lexin:powered"),
-  		'href' => 'http://5lexin.com',
+  		'href' => elgg_get_site_url(),
   		'title' => elgg_echo("lexin:powered"),
   		'section' => 'meta',
   	))); 
