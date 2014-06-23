@@ -44,8 +44,8 @@ return array(
 	'groups:membership' => "加群权限",
 	'groups:content_access_mode' => "群内容访问",
 	'groups:content_access_mode:warning' => "警告：改变这个设置不会改变已有内容的访问权限",
-	'groups:content_access_mode:unrestricted' => "无限制 - 由群内容决定",
-	'groups:content_access_mode:membersonly' => "仅允许成员 - 非群成员不能访问群内容",
+	'groups:content_access_mode:unrestricted' => "无限制 - 由群成员发布内容决定",
+	'groups:content_access_mode:membersonly' => "仅允许成员 - 非群成员不能访问群的任何内容，只能看到群标题",
 	'groups:access' => "访问权限",
 	'groups:owner' => "所有者",
 	'groups:owner:warning' => "警告: 如果改变该值，你将不再是该群的所有者。",
@@ -139,11 +139,11 @@ return array(
 	/**
 	 * Access
 	 */
-	'groups:access:private' => '关闭 - 成员必须被邀请',
-	'groups:access:public' => '开放 - 任何人可以加入',
+	'groups:access:private' => '关闭 - 成员必须被邀请加入，或加入申请被管理员批准',
+	'groups:access:public' => '开放 - 任何人可以自由加入',
 	'groups:access:group' => '仅群成员',
 	'groups:closedgroup' => '该群是封闭的.',
-	'groups:closedgroup:request' => '要请求加入, 点击 "申请加入" ',
+	'groups:closedgroup:request' => '要加入该群组, 点击 "申请加入"后等待批准 ',
 	'groups:closedgroup:membersonly' => '该群是封闭的并且只有成员可以访问',
 	'groups:opengroup:membersonly' => '该群只有成员可以访问',
 	'groups:opengroup:membersonly:join' => '要加入, 点击 "加入群"',
