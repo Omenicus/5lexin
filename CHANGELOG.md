@@ -1,3 +1,47 @@
+<a name="1.9.0-rc.3"></a>
+### 1.9.0-rc.3  (2014-06-23)
+
+#### Contributors
+
+* Evan Winslow (4)
+* Paweł Sroka (1)
+* Per Jensen (1)
+* RiverVanRain (1)
+
+#### Bug Fixes
+
+* **a11y:**
+  * Add semantic structure to installer page layout ([f446e6f1](https://github.com/Elgg/Elgg/commit/f446e6f1ad328fb8573b947fd7a2f0d52cb31955))
+  * Use HTML5 form features on install forms ([434efa22](https://github.com/Elgg/Elgg/commit/434efa22228fa1217553951b68ccdff0959ed3a7))
+  * Label form fields in installer correctly ([dff254a9](https://github.com/Elgg/Elgg/commit/dff254a9417525660234b7aab5f165cbf11b7bde))
+* **aalborg_theme:** removes unwanted  margins ([b972402d](https://github.com/Elgg/Elgg/commit/b972402da3822abf59fdee5f6126a53f52c1fe48))
+* **replies:** Show reply's link on river ([5fc031a5](https://github.com/Elgg/Elgg/commit/5fc031a574543f914ff0694b447a7ab399f0a2e5))
+
+
+<a name="1.9.0-rc.2"></a>
+### 1.9.0-rc.2  (2014-06-09)
+
+#### Contributors
+
+* Evan Winslow (11)
+* Per Jensen (4)
+* Paweł Sroka (2)
+* Jeroen Dalsem (1)
+* John Supplee (1)
+
+#### Bug Fixes
+
+* **UserPicker:** no messages in userpicker due to lack of i18n ([7d7a7d5e](https://github.com/Elgg/Elgg/commit/7d7a7d5eedb22d6370c3adb5118da27523c6e4fc))
+* **aalborg_theme:**
+  * emphasizes sidebar navigation ([6ae2148c](https://github.com/Elgg/Elgg/commit/6ae2148c6a7b8fde1ead97f3d90dc1a039ebf44f), closes [#6874](https://github.com/Elgg/Elgg/issues/6874))
+  * Support fullscreen mode if user adds app to homescreen ([2a193078](https://github.com/Elgg/Elgg/commit/2a193078f86bc700311df5f95369b8bdd7110336), closes [#6896](https://github.com/Elgg/Elgg/issues/6896))
+  * show dashboard menu item only when logged in ([c3e0fcb8](https://github.com/Elgg/Elgg/commit/c3e0fcb8a0f2928ba8ada6ce9fff677765d701c8))
+  * inconsistency between owner-block and page menu ([f54048a5](https://github.com/Elgg/Elgg/commit/f54048a5511cf8054006d474a18ebdcfef233b6e))
+  * only pass body_attrs if they are set ([6ab77862](https://github.com/Elgg/Elgg/commit/6ab77862ee899a54d59086d8cf625846210fea4b))
+* **deprecated:** Corrected invalid deprecation notice and added more details to few others ([5d78e2b1](https://github.com/Elgg/Elgg/commit/5d78e2b13d886bfb02ec13a014116adb4aa123df), closes [#6869](https://github.com/Elgg/Elgg/issues/6869))
+* **docs:** Inline refs use @link instead of @see ([50b0e39e](https://github.com/Elgg/Elgg/commit/50b0e39e8ed3e0bdc916327848c7a0e40ca426b0))
+
+
 <a name="1.9.0-rc.1"></a>
 ### 1.9.0-rc.1  (2014-05-19)
 
@@ -244,7 +288,6 @@
 * Lots of spit and polish
 * New responsive theme - aalborg_theme
 * Drops support for IE6
-* Adds image uploading from editor
 * Replaces fancybox lightbox with colorbox
 * Replaces Tinymce editor with CKEditor
 * Liking and friending use ajax
@@ -323,7 +366,6 @@
 * Adds elgg_format_element() for creating HTML elements
 * ElggFile::getSize() replaces ElggFile::size()
 * Defaults to full_view = false in elgg_list_entities* functions
-* Allows passing $params to event handlers
 * Allows views to be accessed via URL and cacheable
 * Columns added to entity query functions are available in returned entities
 * Separates some events into :before/:after
