@@ -2072,7 +2072,7 @@ class Securimage
                 $code_entered = preg_replace('/\s+/', ' ', $code_entered);
                 $code_entered = strtolower($code_entered);
             }
-
+            register_error("code:".$code." entered:".$code_entered);
             if ($code == $code_entered) {
                 $this->correct_code = true;
                 if ($this->no_session != true) {
