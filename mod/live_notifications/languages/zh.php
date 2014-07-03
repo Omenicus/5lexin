@@ -8,6 +8,7 @@ $zh = array(
 	'live_notifications:group:create:blog' => '%s 在群 %s 中发表了新博客 ',
 	'live_notifications:group:create:file' => '%s 在群 %s 中上传了新文件 ',
 	'live_notifications:group:create:wire' => '%s 在群 %s 中发表了新微薄 ',
+  'live_notifications:group:create:thewire' => '%s 在群 %s 中发表了新微薄 ',
 	'live_notifications:group:create:answer' => '%s 在群 %s 中发表了新问题 ',
 	'live_notifications:group:create:river' => '%s 在群 %s 中发表了新内容 ',
 	'live_notifications:group:create:groupforumtopic' => '%s 在群 %s 中发起了新讨论 ',

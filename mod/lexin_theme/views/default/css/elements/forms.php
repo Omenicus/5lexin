@@ -351,3 +351,6 @@ input[type="radio"] {
 	background: #E4ECF5;
 }
 
+.elgg-form-thewire-add{
+  margin-bottom: 10px;
+}

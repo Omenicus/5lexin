@@ -8,6 +8,7 @@ $english = array(
 	'live_notifications:group:create:blog' => '%s posted a new blog in the %s group ',
 	'live_notifications:group:create:file' => '%s posted a new file in the %s group ',
 	'live_notifications:group:create:wire' => '%s posted a new wire in the %s group ',
+  'live_notifications:group:create:thewire' => '%s posted a new wire in the %s group ',
 	'live_notifications:group:create:answer' => '%s posted a new answer in the %s group ',
 	'live_notifications:group:create:river' => '%s posted a new resource in the %s group ',
 	'live_notifications:group:create:groupforumtopic' => '%s has created a new discussion in the %s group ',

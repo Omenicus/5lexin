@@ -114,7 +114,8 @@ $zh = array(
     'lexin:powered'=>'乐新',
     'lexin:subtitle'=>'  -  每天都在撰写简历',
     'lexin:powered:desc'=>' - 发现创新路上的企业和工程师',            
-    'lexin:powered:desc2'=>'八百家成长性企业, 三万顶尖工程师, 展示知识和思想的变迁, 碰撞技术和灵感的火花',
+    'lexin:powered:desc2'=>'展示知识和思想的变迁, 碰撞技术和灵感的火花',
+    //八百家成长性企业, 三万顶尖工程师, 
     
     
 );

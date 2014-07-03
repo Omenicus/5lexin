@@ -10,7 +10,7 @@ elgg_push_context('widgets');
 
 $list_params = array(
 	'type' => 'object',
-	'limit' => 4,
+	'limit' => 5,
 	'full_view' => false,
 	'list_type_toggle' => false,
 	'pagination' => false,
@@ -27,6 +27,14 @@ $bookmarks = elgg_list_entities($list_params);
 //grab the latest files
 $list_params['subtype'] = 'file';
 $files = elgg_list_entities($list_params);
+
+//grab the latest comments
+$list_params['subtype'] = 'comment';
+$comments = elgg_list_entities($list_params);
+
+//grab the latest comments
+$list_params['subtype'] = 'thewire';
+$thewires = elgg_list_entities($list_params);
 
 //get the newest members who have an avatar
 $params=array(
@@ -70,6 +78,8 @@ $params = array(
 	'groups' => $groups,
 	'login' => $login,
 	'members' => $newest_members,
+  'comments' => $comments,
+  'thewires' => $thewires,
 ); 
 $body = elgg_view_layout('custom_index', $params);
 

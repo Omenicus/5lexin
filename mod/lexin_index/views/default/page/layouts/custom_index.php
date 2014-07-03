@@ -17,17 +17,17 @@ elgg_load_css('custom_css');
 <?php
 // left column
 
-
-
-// a view for plugins to extend
-echo elgg_view("index/lefthandside");
-
-// a view for plugins to extend
-echo elgg_view("index/righthandside");
 // blog
 if (elgg_is_active_plugin('blog')) {
 	echo elgg_view_module('featured',  elgg_echo("custom:blogs"), $vars['blogs'], $mod_params);
 }
+
+
+// a view for plugins to extend
+echo elgg_view("index/righthandside");
+
+// a view for plugins to extend
+echo elgg_view("index/lefthandside");
 
 
 ?>
@@ -47,6 +47,11 @@ if (elgg_is_logged_in()) {
 	$top_box = $vars['login'];
 }
 echo elgg_view_module('featured',  '', $top_box, $mod_params);
+
+
+echo elgg_view_module('featured',  elgg_echo("custom:comments"), $vars['comments'], $mod_params);
+
+echo elgg_view_module('featured',  elgg_echo("custom:thewires"), $vars['thewires'], $mod_params);
 
 // member
 echo elgg_view_module('featured',  elgg_echo("custom:members"), $vars['members'], $mod_params);

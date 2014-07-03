@@ -15,7 +15,7 @@ function lexin_index_init() {
   elgg_register_simplecache_view('css/lexin_index/css_custom');
 	elgg_register_css('custom_css', elgg_get_simplecache_url('css', 'lexin_index/css_custom'));
 	// Replace the default index page
-	elgg_register_page_handler('', 'lexin_index');
+	elgg_register_page_handler('', 'index');  //if want to show only login box, change to lexin_index  
   elgg_register_page_handler('index', 'index');
 }
 
