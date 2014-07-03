@@ -4,7 +4,7 @@
  * 
  */
 
-elgg_push_context('front');
+elgg_push_context('front');  
 
 elgg_push_context('widgets');
 
@@ -69,13 +69,13 @@ $groups = elgg_list_entities($list_params);
 $login = elgg_view("core/account/login_box");
 
 elgg_pop_context();
-
+                                         
 // lay out the content
 $params = array(
 	'blogs' => $blogs,
 	'bookmarks' => $bookmarks,
 	'files' => $files,
-	'groups' => $groups,
+	'groups' => $groups,                  
 	'login' => $login,
 	'members' => $newest_members,
   'comments' => $comments,
