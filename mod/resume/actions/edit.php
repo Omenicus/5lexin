@@ -65,12 +65,14 @@ if (can_edit_entity($guid)) {
             $endyear = get_input('endyear');
             $organisation = get_input('organisation');
             $jobtitle = get_input('title');
-            if( $endyear=="now" )
-            {
+            if($rObject->endyear=="now")
               elgg_delete_metadata(array(
                     'guid' => $user->getGUID(),
                     'metadata_name' => array("organisationid","organisation","title")
               ));
+            if( $endyear=="now" )
+            {
+              
               if( $organisationid )
                 create_metadata_from_array($user->getGUID(),array(
                       "organisationid"=> $organisationid
