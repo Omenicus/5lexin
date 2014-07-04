@@ -70,7 +70,7 @@ if( $org && $orgid)
 elseif( $org )
 {
   //$jobtitle.=  "-2-".count($org);
-  $jobtitle.= ' - '.$org[count($orgid)-1]->value;
+  $jobtitle.= ' - '.$org[count($org)-1]->value;
 }
 
 echo "<div class=\"elgg-subtext\">$jobtitle</div>";

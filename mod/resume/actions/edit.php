@@ -27,7 +27,8 @@ if (can_edit_entity($guid)) {
                       'guid' => $user->getGUID(),
                       'metadata_name' => array("title")
               ));
-    if (get_input('organisation')) {
+    if (get_input('organisation') && $rObject instanceof ElggObject
+          && $rObject->getSubtype() == 'rWork') {
     
         $organisation = get_input('organisation');
         
@@ -56,14 +57,37 @@ if (can_edit_entity($guid)) {
           $rComp->points++;
           //if($rObject->endyear == "now")
           //  $rComp->memebers++; 
-          $rComp->save(); 
-       
-    
-      if ($rObject instanceof ElggObject
-          && $rObject->getSubtype() == 'rWork') {
+          $rComp->save();      
+        }
+        //if ($rObject instanceof ElggObject
+        //  && $rObject->getSubtype() == 'rWork') 
+          {
             $endyear = get_input('endyear');
             $organisation = get_input('organisation');
             $jobtitle = get_input('title');
+            if( $endyear=="now" )
+            {
+              elgg_delete_metadata(array(
+                    'guid' => $user->getGUID(),
+                    'metadata_name' => array("organisationid","organisation","title")
+              ));
+              if( $organisationid )
+                create_metadata_from_array($user->getGUID(),array(
+                      "organisationid"=> $organisationid
+                ));
+              create_metadata_from_array($user->getGUID(),array(
+                "organisation"=>$organisation,
+                "jobtitle"=>$jobtitle
+              ));
+              $orgid=elgg_get_metadata(array( 'metadata_name' => 'organisationid', 'metadata_owner_guid' => $user->getGUID() ));
+              if( $orgid )
+                 add_entity_relationship($orgid[count($orgid)-1]->value, 'member', elgg_get_logged_in_user_guid());
+              if( $organisationid )
+                add_entity_relationship($organisationid, 'member', elgg_get_logged_in_user_guid());
+              
+            }
+            if( false)
+            {
             if($rObject->endyear=="now" && $endyear!="now")
             {
               //remove member
@@ -105,9 +129,8 @@ if (can_edit_entity($guid)) {
               ));
               //system_message(elgg_echo('remove_entity_relationship'));
             }
-            
+           } 
           }
-        }
     }
     $object_metadata_array = elgg_get_metadata( array('guid' => $guid,
 			'limit' => false));//get_metadata_for_entity($guid);
@@ -184,4 +207,4 @@ if ( $user_name&&  $user && $user->canEdit() ) {
     }
 }
 // forward user to the main page
-forward($CONFIG->wwwroot . "resume/edit/" . elgg_get_logged_in_user_entity()->username);
+forward($CONFIG->wwwroot . "resume/edit/" . $user->username);

@@ -47,7 +47,7 @@ $site_url = elgg_get_site_url();
               )); 
               echo '年';
               $month=array();
-              for($themonth=12;$themonth>1;$themonth--)    $month[$themonth]=$themonth;
+              for($themonth=12;$themonth>=1;$themonth--)    $month[$themonth]=$themonth;
               echo elgg_view('input/dropdown', array(
             	'name' => 'startmonth',
             	'options_values' => $month,

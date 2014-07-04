@@ -102,7 +102,7 @@ else
    
   }
 }
-if( $endyear=="now")
+if( $endyear=="now") //strcmp($endyear,"now")==0)
 {
   elgg_delete_metadata(array(
         'guid' => $user->getGUID(),
