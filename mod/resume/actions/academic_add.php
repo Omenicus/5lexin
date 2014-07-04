@@ -41,18 +41,26 @@ $rEdu->access_id = ACCESS_PUBLIC;
 // owner is logged in user
 $rEdu->owner_guid = elgg_get_logged_in_user_guid();
 
-$list=elgg_get_entities_from_metadata (array(
-'type' => 'object',
-'subtype' => 'rInstitution',  
-'metadata_name' => 'title',
-'metadata_value' => $institution,
-'count' => TRUE,
-));
+$dbprefix = elgg_get_config("dbprefix");
+$query_options = array(
+  'type' => 'object',
+	'subtype' =>'rInstitution',  
+  
+  'count' => FALSE,
+	"limit" => 5,
+	"joins" => array("LEFT JOIN {$dbprefix}objects_entity oe ON oe.guid = e.guid "), //AND e.type = 'object
+	"wheres" => array("(oe.title = '".$institution."' )"),
+	//"order_by" => "u.name asc"
+);
+
+//$entities=elgg_list_entities_from_metadata($query_options);
+$list=elgg_get_entities($query_options);
+
 if( $list==0) 
 {
   $rObj = new ElggObject();
   $rObj->subtype = "rInstitution";
-  $rObj->name = $institution;
+  //$rObj->name = $institution;
   $rObj->title = $institution;
   // public acces for the resume
   $rObj->access_id = ACCESS_PUBLIC;

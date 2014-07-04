@@ -147,7 +147,7 @@ if (can_edit_entity($guid)) {
 // save to database
     if($rObject->save())
     {
-      system_message(elgg_echo('resume:OK').$test);//.$rObject->description.$rObject->canComment());
+      system_message(elgg_echo('resume:OK'));//.$rObject->description.$rObject->canComment());
 
       // add to river
       //add_to_river('river/object/resume/update', 'update', elgg_get_logged_in_user_guid(), $rObject->guid);
@@ -163,17 +163,17 @@ if (can_edit_entity($guid)) {
       
     }
     else
-      register_error(elgg_echo('resume:notOK1'));  
+      register_error(elgg_echo('resume:notOK'));  
     
 } else {
-    register_error(elgg_echo('resume:notOK2'));
+    register_error(elgg_echo('resume:notOK'));
 }
 
 $user_name = get_input('user_name');
 $user=elgg_get_logged_in_user_entity();
 
 if ( $user_name&&  $user && $user->canEdit() ) {
-		if ($user_name != $user->name) {
+		if( $user_name && $user_name!="" && $user_name != $user->name) {
       $user->name=$user_name;
       if ($user->save()) {
 				system_message(elgg_echo('user:name:success'));

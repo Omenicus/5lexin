@@ -19,7 +19,7 @@ $user_name = get_input('user_name');
 
 // create a new object
 $rWork = new ElggObject();
-$rWork->title = $$user_name;
+$rWork->title = $user_name;
 $rWork->description = $description;
 $rWork->subtype = "rSummary";
 
@@ -32,11 +32,11 @@ $rWork->owner_guid = elgg_get_logged_in_user_guid();
 $rWork->container_guid =$rWork->owner_guid;
 
 $user=elgg_get_logged_in_user_entity();
-if( $user_name )
+if( $user_name && $user_name!="" && $user_name != $user->name)
   $user->name=$$user_name;
 
 // save to database
-if($rWork->save()&&$user->save())
+if($rWork->save()&&($user_name && $user_name!=""&& $user_name != $user->name&&$user->save()))
 {
   system_message(elgg_echo('resume:add:OK'));
   // add to river
