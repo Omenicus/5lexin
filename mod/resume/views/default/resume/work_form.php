@@ -34,7 +34,7 @@ $site_url = elgg_get_site_url();
     <form action="<?php echo $site_url; ?>action/<?php echo $action ?>"
           method="post">
         <p><?php echo elgg_echo('resume:work:organisation'); ?><br />
-            <?php echo elgg_view('input/text', array('name' => 'organisation','id' => 'organisation', 'value' => $vars['entity']->organisation,'class'=>"elgg-input elgg-input-autocomplete")); ?></p>
+            <?php echo elgg_view('input/text', array('name' => 'organisation','datatype' => 'company','id' => 'organisation', 'value' => $vars['entity']->organisation,'class'=>"elgg-input elgg-input-autocomplete")); ?></p>
 
         <p><?php echo elgg_echo('resume:work:time'); ?><br />
         <?php  

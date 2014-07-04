@@ -21,18 +21,11 @@
 	* For any questions or suggestion write to write to twizanex@yahoo.com
 	***************************************************************************/
 
-// http://stackoverflow.com/questions/1877136/access-global-variable-from-within-a-class
-
-// please don't use the global method that is being suggested. That makes my stomach hurt.
-
-//Pass $a into the constructor of B.
-
-
-
 
 function gutwacaptcha_init() 
    	 {
 	  //put the check at the very end
+	//  if(elgg_is_active_plugin("groups")){}
 	elgg_extend_view('register/extend', 'gutwacaptcha/register', 1000);
 	elgg_extend_view('forgottenpassword/extend', 'gutwacaptcha/register', 999);
 
@@ -59,31 +52,30 @@ function gutwacaptcha_register_hook() {
 
 	$captcha = get_input('sirisana_input'); 
             
-	// get the form input to check if the input is empty and trow error if empty
+	   	// get the form input to check if the input is empty and trow error if empty
 
-	$siritupu = get_input('sirisana_input');	
+		$siritupu = get_input('sirisana_input');	
  	
 	if (empty($siritupu)){	
 		register_error(elgg_echo('sirikinasa:isblank'));		
-		forward(REFERER);	
-  }
+		forward(REFERER);	}
 
-  if (!include_once(dirname(dirname(__FILE__)) . "/gutwacaptcha/securimage.php"))
-	{
-	// this is for debugging for testing... it helps to know if the file is right 
-  	//  echo "Could not load file. Please check your Elgg captcha file  for all required files."; 
-  }
+	if (!include_once(dirname(dirname(__FILE__)) . "/gutwacaptcha/securimage.php"))
+		{
+		// this is for debugging for testing... it helps to know if the file is right 
+	  	//  echo "Could not load file. Please check your Elgg captcha file  for all required files."; 
+	   	 }
 	
-  $securimage = new Securimage();
+        $securimage = new Securimage();
 
-  if ($securimage->check($captcha) == false) {
-      $errors['captcha_error'] = register_error(elgg_echo('gutwacaptcha:required'));
-	
-  		// Forward on success, assume everything else is an error...
-  		forward(REFERER); // Get our of here !Huh huh
-  } 
+        if ($securimage->check($captcha) == false) {
+        $errors['captcha_error'] = register_error(elgg_echo('gutwacaptcha:required'));
+		
+		// Forward on success, assume everything else is an error...
+		forward(REFERER); // Get our of here !Huh huh
+	} 
     
-}
+	}
 	
 
 	// Here we go, Have fun
@@ -92,7 +84,7 @@ function gutwacaptcha_register_hook() {
 		
 /*%*************TM: gutwacaptcha language ****************************%*/
 	
-require_once(dirname(__FILE__) . "/lib/luga_functions.php");
+	require_once(dirname(__FILE__) . "/lib/luga_functions.php");
 		
 function elggcaptcha_language_selector_plugins_boot(){
 		
