@@ -6,7 +6,7 @@ $user_guid = (int)get_input('user_guid');
 // or for all users if user_guid = 0
 $entities = elgg_get_entities(array('type' => 'object', 'subtype' => 'userpoint', 'owner_guid' => $user_guid));
 foreach ($entities as $entity) {
-    delete_entity($entity->guid);
+    $entity->delete();
 }
 
 if ($user_guid > 0) {
@@ -19,7 +19,7 @@ if ($user_guid > 0) {
 } else {
     // Remove all userpoints_points metadata
     $prefix = elgg_get_config('dbprefix');
-    delete_data("DELETE from {$prefix}metadata where name_id=" . add_metastring('userpoints_points'));
+    delete_data("DELETE from {$prefix}metadata where name_id=" . elgg_get_metastring_id('userpoints_points', true));
 }
 
 system_message(elgg_echo("elggx_userpoints:reset:success", array(elgg_echo('elggx_userpoints:lowerplural'))));

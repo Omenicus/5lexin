@@ -1,6 +1,6 @@
 <?php
 
-$english = array(
+return array(
 	'admin:administer_utilities:elggx_userpoints' => 'Elggx Userpoints',
 	'item:object:userpoint' => 'User Points',
 	'elggx_userpoints:admin_settings' => 'Change Userpoints Settings',
@@ -111,7 +111,7 @@ $english = array(
 	'userpoints_standard:riverpost' => 'Points for posting to the river:',
 	'userpoints_standard:thewire' => 'Points for posting to the wire:',
 	'userpoints_standard:groupforumtopic' => 'Points for adding a group discussion topic:',
-	'userpoints_standard:group_topic_post' => 'Points for replying in a group discussion topic:',
+	'userpoints_standard:discussion_reply' => 'Points for replying in a group discussion topic:',
 	'userpoints_standard:invite' => 'Points for inviting a friend:',
 	'userpoints_standard:expire_invite' => 'Expire points for pending invitations / allow re-invitation after:',
 	'userpoints_standard:require_registration' => 'Require registration for invited friends?',
@@ -126,5 +126,3 @@ $english = array(
 	'userpoints_standard:1month' => '1 Month',
 	'userpoints_standard:delete' => 'Delete points if the content they were awarded for is deleted?'
 );
-
-add_translation("en", $english);
