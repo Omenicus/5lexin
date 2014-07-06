@@ -33,10 +33,13 @@ $rWork->container_guid =$rWork->owner_guid;
 
 $user=elgg_get_logged_in_user_entity();
 if( $user_name && $user_name!="" && $user_name != $user->name)
+{
   $user->name=$$user_name;
+  $user->save();
+}
 
 // save to database
-if($rWork->save()&&($user_name && $user_name!=""&& $user_name != $user->name&&$user->save()))
+if($rWork->save())
 {
   system_message(elgg_echo('resume:add:OK'));
   // add to river

@@ -15,7 +15,7 @@ function lexin_index_init() {
   elgg_register_simplecache_view('css/lexin_index/css_custom');
 	elgg_register_css('custom_css', elgg_get_simplecache_url('css', 'lexin_index/css_custom'));
 	// Replace the default index page
-	elgg_register_page_handler('', 'custom_index');  //if want to show only login box, change to lexin_index  
+	//elgg_register_page_handler('', 'custom_index');  //if want to show only login box, change to lexin_index  
   elgg_register_page_handler('main', 'custom_index');
 }
 
@@ -35,7 +35,10 @@ function custom_index() {
   if (elgg_is_logged_in()) {
   $user=elgg_get_logged_in_user_entity();
   if( !($user->icontime) || $user->icontime== "default")
+  {
+    system_message(elgg_echo('lexin:needusericon'));
     forward('avatar/edit/'.$user->username);
+  }    
   else{
     
     $work = elgg_get_entities(array(
@@ -53,7 +56,10 @@ function custom_index() {
       'order_by '=>'startdate',
     ));
     if( $work==0 && $edu==0)
+    {
+      system_message(elgg_echo('lexin:needresume'));
       forward('resume/edit/'.$user->username);
+    }
     else
     {
         //forward('activity');

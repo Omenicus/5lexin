@@ -208,7 +208,7 @@ $user_name = get_input('user_name');
 $user=elgg_get_logged_in_user_entity();
 
 if ( $user_name&&  $user && $user->canEdit() ) {
-		if( $user_name && $user_name!="" && $user_name != $user->name) {
+		if(  $user_name!="" && $user_name != $user->name) {
       $user->name=$user_name;
       if ($user->save()) {
 				system_message(elgg_echo('user:name:success'));

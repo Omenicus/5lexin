@@ -44,7 +44,7 @@ function groups_handle_all_page() {
 				'type' => 'group',
 				'full_view' => false,
 				'no_results' => elgg_echo('groups:none'),
-			));
+			)); 
 			break;
 	}
 
@@ -59,7 +59,7 @@ function groups_handle_all_page() {
 		'filter' => $filter,
 	);
 	$body = elgg_view_layout('content', $params);
-
+  
 	echo elgg_view_page(elgg_echo('groups:all'), $body);
 }
 
