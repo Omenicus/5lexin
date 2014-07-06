@@ -106,16 +106,22 @@ if( $endyear=="now") //strcmp($endyear,"now")==0)
 {
   elgg_delete_metadata(array(
         'guid' => $user->getGUID(),
-        'metadata_name' => array("organisationid","organisation","title")
+        'metadata_name' => array("organisationid","organisation","jobtitle")
   ));
   if( $rComp )
     create_metadata_from_array($user->getGUID(),array(
           "organisationid"=> $rComp->getGUID()
-        ));
+      ),
+      'text',
+      $user->getGUID(),
+      ACCESS_PUBLIC);
   create_metadata_from_array($user->getGUID(),array(
     "organisation"=>$organisation,
     "jobtitle"=>$jobtitle
-  ));
+    ),
+    'text',
+    $user->getGUID(),
+    ACCESS_PUBLIC);
 }
 
 

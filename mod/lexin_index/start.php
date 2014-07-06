@@ -15,8 +15,8 @@ function lexin_index_init() {
   elgg_register_simplecache_view('css/lexin_index/css_custom');
 	elgg_register_css('custom_css', elgg_get_simplecache_url('css', 'lexin_index/css_custom'));
 	// Replace the default index page
-	elgg_register_page_handler('', 'index');  //if want to show only login box, change to lexin_index  
-  elgg_register_page_handler('index', 'index');
+	elgg_register_page_handler('', 'custom_index');  //if want to show only login box, change to lexin_index  
+  elgg_register_page_handler('main', 'custom_index');
 }
 
 /**
@@ -31,7 +31,7 @@ function lexin_index() {
 
 	return true;
 }
-function index() {
+function custom_index() {
   if (elgg_is_logged_in()) {
   $user=elgg_get_logged_in_user_entity();
   if( !($user->icontime) || $user->icontime== "default")

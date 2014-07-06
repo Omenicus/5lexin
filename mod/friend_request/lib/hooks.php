@@ -66,7 +66,7 @@
 						$result[] = ElggMenuItem::factory(array(
 							 "name" => "add_friend",
 							 "text" => elgg_echo("friend:add"),
-							 "href" => "action/friends/33add?friend=" . $entity->getGUID(),
+							 "href" => "action/friends/add?friend=" . $entity->getGUID(),
 							 "is_action" => true,
 							 "priority" => 500
 						));

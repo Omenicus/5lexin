@@ -132,20 +132,24 @@ function au_subgroups_groups_router($hook, $type, $return, $params) {
         set_input('au_subgroup', true);
         set_input('au_subgroup_parent_guid', $group->guid);
         if (include(elgg_get_plugins_path() . 'au_subgroups/pages/add.php')) {
+          //if dont exit, the page will show site '' page
+          exit;
           return true;
         }
         break;
         
       case 'delete':
         if (include(elgg_get_plugins_path() . 'au_subgroups/pages/delete.php')) {
+          exit;
           return true;
         }
         break;
 		
 	  case 'list':
-		if (include(elgg_get_plugins_path() . 'au_subgroups/pages/list.php')) {
-		  return true;
-		}
+  		if (include(elgg_get_plugins_path() . 'au_subgroups/pages/list.php')) {
+  		    exit;
+        return true;
+  		}
 		break;
     }
   }

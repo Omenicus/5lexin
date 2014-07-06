@@ -54,12 +54,12 @@ echo "<span class=\"elgg-subtext\">$subtitle</span>";
 $jobtitle='';
 
 
-$title=elgg_get_metadata(array( 'metadata_name' => 'jobtitle', 'metadata_owner_guid' => $entity->getGUID() ));
+$title=elgg_get_metadata(array( 'metadata_name' => 'jobtitle', 'guid' => $entity->getGUID() ));
 if( $title )
   $jobtitle.=$title[count($title)-1]->value;
 //$jobtitle.=count($title);   
-$org=elgg_get_metadata(array( 'metadata_name' => 'organisation', 'metadata_owner_guid' => $entity->getGUID() ));
-$orgid=elgg_get_metadata(array( 'metadata_name' => 'organisationid', 'metadata_owner_guid' => $entity->getGUID() ));
+$org=elgg_get_metadata(array( 'metadata_name' => 'organisation', 'guid' => $entity->getGUID() ));
+$orgid=elgg_get_metadata(array( 'metadata_name' => 'organisationid', 'guid' => $entity->getGUID() ));
 
 if( $org && $orgid)
 {
@@ -72,7 +72,7 @@ elseif( $org )
   //$jobtitle.=  "-2-".count($org);
   $jobtitle.= ' - '.$org[count($org)-1]->value;
 }
-
+//$jobtitle.= count($org);
 echo "<div class=\"elgg-subtext\">$jobtitle</div>";
 
 echo $tags;

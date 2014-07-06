@@ -23,10 +23,7 @@ if (can_edit_entity($guid)) {
     $rComp=NULL;
     $organisationid =NULL;
     $test="0";
-    elgg_delete_metadata(array(
-                      'guid' => $user->getGUID(),
-                      'metadata_name' => array("title")
-              ));
+
     if (get_input('organisation') && $rObject instanceof ElggObject
           && $rObject->getSubtype() == 'rWork') {
     
@@ -66,24 +63,37 @@ if (can_edit_entity($guid)) {
             $organisation = get_input('organisation');
             $jobtitle = get_input('title');
             if($rObject->endyear=="now")
+            {
+              
+              $orgid=elgg_get_metadata(array( 'metadata_name' => 'organisationid', 'metadata_owner_guid' => $user->getGUID() ));
+              if( $orgid )
+                 delete_entity_relationship($orgid[count($orgid)-1]->value, 'member', elgg_get_logged_in_user_guid());
+              
               elgg_delete_metadata(array(
                     'guid' => $user->getGUID(),
-                    'metadata_name' => array("organisationid","organisation","title")
+                    'metadata_name' => array("organisationid","organisation","jobtitle")
               ));
+            }
             if( $endyear=="now" )
             {
               
               if( $organisationid )
                 create_metadata_from_array($user->getGUID(),array(
-                      "organisationid"=> $organisationid
-                ));
+                      "organisationid"=> $organisationid,
+                     
+                ),
+                'text',
+                $user->getGUID(),
+                ACCESS_PUBLIC
+                );
               create_metadata_from_array($user->getGUID(),array(
                 "organisation"=>$organisation,
                 "jobtitle"=>$jobtitle
-              ));
-              $orgid=elgg_get_metadata(array( 'metadata_name' => 'organisationid', 'metadata_owner_guid' => $user->getGUID() ));
-              if( $orgid )
-                 add_entity_relationship($orgid[count($orgid)-1]->value, 'member', elgg_get_logged_in_user_guid());
+                ),
+                'text',
+                $user->getGUID(),
+                ACCESS_PUBLIC
+              );
               if( $organisationid )
                 add_entity_relationship($organisationid, 'member', elgg_get_logged_in_user_guid());
               

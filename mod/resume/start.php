@@ -46,7 +46,7 @@ function resume_init() {
     elgg_register_menu_item('site', array(
   		'name' => 'index',
   		'text' => elgg_echo('resume:menu:index'),
-  		'href' => elgg_get_site_url().'index',
+  		'href' => elgg_get_site_url().'main',
   	));    
 
      
