@@ -493,9 +493,9 @@ function _elgg_views_prepare_head($title) {
 	);
 
 	if (empty($title)) {
-		$params['title'] = elgg_get_site_entity()->name;//elgg_get_config('sitename');
+		$params['title'] = function_exists("elgg_get_site_entity")?elgg_get_site_entity()->name:elgg_get_config('sitename');
 	} else {
-		$params['title'] = $title . ' : ' . elgg_get_site_entity()->name;//elgg_get_config('sitename');
+		$params['title'] = $title . ' : ' . (function_exists("elgg_get_site_entity")?elgg_get_site_entity()->name:elgg_get_config('sitename'));
 	}
 
 	$params['metas'][] = array(
@@ -505,11 +505,11 @@ function _elgg_views_prepare_head($title) {
 
 	$params['metas'][] = array(
 		'name' => 'description',
-		'content' => elgg_get_site_entity()->description,//elgg_get_config('sitedescription')
+		'content' => function_exists("elgg_get_site_entity")?elgg_get_site_entity()->description:elgg_get_config('sitedescription')
 	); 
   $params['metas'][] = array(
 		'name' => 'keywords',
-		'content' => elgg_get_site_entity()->keywords,//elgg_get_config('sitedescription')
+		'content' => function_exists("elgg_get_site_entity")?elgg_get_site_entity()->keywords:elgg_get_config('sitedescription')
 	); 
 	// favicons
 	$params['links'][] = array(
