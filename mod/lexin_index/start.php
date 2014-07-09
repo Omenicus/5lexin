@@ -60,7 +60,7 @@ function custom_index() {
       system_message(elgg_echo('lexin:needresume'));
       forward('resume/edit/'.$user->username);
     }
-    else
+    else 
     {
         //forward('activity');
         if (!include_once(dirname(__FILE__) . "/index.php")) {
