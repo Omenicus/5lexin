@@ -136,7 +136,7 @@ function follow_tags_notify($event, $type, $object) {
 
 	//subtype 11,9,7,6 are notification, message, FollowTags, admin_notice
 	//followtags_notify should not run if the create object have one of this subtypes
-	 $sub = $object->subtype;
+	 $sub = $object->getSubtype();
 	//Dont notifyuser if object is private
 	 $access = $object->access_id; // 0 is private
 
