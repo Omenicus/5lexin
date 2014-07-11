@@ -17,6 +17,8 @@ elgg_load_css('custom_css');
 <?php
 // left column
 
+echo elgg_view_module('featured',  elgg_echo("custom:rivers"), $vars['rivers'], $mod_params);
+
 // blog
 if (elgg_is_active_plugin('blog')) {
 	echo elgg_view_module('featured',  elgg_echo("custom:blogs"), $vars['blogs'], $mod_params);

@@ -65,6 +65,9 @@ $list_params['type'] = 'group';
 unset($list_params['subtype']);
 $groups = elgg_list_entities($list_params);
 
+$rivers = elgg_list_river(array('limit'=>10,'pagination'=>false));
+
+
 //grab the login form
 $login = elgg_view("core/account/login_box");
 
@@ -80,6 +83,7 @@ $params = array(
 	'members' => $newest_members,
   'comments' => $comments,
   'thewires' => $thewires,
+  'rivers'=> $rivers,
 ); 
 $body = elgg_view_layout('custom_index', $params);
 

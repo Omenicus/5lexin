@@ -7,6 +7,7 @@ return array(
 	'custom:members' => "Newest members",
   'custom:comments' => "Latest commets",
   'custom:thewires' => "Latest wires",
+  'custom:therivers' => "Latest rivers",
   'lexin:needusericon' => "Please upload your picture",
   'lexin:needresume' => "Please fullfil your resume",
 );

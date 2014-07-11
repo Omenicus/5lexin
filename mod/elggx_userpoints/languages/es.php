@@ -2,7 +2,7 @@
 
 /* TRADUCCION POR Gonzalo Arroyo de GEARinvent.com */
 
-return array(
+$spa = array(
 'admin:administer_utilities:elggx_userpoints' => 'Elggx Userpoints',
 'item:object:userpoint' => 'Puntos del perfil',
 'elggx_userpoints:settings' => 'Parámetros de Plugin',
@@ -112,7 +112,7 @@ return array(
 'userpoints_standard:riverpost' => 'Puntos por publicar en Actualizaciones:',
 'userpoints_standard:thewire' => 'Puntos por publicar en Actualizaciones:',
 'userpoints_standard:groupforumtopic' => 'Puntos por agregar un tema de discusión en grupo:',
-'userpoints_standard:discussion_reply' => 'Puntos por responder en un tema de discusión en grupo:',
+'userpoints_standard:group_topic_post' => 'Puntos por responder en un tema de discusión en grupo:',
 'userpoints_standard:invite' => 'Puntos por invitar un Amigo:',
 'userpoints_standard:expire_invite' => 'Expirar Puntos por invitaciones pendientes / Permitir reenviar invitación luego:',
 'userpoints_standard:require_registration' => 'Requerir registro para Amigos invitados?',
@@ -127,3 +127,5 @@ return array(
 'userpoints_standard:1month' => '1 Mes',
 'userpoints_standard:delete' => 'Borrar Puntos si el contenido por el que fueron otorgados se suprimió?'
 );
+
+add_translation("es", $spa);

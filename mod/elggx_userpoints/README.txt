@@ -1,5 +1,5 @@
-Elggx Userpoints plugin for Elgg 1.9
-Latest Version: 1.9.8
+Elggx Userpoints plugin for Elgg 1.8
+Latest Version: 1.8.8
 Released: 2014-04-24
 Contact: iionly@gmx.de
 License: GNU General Public License version 2
@@ -20,32 +20,15 @@ Installation:
 
 Changelog:
 
-1.9.8 (iionly):
-
-- Updated version 1.8.8 for Elgg 1.9,
-- Fixed a deprecation issue on Elgg 1.9.
-
-
 1.8.8 (iionly):
 
 - Added functionality to check integrity of a user's userpoint metadata entry on adding/substracting userpoints to avoid "Array()" issue to happen or fixing it if it already did happen (Can't promise this works as I've still not be able to reproduce this issue myself!),
 - Added option to awarding userpoints on uploading a profile image.
 
 
-1.9.7 (iionly):
-
-- Updated version 1.8.7 for Elgg 1.9.
-
-
 1.8.7 (iionly):
 
 - Fixed awarding of points on starting a new group discussion topic and replying in a group discussion.
-
-
-1.9.6 (iionly):
-
-- Updated for Elgg 1.9,
-- Supports addition and (new) substraction of userpoints for comments (possible as comments are now saved as ElggComment objects and no longer as annotations on Elgg 1.9).
 
 
 1.8.6 (iionly):
