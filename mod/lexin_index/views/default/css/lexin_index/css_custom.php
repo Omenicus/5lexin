@@ -45,7 +45,11 @@
 
 }
 .elgg-image-block {
-    padding: 0 0;
+    padding: 5px 0;
+}
+
+.elgg-item .elgg-content {
+    margin: 2px 5px 2px 0;
 }
 .elgg-col-60of100 {
   width:60%; 

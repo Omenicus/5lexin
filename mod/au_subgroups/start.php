@@ -19,7 +19,8 @@ function au_subgroups_init() {
   elgg_extend_view('group/elements/summary', 'au_subgroups/group/elements/summary');
   elgg_extend_view('groups/tool_latest', 'au_subgroups/group_module');
   elgg_extend_view('groups/sidebar/members', 'au_subgroups/sidebar/subgroups');
-  elgg_extend_view('groups/edit', 'au_subgroups/group/transfer');
+  elgg_extend_view('groups/edit', 'au_subgroups/group/transfer');    
+  elgg_extend_view('groups/profile/fields', 'au_subgroups/groups/profile/fields');
   
   // register the edit page's JavaScript
   $js = elgg_get_simplecache_url('js', 'au_subgroups/edit_js');
@@ -65,6 +66,8 @@ function au_subgroups_init() {
   
   elgg_register_ajax_view('au_subgroups/search_results');
   
+  // group entity menu
+	//elgg_register_plugin_hook_handler('register', 'menu:entity', 'subgroups_entity_menu_setup');
   
   // actions
   elgg_register_action('au_subgroups/move', dirname(__FILE__) . '/actions/move.php');
@@ -104,3 +107,48 @@ function au_subgroups_fix_acls_20121024a($result, $getter, $options) {
     }
   }
 }
+
+function subgroups_entity_menu_setup($hook, $type, $return, $params) {   
+  if (elgg_in_context('widgets')) {
+		return $return;
+	}
+
+	/* @var ElggGroup $entity */
+	$entity = $params['entity'];
+	$handler = elgg_extract('handler', $params, false);
+	if ($handler != 'groups') {
+		return $return;
+	}
+  // group members
+	if ($entity->isMember(elgg_get_logged_in_user_entity())) {
+		if ($entity->getOwnerGUID() != elgg_get_logged_in_user_guid()) {
+			// leave
+			$url = elgg_get_site_url() . "action/groups/leave?group_guid={$entity->getGUID()}";
+			$url = elgg_add_action_tokens_to_url($url);
+			//$actions[$url] = 'groups:leave';
+      $options = array(
+  		'name' => 'leave',
+  		'text' => elgg_echo('groups:leave'),
+  		'href' => $url,
+  		'priority' => 201,
+  	  );
+		}
+	} elseif (elgg_is_logged_in()) {
+		// join - admins can always join.
+		$url = elgg_get_site_url() . "action/groups/join?group_guid={$entity->getGUID()}";
+		$url = elgg_add_action_tokens_to_url($url);
+		if ($entity->isPublicMembership() || $entity->canEdit()) {
+			$text = elgg_echo('groups:join');
+		} else {
+			// request membership
+			$text = elgg_echo('groups:joinrequest');
+		}
+    $options = array(
+  		'name' => 'join',
+  		'text' => $text,
+  		'href' => $url,
+  		'priority' => 202,
+  	  );
+	}
+  $return[] = ElggMenuItem::factory($options);
+}  

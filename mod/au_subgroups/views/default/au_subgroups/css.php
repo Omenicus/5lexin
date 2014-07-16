@@ -28,7 +28,7 @@ ul.elgg-menu-owner-block-z-au_subgroups {
 
 
 .au_subgroups_subtext {
-  padding-top: 5px;
+  padding-top: 0px;
 }
 
 

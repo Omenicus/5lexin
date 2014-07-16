@@ -7,6 +7,7 @@ $english = array(
     'au_subgroups:parent' => "Parent Group",
     'au_subgroups:add:subgroup' => 'Create a Sub-Group',
     'au_subgroups:nogroups' => 'No Sub-Groups have been created',
+    'au_subgroups:needjoinparent' => 'This is a sub-group, you need to join the parent group inorder to join this group',
     'au_subgroups:error:notparentmember' => "Users cannot join a sub-group if they are not a member of the parent group",
     'au_subtypes:error:create:disabled' => "Subgroup creation has been disabled for this group",
     'au_subgroups:noedit' => "Cannot edit this group",

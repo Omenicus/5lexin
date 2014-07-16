@@ -396,7 +396,7 @@ function groups_entity_menu_setup($hook, $type, $return, $params) {
 	} else {
 		$mem = elgg_echo("groups:closed");
 	}
-
+  
 	$options = array(
 		'name' => 'membership',
 		'text' => $mem,
@@ -404,6 +404,21 @@ function groups_entity_menu_setup($hook, $type, $return, $params) {
 		'priority' => 100,
 	);
 	$return[] = ElggMenuItem::factory($options);
+
+  if($entity->getContentAccessMode() == ElggGroup::CONTENT_ACCESS_MODE_MEMBERS_ONLY ) {
+    $mem_content = elgg_echo("groups:conent:member");
+  }
+  else{
+    $mem_content = elgg_echo("groups:conent:open");
+  }
+  $options = array(
+		'name' => 'content_access',
+		'text' => $mem_content,
+		'href' => false,
+		'priority' => 101,
+	);
+	$return[] = ElggMenuItem::factory($options);
+  
 
 	// number of members
 	$num_members = $entity->getMembers(array('count' => true));
@@ -415,6 +430,9 @@ function groups_entity_menu_setup($hook, $type, $return, $params) {
 		'priority' => 200,
 	);
 	$return[] = ElggMenuItem::factory($options);
+
+
+  
 
 	// feature link
 	if (elgg_is_admin_logged_in()) {

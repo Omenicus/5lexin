@@ -5,11 +5,11 @@
 
 $group = elgg_get_page_owner_entity();
 
-if ($group->blog_enable == "no") {
+if ($group->thwire_enable == "no") {
 	return true;
 }
 
-group_gatekeeper();
+//group_gatekeeper();
 
 $group_guid = $group->getGUID();//sanitize_int(get_input("group_guid", 0));
 $entities_only = sanitize_int(get_input("entities_only", 0));
@@ -30,7 +30,7 @@ $options = array(
 	'container_guid' => $group_guid,
   'full_view' => false,
   'pagination' => false,
-	'no_results' => elgg_echo('discussion:none'),
+	'no_results' => elgg_echo('thewire_tools:no_result'),
 );
 
 

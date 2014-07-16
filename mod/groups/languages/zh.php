@@ -128,14 +128,16 @@ return array(
 	'groupforumtopic:new' => '新建讨论',
 
 	'groups:count' => '创建群',
-	'groups:open' => '开放的群',
-	'groups:closed' => '封闭的群',
+	'groups:open' => '可自由加入',
+	'groups:closed' => '邀请或申请',
 	'groups:member' => '成员',
 	'groups:searchtag' => '按标签搜索群',
 
 	'groups:more' => '更多',
 	'groups:none' => '没有',
 
+  'groups:conent:open' => '内容开放',
+	'groups:conent:member' => '内容仅群成员可见',
 	/**
 	 * Access
 	 */
@@ -145,8 +147,8 @@ return array(
 	'groups:closedgroup' => '该群是封闭的.',
 	'groups:closedgroup:request' => '要加入该群组, 点击 "申请加入"后等待批准 ',
 	'groups:closedgroup:membersonly' => '该群是封闭的并且只有成员可以访问',
-	'groups:opengroup:membersonly' => '该群只有成员可以访问',
-	'groups:opengroup:membersonly:join' => '要加入, 点击 "加入群"',
+	'groups:opengroup:membersonly' => '该群只有成员可以访问。',
+	'groups:opengroup:membersonly:join' => '您可以点击"加入群"按钮加入该群',
 	'groups:visibility' => '谁能看到该群?',
 
 	/**

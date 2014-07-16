@@ -38,11 +38,12 @@ if (!$owner) {
 			<p>
 				<b><?php echo elgg_echo("groups:owner"); ?>: </b>
 				<?php
-					echo elgg_view('output/url', array(
-						'text' => $owner->name,
-						'value' => $owner->getURL(),
-						'is_trusted' => true,
-					));
+
+  					echo elgg_view('output/url', array(
+  						'text' => $owner->name,
+  						'value' => $owner->getURL(),
+  						'is_trusted' => true,
+  					));
 				?>
 			</p>
 			<p>
@@ -51,18 +52,31 @@ if (!$owner) {
 				echo elgg_echo('groups:members') . ": " . $num_members;
 			?>
 			</p>
-      <?php
-  			echo elgg_view('groups/profile/fields', $vars);
+      <?php 
+  			echo elgg_view('groups/profile/fields', $vars);     
   		?>
 		</div>
 	</div>
 
 	<div class="groups-profile-fields elgg-body">
     <?php
-      if( elgg_view_exists('thewire_tools/group_module_thewire'))
-      {
-        echo elgg_view('thewire_tools/group_module_thewire');
+      if (elgg_group_gatekeeper(false)) {
+      	if (!$group->isPublicMembership() && !$group->isMember()) {
+      		echo elgg_view('groups/profile/closed_membership');
+      	}
+      
+      	if( elgg_view_exists('thewire_tools/group_module_thewire'))
+        {
+          echo elgg_view('thewire_tools/group_module_thewire');
+        } 
+      } else {
+      	if ($group->isPublicMembership()) {
+      		echo elgg_view('groups/profile/membersonly_open');
+      	} else {
+      		echo elgg_view('groups/profile/membersonly_closed');
+      	}
       }
+      
 		 ?> 
 	</div>
 </div>

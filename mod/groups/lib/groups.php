@@ -256,8 +256,8 @@ function groups_handle_profile_page($guid) {
 
 	elgg_push_context('group_profile');
 
-	elgg_entity_gatekeeper($guid, 'group');
-
+	//elgg_entity_gatekeeper($guid, 'group');
+  echo "group";exit;                                                                                    
 	$group = get_entity($guid);
 
 	elgg_push_breadcrumb($group->name);

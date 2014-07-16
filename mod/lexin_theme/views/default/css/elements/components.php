@@ -14,7 +14,7 @@
 	Image Block
 *************************************** */
 .elgg-image-block {
-	padding: 10px 0;
+	padding: 5px 0;
 }
 .elgg-image-block .elgg-image {
 	float: left;

@@ -8,6 +8,7 @@
 ?>
 .groups-profile > .elgg-image {
 	margin-right: 20px;
+  width:205px;
 }
 .groups-stats {
 	margin-top: 10px;
