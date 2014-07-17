@@ -11,12 +11,13 @@ abstract class SiteNotificationFactory {
 	 * @param ElggData   $object    Optional object involved in the notification event
 	 * @return SiteNotification|null
 	 */
-	public static function create($recipient, $message, $actor, $object = null) {
+	public static function create($recipient, $title, $body, $actor, $object = null) {
 		$note = new SiteNotification();
 		$note->owner_guid = $recipient->guid;
 		$note->container_guid = $recipient->guid;
 		$note->access_id = ACCESS_PRIVATE;
-		$note->description = $message;
+    $note->title = $title;
+		$note->description = $body;
 		if ($object) {
 			$note->setURL($object->getURL());
 		}

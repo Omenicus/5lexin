@@ -82,7 +82,26 @@ $invite = array();
 
 foreach ($AU_SUBGROUPS_ALL_MEMBERS as $member_guid) {
   if (!is_group_member($parent_guid, $member_guid)) {
-	$invite[] = $member_guid;
+	join_group($parent_guid, $member_guid);
+  $user = get_user($member_guid);
+	
+	if ($user) {
+	  // notify the user
+	  $url = elgg_normalize_url("groups/invitations/$user->username");
+	  notify_user(
+			$member_guid,
+			$parent->owner_guid,
+			elgg_echo('au_subgroups:moveto:subject', array($user->name, $subgroup->name, $parent->name, $parent->name)),
+			elgg_echo('au_subgroups:moveto:body', array(
+				$user->name,
+				$subgroup->name,
+				$parent->name,
+        $parent->name,
+				$url,
+			))
+	  );
+	}
+  /*$invite[] = $member_guid;
 	// the user isn't a member of the parent group
 	// so we have to remove them from this subgroup, and all subgroups of this subgroup
 	// and send them an invitation
@@ -119,7 +138,7 @@ foreach ($AU_SUBGROUPS_ALL_MEMBERS as $member_guid) {
 				$url,
 			))
 	  );
-	}
+	}*/
   }
 }
 

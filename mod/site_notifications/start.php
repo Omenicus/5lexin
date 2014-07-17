@@ -82,8 +82,8 @@ function site_notifications_set_topbar() {
 function site_notifications_send($hook, $type, $result, $params) {
 	/* @var Elgg_Notifications_Notification */
 	$notification = $params['notification'];
-	if ($notification->summary) {
-		$message = $notification->summary;
+	if ($notification->body) {
+		$message = $notification->body;
 	} else {
 		$message = $notification->subject;
 	}
@@ -99,7 +99,7 @@ function site_notifications_send($hook, $type, $result, $params) {
 	$recipient = $notification->getRecipient();
 
 	$ia = elgg_set_ignore_access(true);
-	$note = SiteNotificationFactory::create($recipient, $message, $actor, $object);
+	$note = SiteNotificationFactory::create($recipient,$notification->subject, $message, $actor, $object);
 	elgg_set_ignore_access($ia);
 	if ($note) {
 		return true;

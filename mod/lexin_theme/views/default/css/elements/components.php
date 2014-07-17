@@ -286,3 +286,8 @@
 	margin-bottom: 5px;
 }
 
+/* lexin theme*/
+.bottom-line {
+  border-bottom: 1px solid #ebebeb;
+}
+

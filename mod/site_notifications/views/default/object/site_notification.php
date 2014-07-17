@@ -5,7 +5,7 @@
 
 $entity = $vars['entity'];
 
-$text = $entity->description;
+$text = isset($entity->title)?$entity->title:elgg_echo('site_notification:notitle');
 $actor = $entity->getActor();
 if ($actor) {
 	$icon = elgg_view_entity_icon($actor, 'tiny');
@@ -38,6 +38,9 @@ $menu = elgg_view_menu('site_notifications', array(
 	'class' => 'elgg-menu-hz elgg-menu-entity',
 ));
 
+echo "<div class=\"bottom-line\">";
 echo elgg_view_image_block($icon, $text, array(
 	'image_alt' => $menu,
 ));
+echo $entity->description;
+echo "</div>";

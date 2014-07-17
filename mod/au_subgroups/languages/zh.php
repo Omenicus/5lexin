@@ -46,9 +46,9 @@ $zh = array(
 	'au_subgroups:search:noresults' => "No groups found",
 	'au_subgroups:error:timeout' => "Search timed out",
 	'au_subgroups:error:generic' => "An error has occurred with the search",
-	'au_subgroups:move:confirm' => "Are you sure you want to make this a subgroup of another group?",
+	'au_subgroups:move:confirm' => "确认要将该群设置为所选群的子群?",
 	'au_subgroups:error:permissions' => "You must have edit permissions for the subgroup and each parent up to the top.  Additionally, a group cannot move to a subgroup of itself.",
-	'au_subgroups:move:success' => "Group has been moved successfully",
+	'au_subgroups:move:success' => "群移动成功",
 	'au_subgroups:error:invalid:group' => "Invalid group identifier",
 	'au_subgroups:invite:body' => "Hi %s,
 
@@ -60,6 +60,10 @@ automatically join you as a member of all parent groups.
 Click below to view your invitations:
 
 %s",
+  'au_subgroups:moveto:subject' => '%s, 在群%s被设置为%s的子群时，你成为%s的成员了',
+  'au_subgroups:moveto:subject' => "%s,你好， 
+  在群%s被设置为%s的子群时，你自动成为%s的成员了
+  现在进入群：%s",
 
 );
 					
