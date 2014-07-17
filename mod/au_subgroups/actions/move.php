@@ -2,7 +2,13 @@
 
 $subgroup_guid = get_input('subgroup_guid');
 $parent_guid = get_input('parent_guid');
-
+if( $parent_guid == -1 )
+{
+  // remove any existing parent relationships
+  au_subgroups_remove_parent_group($subgroup_guid);
+}
+else
+{
 $subgroup = get_entity($subgroup_guid);
 $parent = get_entity($parent_guid);
 
@@ -141,6 +147,6 @@ foreach ($AU_SUBGROUPS_ALL_MEMBERS as $member_guid) {
 	}*/
   }
 }
-
+}
 system_message(elgg_echo('au_subgroups:move:success'));
 forward(REFERER);

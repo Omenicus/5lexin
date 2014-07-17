@@ -49,6 +49,7 @@ $zh = array(
 	'au_subgroups:move:confirm' => "确认要将该群设置为所选群的子群?",
 	'au_subgroups:error:permissions' => "You must have edit permissions for the subgroup and each parent up to the top.  Additionally, a group cannot move to a subgroup of itself.",
 	'au_subgroups:move:success' => "群移动成功",
+  'au_subgroups:noparent' => '设置为没有父群',
 	'au_subgroups:error:invalid:group' => "Invalid group identifier",
 	'au_subgroups:invite:body' => "Hi %s,
 

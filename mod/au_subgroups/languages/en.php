@@ -49,6 +49,7 @@ $english = array(
 	'au_subgroups:move:confirm' => "Are you sure you want to make this a subgroup of another group?",
 	'au_subgroups:error:permissions' => "You must have edit permissions for the subgroup and each parent up to the top.  Additionally, a group cannot move to a subgroup of itself.",
 	'au_subgroups:move:success' => "Group has been moved successfully",
+  'au_subgroups:noparent' => 'Set to no parent',
 	'au_subgroups:error:invalid:group' => "Invalid group identifier",
 	'au_subgroups:invite:body' => "Hi %s,
 
