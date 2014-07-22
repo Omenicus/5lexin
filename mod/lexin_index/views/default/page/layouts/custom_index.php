@@ -50,10 +50,11 @@ if (elgg_is_logged_in()) {
 }
 echo elgg_view_module('featured',  '', $top_box, $mod_params);
 
+echo elgg_view_module('featured',  elgg_echo("custom:thewires"), $vars['thewires'], $mod_params);
 
 echo elgg_view_module('featured',  elgg_echo("custom:comments"), $vars['comments'], $mod_params);
 
-echo elgg_view_module('featured',  elgg_echo("custom:thewires"), $vars['thewires'], $mod_params);
+
 
 // member
 echo elgg_view_module('featured',  elgg_echo("custom:members"), $vars['members'], $mod_params);
