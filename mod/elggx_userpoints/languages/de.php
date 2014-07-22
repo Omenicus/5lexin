@@ -1,6 +1,6 @@
 <?php
 
-$german = array(
+return array(
 	'admin:administer_utilities:elggx_userpoints' => 'Elggx Userpoints',
 	'item:object:userpoint' => 'Aktivitätspunkte',
 	'elggx_userpoints:admin_settings' => 'Konfiguration des Elggx Userpoints-Plugins',
@@ -111,7 +111,7 @@ $german = array(
 	'userpoints_standard:riverpost' => 'Punkte für das Schreiben eines River-Eintrages:',
 	'userpoints_standard:thewire' => 'Punkte fur das Verfassen eines Eintrages im Heißen Draht:',
 	'userpoints_standard:groupforumtopic' => 'Punkte für das Starten einer neuen Gruppen-Diskussion:',
-	'userpoints_standard:group_topic_post' => 'Punkte für das Kommentieren in einer Gruppen-Diskussion:',
+	'userpoints_standard:discussion_reply' => 'Punkte für das Kommentieren in einer Gruppen-Diskussion:',
 	'userpoints_standard:invite' => 'Punkte für das Einladen eines Freundes:',
 	'userpoints_standard:expire_invite' => 'Punkte für ausstehende Einladungen verfallen bzw. erneute Einladung erlauben nach:',
 	'userpoints_standard:require_registration' => 'Accountregistrierung von eingeladenen Freunden notwendig?',
@@ -126,5 +126,3 @@ $german = array(
 	'userpoints_standard:1month' => '1 Monat',
 	'userpoints_standard:delete' => 'Aktivitätspunkte löschen, wenn die zugehörigen Inhalte von der Seite gelöscht werden?'
 );
-
-add_translation("de", $german);

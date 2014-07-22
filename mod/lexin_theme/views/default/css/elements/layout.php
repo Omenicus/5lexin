@@ -30,6 +30,9 @@
 	margin: 0 auto;
 	height: auto;
 }
+.elgg-page-default .elgg-page-topbar > .elgg-inner  > .sitename{
+ margin-bottom:0px;
+}
 .elgg-page-default .elgg-page-topbar > .elgg-inner  > .sitename   a {
 text-decoration: none;margin: 0 30px 0 0; display: block;width:48px;height:28px;    padding-top: 7px;float:left;
 color:#FFFFFF;
