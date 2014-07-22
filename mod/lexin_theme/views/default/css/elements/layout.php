@@ -34,7 +34,11 @@
  margin-bottom:0px;
 }
 .elgg-page-default .elgg-page-topbar > .elgg-inner  > .sitename   a {
-text-decoration: none;margin: 0 30px 0 0; display: block;width:48px;height:28px;    padding-top: 7px;float:left;
+text-decoration: none;margin: 0 30px 0 0; display: block;width:48px;
+height:20px;    
+padding-bottom: 8px;
+padding-top: 5px;
+float:left;
 color:#FFFFFF;
 }
 .elgg-page-default .elgg-page-topbar > .elgg-inner  > .sitename   a:hover{
