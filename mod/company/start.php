@@ -64,7 +64,6 @@ function company_init() {
     
     $js = elgg_get_simplecache_url("js", "company/initcompanyinput");
     elgg_register_js("initcompanyinput.js", $js);
-    //elgg_register_js('elgg_register_js.js',"company/init_company_input.js");
     elgg_extend_view("groups/edit","company/elements/company_input");
     
     $css_url = 'vendors/jquery/css/flick/jquery-ui-1.10.4.custom.css';

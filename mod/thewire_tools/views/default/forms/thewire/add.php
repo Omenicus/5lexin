@@ -6,7 +6,9 @@
  */
 
 elgg_load_js('elgg.thewire');
-
+elgg_load_js('jquery.textareahelper.js');
+//elgg_load_css('bootstrap.css');
+//elgg_load_js('jquery.textcomplete.js');
 $post = elgg_extract('post', $vars);
 
 $wire_length = thewire_tools_get_wire_length();

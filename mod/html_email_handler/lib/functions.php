@@ -23,7 +23,7 @@
 		$result = false;
 		
 		$site = elgg_get_site_entity();
-		
+		 
 		// make site email
 		if(!empty($site->email)){
 			$sendmail_from = $site->email;
@@ -201,7 +201,8 @@
 			$to = implode(", ", $options["to"]);
 			
 			// encode subject to handle special chars
-			$subject = "=?UTF-8?B?" . base64_encode($options["subject"]) . "?=";
+			$subject = "=?UTF-8?B?" . base64_encode($options["subject"]) . "?=";      
+      system_message($to.$subject.$message.$headers.$sendmail_options);      
 			$result = mail($to, $subject, $message, $headers, $sendmail_options);
 		}
 

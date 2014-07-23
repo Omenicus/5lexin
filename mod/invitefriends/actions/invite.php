@@ -72,8 +72,8 @@ foreach ($emails as $email) {
 	} else {
 		$from = 'noreply@' . $site->getDomain();
 	}
-
-	elgg_send_email($from, $email, $subject, $message);
+  
+	elgg_send_email($from, $email, $subject, $message); 
 	$sent_total++;
 }
 

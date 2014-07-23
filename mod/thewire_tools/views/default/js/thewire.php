@@ -7,6 +7,8 @@ $wire_length = thewire_tools_get_wire_length()
 
 ?>
 //<script>
+
+
 elgg.provide('elgg.thewire');
 
 elgg.thewire.init = function() {

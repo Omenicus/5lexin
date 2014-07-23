@@ -10,7 +10,7 @@ return array(
 	'invitefriends:message' => 'Message',
 	'invitefriends:subject' => 'Invitation to join %s',
 
-	'invitefriends:success' => 'Your friends were invited.',
+	'invitefriends:success' => '所有邀请已经发送.',
 	'invitefriends:invitations_sent' => 'Invites sent: %s. There were the following problems:',
 	'invitefriends:email_error' => 'The following addresses are not valid: %s',
 	'invitefriends:already_members' => 'The following are already members: %s',

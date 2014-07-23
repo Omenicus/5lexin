@@ -8,7 +8,7 @@ return split( term ).pop();
 $(document).ready(function() {
   
 	//$("#organization").each(function(){
-  $("input[id=organization-no]").each(function(){
+  $("input[name=organization]").each(function(){
 		$(this)
     //$('#organisation')
 		// don't navigate away from the field on tab when selecting an item

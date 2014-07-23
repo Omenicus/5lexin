@@ -604,7 +604,7 @@ function elgg_send_email($from, $to, $subject, $body, array $params = null) {
 	$body = preg_replace("/(\r\n|\r)/", "\n", $body); // Convert to unix line endings in body
 	$body = preg_replace("/^From/", ">From", $body); // Change lines starting with From to >From
 	$body = wordwrap($body);
-
+  
 	return mail($to, $subject, $body, $headers_string);
 }
 

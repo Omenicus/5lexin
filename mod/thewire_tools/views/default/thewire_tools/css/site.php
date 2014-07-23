@@ -9,4 +9,5 @@
 
 #thewire-textarea {
   height:100px;
+  width:100%;
 }
