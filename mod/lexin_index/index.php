@@ -56,7 +56,7 @@ $params=array(
 	'size' => 'small',
 );
 $newest_members = elgg_list_entities_from_metadata($params);
-$params=array(
+/*$params=array(
 	'metadata_names' => 'icontime',
 	'type' => 'user',
 	'limit' => 10,
@@ -65,11 +65,12 @@ $params=array(
 	'list_type' => 'gallery',
 	'gallery_class' => 'elgg-gallery-users',
 	'size' => 'small',
-);
+); */
 //$vars['page'] = 'newest';
 //$newest_members=elgg_trigger_plugin_hook('members:list', 'newest', $params, null);
 //newest groups
 $list_params['type'] = 'group';
+$list_params['limit'] = 10;
 unset($list_params['subtype']);
 $groups = elgg_list_entities($list_params);  
 
