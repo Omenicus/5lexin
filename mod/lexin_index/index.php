@@ -56,7 +56,7 @@ $params=array(
 	'size' => 'small',
 );
 $newest_members = elgg_list_entities_from_metadata($params);
-/*$params=array(
+$params=array(
 	'metadata_names' => 'icontime',
 	'type' => 'user',
 	'limit' => 10,
@@ -71,7 +71,7 @@ $newest_members = elgg_list_entities_from_metadata($params);
 //newest groups
 $list_params['type'] = 'group';
 unset($list_params['subtype']);
-$groups = elgg_list_entities($list_params);  */
+$groups = elgg_list_entities($list_params);  
 
 
 
@@ -106,7 +106,7 @@ $params = array(
 	//'blogs' => $blogs,
 	//'bookmarks' => $bookmarks,
 	//'files' => $files,
-	//'groups' => $groups,                  
+	'groups' => $groups,                  
 	'login' => $login,
 	'members' => $newest_members,
   //'comments' => $comments,
