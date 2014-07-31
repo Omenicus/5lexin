@@ -269,7 +269,14 @@ $chinese = array(
 	'PUBLIC'  =>  "公开" , 
 	'access:friends:label' => "好友",
 	'access' => "访问", 
-	'access'  =>  "访问权限" , 
+	
+	'LOGGED_OUT' => "未登录用户",
+	'access:overridenotice' => "声明：由于群设置，该内容仅允许群成员访问。",
+	'access:limited:label' => "受限",
+	'access:help' => "访问权限",
+	'access:read' => "读权限",
+	'access:write' => "写权限",
+	'access:admin_only' => "仅管理员",
 
 /**
  * Dashboard and widgets

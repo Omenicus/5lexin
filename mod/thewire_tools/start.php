@@ -45,11 +45,12 @@
 		elgg_register_action("thewire/add", dirname(__FILE__) . "/actions/thewire/add.php");
     
     elgg_register_js('jquery.textareahelper.js',elgg_get_site_url() .'vendors/jquery/jquery.textareahelper.js');
+    
     elgg_register_css('bootstrap.css',elgg_get_site_url() .'vendors/jquery-textcomplete/media/stylesheets/bootstrap.css');
-
     elgg_register_js('jquery.textcomplete.js',elgg_get_site_url() .'vendors/jquery-textcomplete/jquery.textcomplete.js');
     //elgg_extend_view('groups/tool_latest', 'thewire_tools/group_module_thewire');
-      
+    elgg_register_css('jquery.atwho.css',elgg_get_site_url() .'vendors/at.js/dist/css/jquery.atwho.css');
+    elgg_register_js('jquery.atwho.js',elgg_get_site_url() .'vendors/at.js/dist/js/jquery.atwho.js');  
 	}
 	
 	function thewire_tools_pagesetup() {

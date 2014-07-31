@@ -23,6 +23,8 @@ $english = array(
     'au_subgroups:error:invite' => "Action has been cancelled - the following users are not members of the parent group and cannot be invited/added.",
     'au_subgroups:option:parent:members' => "Members of the parent group",
     'au_subgroups:subgroups:more' => "View all Sub-Groups",
+    'group:setmanager' => "Set as manager",
+    'group:removemanager' => "Unset manager",
 	
 	// group options
 	'au_subgroups:group:enable' => "Subgroups: Enable Sub-Groups for this group?",

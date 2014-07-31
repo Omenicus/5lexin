@@ -85,7 +85,7 @@ return array(
 	'groups:search:title' => "搜索标签含 '%s' 的群",
 	'groups:search:none' => "未找到群",
 	'groups:search_in_group' => "在群内搜索",
-	'groups:acl' => "群组",
+	'groups:acl' => "群组内访问:%s",
 
 	'discussion:topic:notify:summary' => '新的讨论主题 %s ',
 	'discussion:topic:notify:subject' => '新讨论主题: %s',

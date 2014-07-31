@@ -202,8 +202,7 @@
 			
 			// encode subject to handle special chars
 			$subject = "=?UTF-8?B?" . base64_encode($options["subject"]) . "?=";      
-      system_message($to.$subject.$message.$headers.$sendmail_options);      
-			$result = mail($to, $subject, $message, $headers, $sendmail_options);
+      $result = mail($to, $subject, $message, $headers, $sendmail_options);
 		}
 
 		return $result;

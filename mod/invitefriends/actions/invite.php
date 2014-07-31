@@ -49,7 +49,7 @@ foreach ($emails as $email) {
 	}
 
 	if (get_user_by_email($email)) {
-		$error = TRUE;
+		//$error = TRUE;
 		$already_members[] = $email;
 		continue;
 	}

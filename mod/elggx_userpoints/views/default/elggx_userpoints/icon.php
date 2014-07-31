@@ -5,7 +5,7 @@ if ($vars['size'] == 'large') {
 ?>
 
         <div class="userpoints_profile">
-            <div><span><?php echo elgg_echo('elggx_userpoints:upperplural') . ': ' . $vars['entity']->userpoints_points;?></span></div>
+            <div><span><?php echo elgg_echo('elggx_userpoints:caifu') . ': ' . $vars['entity']->userpoints_points.elgg_echo('elggx_userpoints:xinbi');?></span></div>
         </div>
 
     <?php } ?>

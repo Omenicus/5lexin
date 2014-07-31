@@ -64,6 +64,8 @@ function au_subgroups_init() {
   // register our widget
   elgg_register_widget_type('au_subgroups', elgg_echo('au_subgroups'), elgg_echo('au_subgroups:widget:description'), 'groups');
   
+  //elgg_register_plugin_hook_handler("register", "menu:entity", "group_member_entity_menu_handler");
+  
   elgg_register_ajax_view('au_subgroups/search_results');
   
   // group entity menu
@@ -77,7 +79,48 @@ function au_subgroups_init() {
     run_function_once('au_subgroups_bugfix_20121024a');
   }
 }
-
+function group_member_entity_menu_handler($hook, $type, $returnvalue, $params){
+    $page_owner = elgg_get_page_owner_entity();
+    $user = elgg_get_logged_in_user_entity();    
+  	if (!($page_owner instanceof ElggGroup) || empty($user) || ($page_owner->owner_guid != $user->getGUID() )) 
+      return $returnvalue; 
+		$result = $returnvalue;
+		
+		if(!empty($params) && is_array($params) && ($user = elgg_get_logged_in_user_entity())){
+			$entity = elgg_extract("entity", $params);
+			
+			if(elgg_instanceof($entity, "user") && ($entity->getGUID() != $user->getGUID())){
+				if(!empty($result) && !is_array($result)){
+					$result = array($result);
+				} elseif(empty($result)){
+					$result = array();
+				}
+				
+        if(check_entity_relationship($page_owner->getGUID(), "manager", $entity->getGUID())){
+						// pending request
+						$result[] = ElggMenuItem::factory(array(
+							 "name" => "set_group_manager",
+							 "text" => elgg_echo("group:setmanager"),
+							 "href" => "groups/setmanager/" . $page_owner->getGUID(). "/".$entity->getGUID(),
+               "is_action" => true,
+							 "priority" => 503
+						));
+					} else {
+						// add as friend
+						$result[] = ElggMenuItem::factory(array(
+							 "name" => "set_group_manager",
+							 "text" => elgg_echo("group:removemanager"),
+							 "href" =>"groups/removemanager/" . $page_owner->getGUID(). "/".$entity->getGUID(),
+							 "is_action" => true,
+							 "priority" => 503
+						));
+					}
+          
+			}
+		}
+		
+		return $result;
+	}
 
 function au_subgroups_bugfix_20121024a() {
   $options = array(

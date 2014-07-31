@@ -3,6 +3,8 @@
 return array(
 	'admin:administer_utilities:elggx_userpoints' => 'Elggx Userpoints',
 	'item:object:userpoint' => 'User Points',
+  'elggx_userpoints:caifu'=> 'Health',
+  'elggx_userpoints:xinbi' => 'Points',
 	'elggx_userpoints:admin_settings' => 'Change Userpoints Settings',
 	'elggx_userpoints:settings' => 'Plugin Settings',
 	'elggx_userpoints:actions' => 'Points Settings',

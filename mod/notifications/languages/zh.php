@@ -11,8 +11,8 @@ return array(
 	'notifications:subscriptions:friends:description' => '下面是好友分组列表. 选择当列表中好友有动态时的通知方式.',
 	'notifications:subscriptions:collections:edit' => '编辑共享访问通知, 点击这里',
 
-	'notifications:subscriptions:changesettings' => '通知',
-	'notifications:subscriptions:changesettings:groups' => '群通知',
+	'notifications:subscriptions:changesettings' => '设置通知',
+	'notifications:subscriptions:changesettings:groups' => '设置群通知',
 
 	'notifications:subscriptions:title' => '单个用户定制通知',
 	'notifications:subscriptions:description' => '要在每个不同好友创建内容时收到不同类型的通知，在下面选择合适的通知方式。',

@@ -18,7 +18,7 @@ $zh = array(
 	'live_notifications:comments:create' => '%s 在 <a href="%s" title="">帖子</a>上留言了 ',
 	'live_notifications:comments:thread' => '%s 也在 <a href="%s" title="">帖子</a>上留言了 ',
 	'live_notifications:none'=> '没有通知',
-	'live_notifications:all' => '历史通知',
+	'live_notifications:all' => '实时通知',
 	'live_notifications:see_all' => '更多',
 	'live_notifications:new_notification' => '有新通知',
 	'live_notifications:delete:error' => '删除通知失败',

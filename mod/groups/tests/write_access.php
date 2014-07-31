@@ -69,7 +69,7 @@ class GroupsWriteAccessTest extends ElggCoreUnitTest {
 
 		$original_page_owner_guid = (elgg_instanceof($original_page_owner)) ? $original_page_owner->guid : 0;
 		elgg_set_page_owner_guid($original_page_owner_guid);
-
+    
 	}
 
 	/**

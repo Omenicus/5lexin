@@ -68,6 +68,7 @@ function site_notifications_set_topbar() {
 			'priority' => 150,
 			'section' => 'alt',
 		));	
+    
 	}
 }
 

@@ -20,16 +20,16 @@ elgg_load_css('custom_css');
 echo elgg_view_module('featured',  elgg_echo("custom:rivers"), $vars['rivers'], $mod_params);
 
 // blog
-if (elgg_is_active_plugin('blog')) {
+/*if (elgg_is_active_plugin('blog')) {
 	echo elgg_view_module('featured',  elgg_echo("custom:blogs"), $vars['blogs'], $mod_params);
-}
+}*/
 
 
 // a view for plugins to extend
-echo elgg_view("index/righthandside");
+//echo elgg_view("index/righthandside");
 
 // a view for plugins to extend
-echo elgg_view("index/lefthandside");
+//echo elgg_view("index/lefthandside");
 
 
 ?>
@@ -50,9 +50,12 @@ if (elgg_is_logged_in()) {
 }
 echo elgg_view_module('featured',  '', $top_box, $mod_params);
 
-echo elgg_view_module('featured',  elgg_echo("custom:thewires"), $vars['thewires'], $mod_params);
+if(elgg_is_active_plugin('elggx_userpoints'))
+  echo elgg_view_module('featured',  elgg_echo("elggx_userpoints:toppoints"), $vars['caifu'], $mod_params);
 
-echo elgg_view_module('featured',  elgg_echo("custom:comments"), $vars['comments'], $mod_params);
+//echo elgg_view_module('featured',  elgg_echo("custom:thewires"), $vars['thewires'], $mod_params);
+
+//echo elgg_view_module('featured',  elgg_echo("custom:comments"), $vars['comments'], $mod_params);
 
 
 
@@ -66,9 +69,9 @@ if (elgg_is_active_plugin('groups')) {
 
 
 // files
-if (elgg_is_active_plugin('file')) {
+/*if (elgg_is_active_plugin('file')) {
 	echo elgg_view_module('featured',  elgg_echo("custom:files"), $vars['files'], $mod_params);
-}
+}*/
 ?>
 		</div>
 	</div>

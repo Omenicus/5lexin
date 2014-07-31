@@ -23,6 +23,8 @@ $zh = array(
     'au_subgroups:error:invite' => "Action has been cancelled - the following users are not members of the parent group and cannot be invited/added.",
     'au_subgroups:option:parent:members' => "Members of the parent group",
     'au_subgroups:subgroups:more' => "查看所有子群",
+    'group:setmanager' => "设为管理员",
+    'group:removemanager' => "取消管理员",
 	
 	// group options
 	'au_subgroups:group:enable' => '允许创建子群', 

@@ -6,9 +6,17 @@
  */
 
 elgg_load_js('elgg.thewire');
+
+//for jquery.autocomplete
 elgg_load_js('jquery.textareahelper.js');
+
+//for jquery.textcomplete
 //elgg_load_css('bootstrap.css');
 //elgg_load_js('jquery.textcomplete.js');
+
+//for at.js
+//elgg_load_css('jquery.atwho.css');
+//elgg_load_js('jquery.atwho.js');
 $post = elgg_extract('post', $vars);
 
 $wire_length = thewire_tools_get_wire_length();

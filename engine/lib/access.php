@@ -518,7 +518,7 @@ function get_write_access_array($user_guid = 0, $site_guid = 0, $flush = false) 
 				$access_array[$collection->id] = $collection->name;
 			}
 		}
-
+    
 		if ($init_finished) {
 			$cache[$hash] = $access_array;
 		}

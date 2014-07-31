@@ -3,6 +3,8 @@
 ?>
 //<script>
 elgg.provide('elgg.thewire_tools');
+
+//for jquery.textcomplete
 elgg.thewire_tools.init = function() {
 
     var matchRegExp = /@(\w*)$/;///\B@(\w*)$/;///(^|\s)@(\w*)$/;
@@ -88,6 +90,7 @@ $('#thewire-textarea').textcomplete([
 ]);  */
 }
 
+//for jquery.autocomplete
 elgg.thewire_tools.init2 = function() {
 	function split( val ) {
 		//return val.split( / \s*/ );   /\B@(\w*)$/
@@ -232,5 +235,108 @@ elgg.thewire_tools.init2 = function() {
 	});   
 };
 
-
+//for jquery.atwho
+elgg.thewire_tools.init3 = function() {
+  var templateFunc = function (value) {
+      // `value` is an element of array callbacked by searchFunc.
+      //return '<b>' + value + '</b>';
+      var list_body = "";
+				if(value.type == "user"){
+					list_body = "<img src='" + value.icon + "' /> " + value.name;
+				} else {
+					list_body = value.value;
+				}
+        return list_body;
+    };
+  $('#thewire-textarea').atwho({
+    at: "@",
+    data: "http://www.atjs.com/users.json",
+    tpl:templateFunc, 
+    search_key: "name",
+    max_len: 20,
+    start_with_space: false,
+    limit: 10,
+  });
+    var matchRegExp = /@(\w*)$/;///\B@(\w*)$/;///(^|\s)@(\w*)$/;
+    var indexNumber = 1;
+    var cache=new Array();
+    var searchFunc = function (term, callback) {
+      if( cache[term] )
+        callback(cache[term], true); // Show local cache immediately.
+      $.getJSON(elgg.get_site_url() + "thewire/autocomplete", { q:  '@'+term ,
+						page_owner_guid: elgg.get_page_owner_guid() })
+        .done(function (resp) {
+          callback(resp); // `resp` must be an Array
+          cache[term]=resp; 
+        })
+        .fail(function () {
+          callback([]); // Callback must be invoked even if something went wrong.
+        });
+    };
+    var templateFunc = function (value) {
+      // `value` is an element of array callbacked by searchFunc.
+      //return '<b>' + value + '</b>';
+      var list_body = "";
+				if(value.type == "user"){
+					list_body = "<img src='" + value.icon + "' /> " + value.name;
+				} else {
+					list_body = value.value;
+				}
+        return list_body;
+    };
+    var replaceFunc = function (value) { return '$1@' + value.name + ' '; };
+    var cacheBoolean=true;
+    var maxCountNumber=20;
+    var placementStr='bottom' ;
+    var strategy = {
+      // Required
+      match:     matchRegExp,
+      search:    searchFunc,
+      replace:   replaceFunc,
+    
+      // Optional
+       index:     indexNumber,     // 2
+       maxCount:  maxCountNumber,  // 10
+       template:  templateFunc,    // function (value) { return value; }
+       cache:     cacheBoolean,    // false
+       placement: placementStr     // undefined
+//       header:    headerStrOrFunc  // undefined
+//       footer:    footerStrOrFunc  // undefined
+    };
+    var strategies = [
+      // There are two strategies.
+      strategy
+      
+    ];
+    $('#thewire-textarea').textcomplete(strategies);//, option);
+  /*
+  var cachedata=new Array();
+  var searchFunc = function (term, callback) {
+  if( cachedata[term] )
+  callback(cachedata[term], true); // Show local cache immediately.
+  
+  $.getJSON(elgg.get_site_url() + "thewire/autocomplete", { q: '@'+term,
+						page_owner_guid: elgg.get_page_owner_guid() })
+    .done(function (resp) {
+      cachedata[term]=resp;
+      callback(resp); // `resp` must be an Array
+    })
+    .fail(function () {
+      callback([]); // Callback must be invoked even if something went wrong.
+    }); 
+};
+$('#thewire-textarea').textcomplete([
+    { // emoji strategy
+        //mentions: ['yuku_t'],
+        cacheBoolean: true,
+        maxCount:20,
+        match: /\B@(\w*)$/,
+        search: searchFunc,
+        index: 1,
+        replace: function (mention) {
+            return '@' + mention + ' ';
+        }
+    }
+]);  */
+}
 elgg.register_hook_handler('init', 'system', elgg.thewire_tools.init2);

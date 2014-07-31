@@ -7,7 +7,26 @@
 elgg_register_event_handler('init', 'system', 'lexin_index_init');
 
 function lexin_index_init() {
-
+  if (elgg_is_logged_in()&& elgg_is_active_plugin('live_notifications')) {
+		elgg_register_menu_item('topbar', array(
+			'name' => 'live_notifications',
+			'href' => 'live_notifications/all',
+			'text' => elgg_echo('live_notifications'),
+			'priority' => 102,
+			'section' => 'alt',
+      'parent_name' => 'account',
+		));
+	}
+  if (elgg_is_logged_in()&& elgg_is_active_plugin('invitefriends')) {
+		elgg_register_menu_item('topbar', array(
+			'name' => 'invite',
+			'href' => 'invite',
+			'text' => elgg_echo('friends:invite'),
+			'priority' => 103,
+			'section' => 'alt',
+      'parent_name' => 'account',
+		));
+	} 
 	// Extend system CSS with our own styles
 	//elgg_extend_view('css/elgg', 'lexin_index/css');
   elgg_register_simplecache_view('css/lexin_index/css');
@@ -17,6 +36,7 @@ function lexin_index_init() {
 	// Replace the default index page
 	elgg_register_page_handler('', 'custom_index');  //if want to show only login box, change to lexin_index  
   elgg_register_page_handler('main', 'custom_index');
+  
 }
 
 /**
