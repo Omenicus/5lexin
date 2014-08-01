@@ -21,11 +21,12 @@ CKEDITOR.editorConfig = function( config ) {
 		'/',
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-		{ name: 'styles' },
-		{ name: 'colors' },
-		{ name: 'about' }
+		//{ name: 'styles' },
+		//{ name: 'colors' },
+		//{ name: 'about' }
 	];
-
+  //config.toolbar: [['Bold', 'Italic', 'Underline'], ['Strike', 'NumberedList', 'BulletedList', 'Undo', 'Redo', 'Link', 'Unlink', 'Image','Table', 'Blockquote', 'Paste', 'PasteFromWord', 'Maximize']],
+		
 	// Remove some buttons, provided by the standard plugins, which we don't
 	// need to have in the Standard(s) toolbar.
 	config.removeButtons = 'Underline,Subscript,Superscript';
