@@ -8,10 +8,11 @@ elgg_register_event_handler('init', 'system', 'expages_init');
 function expages_init() {
 
 	// Register a page handler, so we can have nice URLs
-	elgg_register_page_handler('about', 'expages_page_handler');
-	elgg_register_page_handler('terms', 'expages_page_handler');
-	elgg_register_page_handler('privacy', 'expages_page_handler');
-	elgg_register_page_handler('expages', 'expages_page_handler');
+  elgg_register_page_handler('xinbi', 'expages_page_handler');
+	//elgg_register_page_handler('about', 'expages_page_handler');
+	//elgg_register_page_handler('terms', 'expages_page_handler');
+	//elgg_register_page_handler('privacy', 'expages_page_handler');
+	//elgg_register_page_handler('expages', 'expages_page_handler');
 
 	// Register public external pages
 	elgg_register_plugin_hook_handler('public_pages', 'walled_garden', 'expages_public');
@@ -20,7 +21,7 @@ function expages_init() {
 	elgg_register_admin_menu_item('configure', 'expages', 'appearance');
 
 	// add footer links
-	expages_setup_footer_menu();
+	//expages_setup_footer_menu();
 
 	// register action
 	$actions_base = elgg_get_plugins_path() . 'externalpages/actions';

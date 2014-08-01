@@ -69,7 +69,7 @@ define(function(require) {
 		 * You can find configuration information here:
 		 * http://docs.ckeditor.com/#!/api/CKEDITOR.config
 		 */
-		config: require('elgg/ckeditor/config')
+		//config: require('elgg/ckeditor/config')
 
 	};
 

@@ -13,7 +13,38 @@ foreach ($entities as $entity) {
 
     $icon = elgg_view_entity_icon($entity, 'small');
     $branding = (abs($entity->userpoints_points) > 1) ? elgg_echo('elggx_userpoints:lowerplural') : elgg_echo('elggx_userpoints:lowersingular');
-    $info = "<a href=\"{$entity->getURL()}\">{$entity->name}</a><br><b>{$entity->userpoints_points} $branding</b>";
+$html = '';
+
+foreach ($entities as $entity) {
+
+    $icon = elgg_view_entity_icon($entity, 'small');
+    $branding = (abs($entity->userpoints_points) > 1) ? elgg_echo('elggx_userpoints:lowerplural') : elgg_echo('elggx_userpoints:lowersingular');
+    $branding =  "<a href=\"blog/view/498\">{$branding}</a>";
+    $info = "<a href=\"{$entity->getURL()}\">{$entity->name}</a><b class=\"right\">{$entity->userpoints_points} $branding</b>";
+    
+    $jobtitle='';
+
+    $title=elgg_get_metadata(array( 'metadata_name' => 'jobtitle', 'guid' => $entity->getGUID() ));
+    if( $title )
+      $jobtitle.=$title[count($title)-1]->value;
+    //$jobtitle.=count($title);   
+    $org=elgg_get_metadata(array( 'metadata_name' => 'organisation', 'guid' => $entity->getGUID() ));
+    $orgid=elgg_get_metadata(array( 'metadata_name' => 'organisationid', 'guid' => $entity->getGUID() ));
+    
+    if( $org && $orgid)
+    {
+      //$jobtitle.=  "-1-";
+      $company=get_entity($orgid[count($orgid)-1]->value);
+      $jobtitle.=  ' - <a href="'.$company->getURL().'">'.$company->title.'</a>';
+    }
+    elseif( $org )
+    {
+      //$jobtitle.=  "-2-".count($org);
+      $jobtitle.= ' - '.$org[count($org)-1]->value;
+    }
+    //$jobtitle.= count($org);
+    $info .="<div class=\"elgg-subtext\">$jobtitle</div>"; 
+
     $html .= elgg_view('page/components/image_block', array('image' => $icon, 'body' => $info));
 }
 

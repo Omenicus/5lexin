@@ -53,7 +53,6 @@ echo "<span class=\"elgg-subtext\">$subtitle</span>";
 
 $jobtitle='';
 
-
 $title=elgg_get_metadata(array( 'metadata_name' => 'jobtitle', 'guid' => $entity->getGUID() ));
 if( $title )
   $jobtitle.=$title[count($title)-1]->value;
