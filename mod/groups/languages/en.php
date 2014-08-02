@@ -300,6 +300,8 @@ or click below to view the group's join requests:
 
 	'groups:invitekilled' => 'The invite has been deleted.',
 	'groups:joinrequestkilled' => 'The join request has been deleted.',
+	'groups:error:addedtogroup' => "Could not add %s to the group",
+	'groups:add:alreadymember' => "%s is already a member of this group",
 
 	/**
 	 * ecml

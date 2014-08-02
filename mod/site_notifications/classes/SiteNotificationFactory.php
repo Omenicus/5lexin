@@ -4,7 +4,7 @@ abstract class SiteNotificationFactory {
 
 	/**
 	 * Create a site notification
-	 * 
+	 *
 	 * @param ElggUser   $recipient Recipient of the notification
 	 * @param string     $message   Notification message
 	 * @param ElggUser   $actor     User who caused the notification event
@@ -19,7 +19,15 @@ abstract class SiteNotificationFactory {
     $note->title = $title;
 		$note->description = $body;
 		if ($object) {
-			$note->setURL($object->getURL());
+			// TODO Add support for setting an URL for a notification about a new relationship
+			switch ($object->getType()) {
+				case 'annotation':
+					// Annotations do not have an URL so we use the entity URL
+					$note->setURL($object->getEntity()->getURL());
+					break;
+				default:
+					$note->setURL($object->getURL());
+			}
 		}
 		$note->setRead(false);
 

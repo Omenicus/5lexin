@@ -7,11 +7,12 @@
 
 $subject = strip_tags(get_input('subject'));
 $body = get_input('body');
-$recipient_username = get_input('recipient_username');
+$recipient_usernames = get_input('recipient_username');
 $original_msg_guid = (int)get_input('original_guid');
 
 elgg_make_sticky_form('messages');
-
+foreach( $recipient_usernames as $key => $recipient_username)
+{ 
 if (!$recipient_username) {
 	register_error(elgg_echo("messages:user:blank"));
 	forward("messages/compose");
@@ -24,7 +25,8 @@ if ($recipient_username == elgg_get_logged_in_user_entity()->username) {
 
 $user = get_user_by_username($recipient_username);
 if (!$user) {
-	register_error(elgg_echo("messages:user:nonexist"));
+
+	register_error(elgg_echo("messages:user:nonexist").":".$test);
 	forward("messages/compose");
 }
 
@@ -37,6 +39,7 @@ if (!$body || !$subject) {
 // Otherwise, 'send' the message 
 $result = messages_send($subject, $body, $user->guid, 0, $original_msg_guid);
 
+}
 // Save 'send' the message
 if (!$result) {
 	register_error(elgg_echo("messages:error"));
