@@ -108,7 +108,7 @@ color:#FFFFFF;
 
 /***** PAGE BODY LAYOUT ******/
 .elgg-page-body {
-	padding: 0 20px;
+	padding: 0 20px; 
 }
 
 .elgg-layout {
@@ -165,4 +165,5 @@ color:#FFFFFF;
 html, body {
 	height: 100%;
 	margin-bottom: 0px;
+  background-color:#E9E9E9;
 }
