@@ -179,7 +179,7 @@
 	float: left;
 }
 .elgg-menu-site > li > a {
-	color: #FFF;
+	color: #D7D7D7;
 	padding: 14px 35px 14px 0;
 }
 .elgg-menu-site > li > a:hover {
