@@ -6,7 +6,7 @@
 		'thewire_tools:login_required' => "你需要登录",
 	
 		// menu
-		'thewire_tools:menu:mentions' => "提到我的",
+		'thewire_tools:menu:mentions' => "@我的",
 	
 		// settings
 		'thewire_tools:settings:enable_group' => "Enable the wire for groups",

@@ -29,7 +29,13 @@
 	echo elgg_echo("thewire_tools:settings:extend_activity");
 	echo "&nbsp;" . elgg_view("input/dropdown", array("name" => "params[extend_activity]", "value" => $plugin->extend_activity, "options_values" => $noyes_options));
 	echo "</div>";
-	
+
+	// extend widgets
+	echo "<div>";
+	echo elgg_echo("thewire_tools:settings:notify_mention");
+	echo "&nbsp;" . elgg_view("input/dropdown", array("name" => "params[notify_mention]", "value" => $plugin->notify_mention, "options_values" => $noyes_options));
+	echo "</div>";
+  	
 	// Set max wire length
 	// @todo: can be removed in Elgg 1.9
 	echo "<div>";
