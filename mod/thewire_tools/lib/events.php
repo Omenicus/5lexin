@@ -23,7 +23,7 @@
             $user=get_user_by_name($username);             
 					//if ($user && ($user->getGUID() != $object->getOwnerGUID())) 
           {
-						//if (elgg_get_plugin_user_setting("notify_mention", $user->getGUID(), "thewire_tools") == "yes") 
+						if (elgg_get_plugin_user_setting("notify_mention", $user->getGUID(), "thewire_tools") == "yes") 
             {
 							$subject = elgg_echo("thewire_tools:notify:mention:subject");
 							$message = elgg_echo("thewire_tools:notify:mention:message", array(
@@ -31,7 +31,7 @@
 												$object->getOwnerEntity()->name,
 												elgg_get_site_url() . "thewire/search/@" . $user->username));
 							system_message( $subject.$message);
-							notify_user($user->getGUID(), $object->getOwner(), $subject, $message);
+							notify_user($user->getGUID(), $object->getOwnerGUID(), $subject, $message);
 						}
 					}
 				}
