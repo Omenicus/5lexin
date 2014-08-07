@@ -21,9 +21,9 @@
           $user = get_user_by_username($username);  
 					if (!$user)
             $user=get_user_by_name($username);             
-					//if ($user && ($user->getGUID() != $object->getOwnerGUID())) 
+					if ($user )//&& ($user->getGUID() != $object->getOwnerGUID())) 
           {
-						if (elgg_get_plugin_user_setting("notify_mention", $user->getGUID(), "thewire_tools") == "yes") 
+						//if (elgg_get_plugin_user_setting("notify_mention", $user->getGUID(), "thewire_tools") == "yes") 
             {
 							$subject = elgg_echo("thewire_tools:notify:mention:subject");
 							$message = elgg_echo("thewire_tools:notify:mention:message", array(
@@ -34,6 +34,10 @@
 							notify_user($user->getGUID(), $object->getOwnerGUID(), $subject, $message);
 						}
 					}
+          else
+          {
+             system_message( $username."is not a user");
+          }                              
 				}
 			}
 		}

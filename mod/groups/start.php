@@ -316,6 +316,8 @@ function groups_page_handler($page) {
 		case 'requests':
 			groups_handle_requests_page($page[1]);
 			break;
+    case 'compurl':
+      groups_handle_compurl_page($page[1]);
 		default:
 			return false;
 	}

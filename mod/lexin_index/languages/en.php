@@ -2,6 +2,8 @@
 return array(	
 	'custom:bookmarks' => "Latest bookmarks",
 	'custom:groups' => "Latest groups",
+  'custom:groups:join' => "Joinedd groups",
+  'lexin:updates:afterlastlogin' => 'Updates from last login',
 	'custom:files' => "Latest files",
 	'custom:blogs' => "Latest blog posts",
 	'custom:members' => "Newest members",

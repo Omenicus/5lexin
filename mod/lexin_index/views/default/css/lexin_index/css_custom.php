@@ -57,3 +57,6 @@
 .elgg-col-35of100 {
   width:35%;  
 }
+.newitems {
+   color: #ff0000;
+}

@@ -9,11 +9,6 @@ $entities = elgg_get_entities_from_metadata($options);
 
 $html = '';
 
-foreach ($entities as $entity) {
-
-    $icon = elgg_view_entity_icon($entity, 'small');
-    $branding = (abs($entity->userpoints_points) > 1) ? elgg_echo('elggx_userpoints:lowerplural') : elgg_echo('elggx_userpoints:lowersingular');
-$html = '';
 
 foreach ($entities as $entity) {
 

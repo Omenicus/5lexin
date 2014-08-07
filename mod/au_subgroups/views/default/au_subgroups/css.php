@@ -3,11 +3,11 @@
   $default_bg_image = elgg_get_site_url() . 'mod/au_subgroups/graphics/iconbg.png';
   $background_image = elgg_trigger_plugin_hook('au_subgroups', 'bg_image', null, $default_bg_image);
   $font_size = array(
-      'tiny' => 2,
-      'small' => 5,
-      'medium' => 10,
-      'large' => 12,
-      'master' => 12
+      'tiny' => 10,
+      'small' => 12,
+      'medium' => 14,
+      'large' => 16,
+      'master' => 18
   );
 ?>
 ul.elgg-menu-owner-block-z-au_subgroups {

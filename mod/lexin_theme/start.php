@@ -11,6 +11,8 @@ function lexin_theme_init() {
 
 	elgg_register_event_handler('pagesetup', 'system', 'lexin_theme_pagesetup', 1000);
 
+  date_default_timezone_set("Asia/Shanghai");
+  
 	// theme specific CSS
 	elgg_extend_view('css/elgg', 'lexin_theme/css');
 

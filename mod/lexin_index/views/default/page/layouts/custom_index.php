@@ -50,6 +50,12 @@ if (elgg_is_logged_in()) {
 }
 echo elgg_view_module('featured',  '', $top_box, $mod_params);
 
+if (elgg_is_logged_in()) {
+  if (elgg_is_active_plugin('groups')&&isset($vars['groups_join'])) {
+  	echo elgg_view_module('featured',  elgg_echo("custom:groups:join"), $vars['groups_join'], $mod_params);
+  }
+}
+
 if(elgg_is_active_plugin('elggx_userpoints'))
   echo elgg_view_module('featured',  elgg_echo("elggx_userpoints:toppoints"), $vars['caifu'], $mod_params);
 
@@ -63,7 +69,7 @@ if(elgg_is_active_plugin('elggx_userpoints'))
 echo elgg_view_module('featured',  elgg_echo("custom:members"), $vars['members'], $mod_params);
 
 // groups
-if (elgg_is_active_plugin('groups')) {
+if (elgg_is_active_plugin('groups')&& isset($vars['groups'])) {
 	echo elgg_view_module('featured',  elgg_echo("custom:groups"), $vars['groups'], $mod_params);
 }
 

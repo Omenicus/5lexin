@@ -2,7 +2,7 @@
 
 return array(
 	'admin:administer_utilities:elggx_userpoints' => 'Elggx Userpoints',
-	'item:object:userpoint' => '用户财富',
+	'item:object:userpoint' => '财富',
 	'elggx_userpoints:admin_settings' => 'Change Userpoints Settings',
 	'elggx_userpoints:settings' => 'Plugin Settings',
 	'elggx_userpoints:actions' => 'Points Settings',

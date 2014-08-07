@@ -2,6 +2,8 @@
 return array(	
 	'custom:bookmarks' => "最新书签",
 	'custom:groups' => "最新群组",
+  'custom:groups:join' => "我加入的群组",
+  'lexin:updates:afterlastlogin' => '上次登陆后的更新',
   "custom:groups:pupular"=>"活跃群组",
 	'custom:files' => "最新文件",
 	'custom:blogs' => "最新博客",

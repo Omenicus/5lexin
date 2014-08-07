@@ -3,8 +3,9 @@
 	$plugin = $vars["entity"];
 	
 	$noyes_options = array(
+    "yes" => elgg_echo("option:yes"),
 		"no" => elgg_echo("option:no"),
-		"yes" => elgg_echo("option:yes")
+		
 	);
 	
 	echo "<div>";

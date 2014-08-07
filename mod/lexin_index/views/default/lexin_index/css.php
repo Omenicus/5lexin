@@ -44,3 +44,4 @@
 .custom-index elgg-module {
    background: none repeat scroll 0 0 #DDDDDD;
 }
+
