@@ -309,15 +309,15 @@ function groups_handle_profile_page($guid) {
  * @param int $guid Group entity GUID
  */
 function groups_handle_compurl_page($compurl) {
-  $guid=100;
-	elgg_set_page_owner_guid($guid);
+  //$guid=100;
+	//elgg_set_page_owner_guid($guid);
 
 	// turn this into a core function
 	global $autofeed;
 	$autofeed = true;
 
   echo $compurl;
-  return;
+  exit;
 	elgg_push_context('group_profile');
 
 	//elgg_entity_gatekeeper($guid, 'group');
