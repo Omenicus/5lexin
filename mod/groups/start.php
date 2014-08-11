@@ -304,8 +304,17 @@ function groups_page_handler($page) {
 		case 'profile':
 			groups_handle_profile_page($page[1]);
 			break;
-		case 'activity':
-			groups_handle_activity_page($page[1]);
+    case 'main': 
+      elgg_push_context('group_main');
+      groups_handle_main_page($page[1]);
+			//groups_handle_activity_page($page[1]);
+      //include_once(dirname(__FILE__) . "/pages/activity.php")
+      //elgg_pop_context();
+			break;
+		case 'activity': 
+      elgg_push_context('group_activity');
+      groups_handle_activity_page($page[1]);
+      elgg_pop_context();
 			break;
 		case 'members':
 			groups_handle_members_page($page[1]);

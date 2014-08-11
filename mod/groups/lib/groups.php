@@ -257,7 +257,7 @@ function groups_handle_profile_page($guid) {
 	elgg_push_context('group_profile');
 
 	//elgg_entity_gatekeeper($guid, 'group');
-  echo "group";exit;                                                                                    
+  //echo "group";return;                                                                                    
 	$group = get_entity($guid);
 
 	elgg_push_breadcrumb($group->name);
@@ -304,31 +304,28 @@ function groups_handle_profile_page($guid) {
 }
 
 /**
- * Group profile page of company url
+ * Group profile page
  *
  * @param int $guid Group entity GUID
  */
-function groups_handle_compurl_page($compurl) {
-  //$guid=100;
-	//elgg_set_page_owner_guid($guid);
+function groups_handle_main_page($guid) {
+	elgg_set_page_owner_guid($guid);
 
 	// turn this into a core function
 	global $autofeed;
 	$autofeed = true;
-
-  echo $compurl;
-  exit;
+  //echo "test";return;
 	elgg_push_context('group_profile');
 
 	//elgg_entity_gatekeeper($guid, 'group');
-  echo "group";exit;                                                                                    
+  //echo "group";return;                                                                                    
 	$group = get_entity($guid);
 
 	elgg_push_breadcrumb($group->name);
 
 	groups_register_profile_buttons($group);
 
-	$content = elgg_view('groups/profile/layout', array('entity' => $group));
+	$content = elgg_view('groups/main/layout', array('entity' => $group));
 	$sidebar = '';
 
 	if (elgg_group_gatekeeper(false)) {
@@ -373,7 +370,7 @@ function groups_handle_compurl_page($compurl) {
  * @param int $guid Group entity GUID
  */
 function groups_handle_activity_page($guid) {
-
+  
 	elgg_entity_gatekeeper($guid, 'group');
 
 	elgg_set_page_owner_guid($guid);
@@ -389,7 +386,7 @@ function groups_handle_activity_page($guid) {
 
 	$db_prefix = elgg_get_config('dbprefix');
 
-	$content = elgg_list_river(array(
+	$content =elgg_list_river(array(
 		'joins' => array(
 			"JOIN {$db_prefix}entities e1 ON e1.guid = rv.object_guid",
 			"LEFT JOIN {$db_prefix}entities e2 ON e2.guid = rv.target_guid",
@@ -399,12 +396,14 @@ function groups_handle_activity_page($guid) {
 		),
 		'no_results' => elgg_echo('groups:activity:none'),
 	));
-
+  
 	$params = array(
 		'content' => $content,
 		'title' => $title,
-		'filter' => '',
+		'filter' =>  '',//elgg_view_form("thewire/add"),
 	);
+  $context = elgg_get_context();
+ 
 	$body = elgg_view_layout('content', $params);
 
 	echo elgg_view_page($title, $body);

@@ -241,7 +241,50 @@ function groups_handle_profile_page($guid) {
   
 	echo elgg_view_page($group->name, $body);
 }
+/**
+ * Group profile page
+ *
+ * @param int $guid Group entity GUID
+ */
+function groups_handle_main_page($guid) {
+	elgg_set_page_owner_guid($guid);
 
+	// turn this into a core function
+	global $autofeed;
+	$autofeed = true;
+  
+	//elgg_push_context('group_profile');
+
+	$group = get_entity($guid);
+	if (!$group) {
+		forward('groups/all');
+	}
+  
+	elgg_push_breadcrumb($group->name);
+
+	groups_register_profile_buttons($group);
+  
+	$content = elgg_view('groups/profile/layout', array('entity' => $group)); 
+	if (group_gatekeeper(false)) {
+		$sidebar = '';
+		if (elgg_is_active_plugin('search')) {
+			$sidebar .= elgg_view('groups/sidebar/search', array('entity' => $group));
+		}
+		$sidebar .= elgg_view('groups/sidebar/members', array('entity' => $group));
+	} else {
+		$sidebar = '';
+	}
+
+	$params = array(
+		'content' => $content,
+		'sidebar' => $sidebar,
+		'title' => $group->name,
+		'filter' => '',
+	);
+	$body = elgg_view_layout('content', $params);
+  
+	echo elgg_view_page($group->name, $body);
+}
 /**
  * Group activity page
  *
