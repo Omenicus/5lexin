@@ -18,7 +18,7 @@ $content_access_mode = elgg_extract("content_access_mode", $vars);
 ?>
 <div>
 	<label for="groups-membership"><?php echo elgg_echo("groups:membership"); ?></label><br />
-	<?php echo elgg_view("input/select", array(
+	<?php echo elgg_view("input/dropdown", array(
 		"name" => "membership",
 		"id" => "groups-membership",
 		"value" => $membership,
@@ -76,7 +76,7 @@ if ($entity) {
 <div>
 	<label for="groups-content-access-mode"><?php echo elgg_echo("groups:content_access_mode"); ?></label><br />
 	<?php
-		echo elgg_view("input/select", $access_mode_params);
+		echo elgg_view("input/dropdown", $access_mode_params);
 
 		if ($entity && $entity->getContentAccessMode() == ElggGroup::CONTENT_ACCESS_MODE_UNRESTRICTED) {
 			// Warn the user that changing the content access mode to more
@@ -110,7 +110,7 @@ if ($entity && ($owner_guid == elgg_get_logged_in_user_guid() || elgg_is_admin_l
 	<div>
 		<label for="groups-owner-guid"><?php echo elgg_echo("groups:owner"); ?></label><br />
 		<?php
-			echo elgg_view("input/select", array(
+			echo elgg_view("input/dropdown", array(
 				"name" => "owner_guid",
 				"id" => "groups-owner-guid",
 				"value" =>  $owner_guid,

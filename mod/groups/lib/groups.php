@@ -201,7 +201,8 @@ function groups_handle_edit_page($page, $guid = 0) {
 			elgg_set_page_owner_guid($group->getGUID());
 			elgg_push_breadcrumb($group->name, $group->getURL());
 			elgg_push_breadcrumb($title);
-			$content = elgg_view("groups/edit", array('entity' => $group));
+      $values=groups_prepare_form_vars($group);
+			$content = elgg_view("groups/edit", array('entity' => $group,'values' => $values));
 		} else {
 			$content = elgg_echo('groups:noaccess');
 		}
@@ -589,6 +590,7 @@ function groups_register_profile_buttons($group) {
  * @return array
  */
 function groups_prepare_form_vars($group = null) {
+  system_message("pre");
 	$values = array(
 		'name' => '',
 		'membership' => ACCESS_PUBLIC,
@@ -598,7 +600,7 @@ function groups_prepare_form_vars($group = null) {
 		'owner_guid' => elgg_get_logged_in_user_guid(),
 		'content_access_mode' => ElggGroup::CONTENT_ACCESS_MODE_UNRESTRICTED
 	);
-
+  
 	// handle customizable profile fields
 	$fields = elgg_get_config('group');
 
@@ -635,7 +637,7 @@ function groups_prepare_form_vars($group = null) {
 		// The content_access_mode was introduced in 1.9. This method must be
 		// used for backwards compatibility with groups created before 1.9.
 		$values['content_access_mode'] = $group->getContentAccessMode();
-
+    system_message("pre".$values['content_access_mode']);
 		$values['entity'] = $group;
 	}
 
@@ -648,6 +650,6 @@ function groups_prepare_form_vars($group = null) {
 	}
 
 	elgg_clear_sticky_form('groups');
-
+  system_message("pre".$values['content_access_mode']);
 	return $values;
 }
