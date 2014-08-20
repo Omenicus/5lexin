@@ -29,7 +29,7 @@ if (elgg_is_logged_in()) {
     if( $work==0 && $edu==0)
       forward('resume/edit/'.$user->username);
     else
-      forward('activity');
+      forward('main');
   }
 }
 else

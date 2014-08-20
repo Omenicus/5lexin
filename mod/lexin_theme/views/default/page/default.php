@@ -23,6 +23,12 @@ if (elgg_get_context() == 'admin') {
 	echo elgg_view('page/admin', $vars);
 	return true;
 }
+if(elgg_in_context('compgroup'))
+{
+  elgg_view_layout('compgroup');
+  return true;
+}
+
 
 // render content before head so that JavaScript and CSS can be loaded. See #4032
 
@@ -49,24 +55,32 @@ if (elgg_is_logged_in()) {
 			$topbar
 		</div>
 	</div>
-__BODY;
-}
-$body .= <<<__BODY
-	<div class="elgg-page-navbar">
+  	<div class="elgg-page-navbar">
 		<div class="elgg-inner">
 			$navbar
 		</div>
 	</div>
+__BODY;
+}
+$body .= <<<__BODY
+
 	<div class="elgg-page-body">
 		<div class="elgg-inner">
 			$content
 		</div>
 	</div>
+__BODY;
+if (elgg_is_logged_in()) {  
+  $body .= <<<__BODY
 	<div class="elgg-page-footer">
 		<div class="elgg-inner">
 			$footer
 		</div>
 	</div>
+__BODY;
+}
+  
+  $body .= <<<__BODY
   <!-- Piwik -->
 <script type="text/javascript">
   var _paq = _paq || [];

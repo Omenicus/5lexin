@@ -34,11 +34,23 @@ function lexin_index_init() {
   elgg_register_simplecache_view('css/lexin_index/css_custom');
 	elgg_register_css('custom_css', elgg_get_simplecache_url('css', 'lexin_index/css_custom'));
 	// Replace the default index page
-	elgg_register_page_handler('', 'custom_index');  //if want to show only login box, change to lexin_index  
+	elgg_register_page_handler('', 'lexin_index');  //custom_index if want to show only login box, change to lexin_index  
   elgg_register_page_handler('main', 'custom_index');
+  
+  elgg_register_css('bootstrap', 'vendors/bootstrap/css/bootstrap.css');
+  elgg_register_css('bootstrap-theme', 'vendors/bootstrap/css/bootstrap-theme.css');
+  elgg_register_js('bootstrap.js', 'vendors/bootstrap/js/bootstrap.js');
+  
+  elgg_register_page_handler('m', 'compgroup');
   
 }
 
+function compgroup() {
+	if (!include_once(dirname(__FILE__) . "/pages/compgroup.php")) {
+		return false;
+	}
+	return true;
+}
 /**
  * Serve the front page
  * 

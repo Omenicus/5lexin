@@ -44,5 +44,5 @@ echo elgg_view_module('featured',  '', $top_box, $mod_params);
 <script type="text/javascript">
 //$('.elgg-page')[0].css("background-image","_graphics/index/1.jpg)");// url("+image[n]+")");
 var index=parseInt(Math.random()*4+1);
-$('.elgg-page-body').css("background-image",'url(mod/lexin_theme/graphics/index/'+index+'.jpg)');//"_graphics/index/1.jpg)");
+$('.elgg-page-body').css("background-image",'url(mod/lexin_theme/graphics/index/'+index+'-s.jpg)');//"_graphics/index/1.jpg)");
 </script>

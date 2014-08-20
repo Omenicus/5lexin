@@ -25,7 +25,7 @@
 }
 
 .elgg-page-body{
-  min-height:632px;
+  min-height:800px;
 }
 .elgg-col-60of100 {
   width:60%; 

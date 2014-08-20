@@ -5,6 +5,7 @@
  */
 
 // drop-down login
+if(elgg_in_context('compgroup')) return;
 echo elgg_view('core/account/login_dropdown');
 
 ?>
