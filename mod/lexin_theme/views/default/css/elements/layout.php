@@ -165,5 +165,5 @@ color:#FFFFFF;
 html, body {
 	height: 100%;
 	margin-bottom: 0px;
-  background-color:#E9E9E9;
+  background-color:#FFF;
 }
