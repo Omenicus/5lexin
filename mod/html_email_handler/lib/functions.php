@@ -49,7 +49,7 @@
 		// set default options
 		$default_options = array(
 			"to" => array(),
-			"from" => $site_from,
+			"from" => "",$site_from,
 			"subject" => "",
 			"html_message" => "",
 			"plaintext_message" => "",
@@ -85,8 +85,10 @@
       if( $options["from"] == $site->email )
       {
         $options["from"] = $site_from;
-        $options["replayto"] = $site_from;
-      }  
+      }
+      
+      $options["replayto"] = $site_from;
+  
 			if(!empty($options["from"])){
 				$headers .= "From: " . $options["from"] . PHP_EOL;
         $headers .= "Reply-To: " . $options["replayto"] . PHP_EOL;

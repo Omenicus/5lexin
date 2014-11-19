@@ -7,28 +7,50 @@
 			$entity = elgg_extract("entity", $params);
 			
 			if(elgg_instanceof($entity, "user") && ($entity->getGUID() != $user->getGUID())){
-				if(check_entity_relationship($user->getGUID(), "friendrequest", $entity->getGUID())){
-					foreach($result as &$item){
-						// change the text of the button to tell you already requested a friendship
-						if($item->getName() == "add_friend"){
-							$item->setText(elgg_echo("friend_request:friend:add:pending"));
-							$item->setHref("friend_request/" . $user->username . "#friend_request_sent_listing");
-							$item->setPriority(900);
-							break;
-						}
+        if(!empty($result) && !is_array($result)){
+					$result = array($result);
+				} elseif(empty($result)){
+					$result = array();
+				}
+        
+        // are we friends
+				if(!$entity->isFriendOf($user->getGUID())){
+					// no, check if pending request
+					if(check_entity_relationship($user->getGUID(), "friendrequest", $entity->getGUID())){
+						// pending request
+						foreach($result as &$item){
+  						// change the text of the button to tell you already requested a friendship
+  						if($item->getName() == "friend_request"){
+  							$item->setText(elgg_echo("friend_request:friend:add:pending"));
+  							$item->setHref("friend_request/" . $user->username . "#friend_request_sent_listing");
+  							$item->setPriority(900);
+  							break;
+  						}
+  					}
+					} else {
+            foreach($result as &$item){
+  						// add friend
+  						if($item->getName() == "add_friend"){
+  							$item->setText(elgg_echo("friend:add"));
+  							$item->setHref( "action/friends/add?friend=" . $entity->getGUID());
+  							$item->setPriority(500);
+  							break;
+  						}
+  					}                                            
+						
 					}
-				}else
-        {
-          	foreach($result as &$item){
-						// change the text of the button to tell you already requested a friendship
+				} else {
+          foreach($result as &$item){
+						// add friend
 						if($item->getName() == "remove_friend"){
-							$item->setText(elgg_echo("friend_request:friend:add:pending"));
-							$item->setHref("friend_request/" . $user->username . "#friend_request_sent_listing");
-						  $item->setPriority(900);
+							$item->setText(elgg_echo("friend:remove"));
+							$item->setHref( "action/friends/remove?friend=" . $entity->getGUID());
+							$item->setPriority(500);
 							break;
 						}
-          }
-        }
+					}      
+					
+				}
         
 			}
 		}

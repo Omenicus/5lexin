@@ -63,14 +63,15 @@ foreach ($emails as $email) {
 				)
 	);
 
-	$subject = elgg_echo('invitefriends:subject', array($site->name));
+	$subject = $current_user->name.elgg_echo('invitefriends:subject', array($site->name));
 
 	// create the from address
 	$site = get_entity($site->guid);
 	if ($site && $site->email) {
-		$from = $site->email;
+    //'乐新网<hatclou77d@gmail.com>';
+		$from = $current_user->name.'<'.$site->email.'>';
 	} else {
-		$from = 'noreply@' . $site->getDomain();
+		$from = $site->name.'<'.'noreply@' . $site->getDomain().'>';
 	}
   
 	elgg_send_email($from, $email, $subject, $message); 
