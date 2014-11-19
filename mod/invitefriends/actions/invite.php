@@ -63,7 +63,7 @@ foreach ($emails as $email) {
 				)
 	);
 
-	$subject = $current_user->name.elgg_echo('invitefriends:subject', array($site->name));
+	$subject = elgg_echo('invitefriends:subject', array($site->name));
 
 	// create the from address
 	$site = get_entity($site->guid);

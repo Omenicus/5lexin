@@ -8,7 +8,7 @@ return array(
 	'invitefriends:introduction' => '邀请好友加入, 输入好友的邮箱地址，他们就会收到一封您的邀请信',
 	'invitefriends:emails' => '电子邮箱 (每行一个地址)',
 	'invitefriends:message' => '消息',
-	'invitefriends:subject' => '请你加入 %s 更好地沟通和分享工作',
+	'invitefriends:subject' => '加入 %s 吧，更好地进行工作沟通和分享',
 
 	'invitefriends:success' => '所有邀请已经发送.',
 	'invitefriends:invitations_sent' => '发送的邀请: %s. 有下列问题:',
